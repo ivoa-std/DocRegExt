@@ -30,7 +30,7 @@ Paul Harrison -->
       <p style='position: absolute; left: 0px; top: 75pt;'><span style='font-weight: bold;'>A</span> lliance</p>
     </div>
   </div>
-<h1>Title<br/>
+<h1>Educational Resources in the Virtual Observatory<br/>
   Version <span class="docversion">0.1</span></h1>
 <h2 class="subtitle">Filled in automatically</h2>
 <dl>
@@ -40,7 +40,7 @@ Paul Harrison -->
   <dd><a href="" class="currentlink">filled in automatically</a></dd>
   <dt><b>Latest version:</b></dt>
   <dd> not issued outside
-    GWS-WG</dd>
+    EDU-IG</dd>
   <dt><b>Previous version(s):</b></dt>
   <dd> None</dd>
     <dt><b>Author(s):</b></dt>
@@ -63,52 +63,101 @@ Paul Harrison -->
 <?toc ?>
 </div>
 <div class="body">
+
 <div class="section">
 <h1><a id="Introduction"></a>Introduction</h1>
   <p >&nbsp;</p>
-  <div class="section">
-    <h2 >Subtitle</h2>
-    <p >subtext</p>
-    <p>A citation can begin like <cite>std:RM</cite></p>
-    </div>
-  <div class="section">
-    <h2> Subtitle</h2>
-    <p >subtext</p>
-    </div>
-  </div>
+</div> <!-- section Introduction -->
+
 <div class="section">
-    <h1> Section</h1>
-    <div class="section">
-      <h2> Subsection</h2>
-      <p>Subsection blah</p>
-    <div class="section"><h3>SubSubSection</h3></div>
-       <p>subsubsection blah</p>
-    </div>
-    </div>
- 
-    <div class="section">
-      <h3 > Section</h3>
-      <p >blah blah</p>
-    </div>
-  </div>
-  <div class="appendices">
-  <div class="section">
-  <h1>An appendix</h1>
-  <p>Include some xml.</p>
-    <div>
-    <?incxml href="http://www.ivoa.net/xml/VOResource/VOResource-v1.0.xsd"?>
-    </div>
+<h2><a id="curreg">A Curated Registry for Education</a></h2>
+<div class="section">
+  <h3><a id="foo">Subsection</a></h3>
+  <p>Subsection blah</p>
+</div> <!-- subsection foo -->
+</div> <!-- section curreg -->
+
+<div class="section">
+<h2><a id="regext">Registering Texts</a></h2>
+<p>Educational material is not only about services -- text-like material
+like tutorials, worked-out use cases, or textbook-like material is at
+least as important.  Within the VO community, there is a large body of
+such material for a wide variety of audiences ranging from pre-school to
+researchers (TODO: cite AIDA, EuroVO, VAO works).</p>
+
+<p>To date, such material has been collected informally by the various
+projects on plain web pages.  It was, in consequence, hard to find it.
+Also, locating editable forms of such texts -- which has been found to
+be necessary fairly regularly -- has been at least difficult; while
+representing source-product relationships is in principle in the domain
+of provenance and thus not in scope for the registry, in the case of
+texts the relation is so simple and its representation so useful that we
+propose to include it in a simple registry extension covering text-like
+material, dubbed DocRegExt in the following.</p>
+
+<p>The VO already has a registry extension for standards, which of
+course are also text-like (<cite>std:STDREGEXT</cite>).  This extension,
+however, focuses on metadata important for standards -- e.g.,
+vocabularies and status -- that is not pertinent for educational
+material.  Conversely, it is not concerned with document language (which
+can safely be assumed to be English for standards), and it disregards
+the issue of document formats, which for educational material is
+important.</p>
+
+<div class="section">
+<h3><a id="regext-usecases">Use Cases</a></h3>
+
+<p>The design of DocRegExt has been guided by the desire to fulfill the
+following use cases:</p>
+
+<ul>
+<li>Is there a tutorial covering discovering intermediate mass black
+holes? (Standard VOResource is sufficient)</li>
+<li>Is there a tutorial covering working with X-Ray data? (Standard
+VOResource is sufficient)</li>
+<li>Is there a tutorial dealing with Planets suitable for school use?
+(Standard VOResource is sufficient)</li>
+<li>Is there a tutorial dealing with Planets suitable for school use in
+Italian? (That requires the declaration of the document language)</li>
+<li>What are the subjects of maintained (in the sense of: probably
+working in the VO as found by the students) tutorials?
+(The active flag of standard VOResource is
+unsuitable here since even outdated resources will still be accessible;
+therefore, we introduce the maintained flag)</li>
+<li>Are there tutorials using redshifts? (This is solved by allowing
+table metadata in DocRegExt)</li>
+<li>Where can I find an editable version of tutorial ivo://auth/tut1?
+(This is solved by allowing multiple access URLs with different content
+types, which should be sufficient to allow answering the question)</li>
+<li>Are there translations of tutorial ivo://auth/tut2? (This is covered
+by the recommendations on declaring relationships between text-like
+resources)</li>
+<li>Is there material using service ivo://auth/svc1? (Again, declaring
+relationships covers this use case)</li>
+<li>Is there material about something visible tonight? (In principle,
+allowing the coverage element withing DocRegExt resources would allow
+answering the question; in reality, few registries expose this
+information in useable form)</li>
+</ul>
+</div> <!-- section regext-usecases -->
+
+</div> <!-- section regext -->
+
+</div> <!-- body -->
+
+<div class="appendices">
+<div class="section">
+<h1>An appendix</h1>
 </div>
 </div>
 
 <div class="section-nonum">
-  <h1 ><a name="References" id="References"></a>References</h1>
-  <?bibliography ivoadoc/refs ?>  <!-- omit '.bib' -->
-</div>
-<hr/>
-<p style="text-align: right; font-size: x-small; color: #888;">
-$Revision: 847 $ $Date: 2008-10-29 14:33:57 +0000 (Wed, 29. Oct 2008) $ $HeadURL: $
-</p>
+<h2><a id="references"/><span class="secnum"/>References</h2>
 
+<?bibliography ivoadoc/refs?>
+
+</div> <!-- section references -->
+
+<hr/>
 </body>
 </html>
