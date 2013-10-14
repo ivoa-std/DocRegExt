@@ -1,11 +1,19 @@
 <dl xmlns='http://www.w3.org/1999/xhtml'>
 
+<dt><a name="std:RI1">[std:RI1] Kevin Benson, Ray Plante, Elizabeth Auden,
+  Matthew Graham, Gretchen Greene, Martin Hill, Tony Linde, Dave Morris, Wil
+  O'Mullane, Guy Rixon, Aurélien Stébé, and Kona Andrews, Kevin Benson and
+  Ray Plante, editors.</a></dt> <dd>
+  <a href="http://www.ivoa.net/Documents/RegistryInterface/" >IVOA registry
+  interfaces version 1.0</a>.
+  IVOA Recommendation, 2009.
+</dd>
+
 <dt><a name="std:STDREGEXT">[std:STDREGEXT] Paul Harrison, Douglas Burke, Ray
   Plante, Guy Rixon, and Dave Morris.</a></dt> <dd>
   <a
-  href="http://www.ivoa.net/Documents/StandardsRegExt/20120508/REC-StandardsRegExt-1.0-20120508.html"
-  >StandardsRegExt: a VOResource schema extension for describing IVOA
-  standards, version 1.0</a>.
+  href="http://www.ivoa.net/Documents/StandardsRegExt/20120508/REC-StandardsRegExt-1.0-20120508.html" >StandardsRegExt: a VOResource schema extension for
+  describing IVOA standards, version 1.0</a>.
   IVOA Recommendation, May 2012.
 </dd>
 
