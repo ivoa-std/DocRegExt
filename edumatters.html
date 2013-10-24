@@ -17,6 +17,18 @@ Paul Harrison -->
 -->
 <link href="./ivoadoc/XMLPrint.css" rel="stylesheet" type="text/css" />
 <link href="./ivoadoc/ivoa-extras.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css" xml:space="preserve">
+table.plain {
+  border-style: none;
+}
+td.even {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background: #EEEEFF;
+}
+</style>
+
 </head>
 <body>
 <div class="head">
@@ -205,10 +217,12 @@ on different levels of importance.
   differently targeted resources at client level.
   </p>
   <p>
-  This change in the already existing standard will require small or no 
-  changes on the already registered resources (MM provide a couple of 
-  figures to justify this!) and thus will not disrupt what exists or
-  trouble VO publishers.
+  This change in the already existing standard will require only 
+  a small effort to update already registered resources because 97% of 
+  them currently have ContentLevel set to <i>research</i>, 2% of them have
+  no ContentLevel defined and only the remaining 1% have a different value
+  (or set of values) set for this element (Appendix A details better these
+  figures).
   </p>
 </div> <!-- subsection contentlvl -->
 
@@ -356,9 +370,135 @@ Here what it would be nice to discuss is whether this means:
 
 <div class="appendices">
 <div class="section">
-<h1>An appendix</h1>
-</div>
-</div>
+<h2><a id="clcurrval">ContentLevel values summary</a></h2>
+<p>
+This appendix reports some statistics on the usage of the ContentLevel 
+element in <cite>std:VOR</cite> as of 2013-10-24, taken from the
+GAVO RegTAP endpoint 
+http://dc.zah.uni-heidelberg.de/__system__/tap/run/tap .
+There are 14044 useful resources (excluding authorities, standards and
+similar) that expose 27 different values as their ContentLevel.
+In the following table these values are reported in order of count.
+</p>
+<p>
+<table class="plain">
+<thead>
+<tr>
+ <th>count</th> <th>content_level string</th>
+</tr>
+</thead>
+<tbody>
+<tr class="even">
+ <td>13623</td> <td>research</td>
+</tr>
+<tr>
+ <td>279</td> <td>&nbsp;</td>
+</tr>
+<tr class="even">
+ <td>31</td> <td>general#university#research#amateur</td>
+</tr>
+<tr>
+ <td>29</td> <td>university#research</td>
+</tr>
+<tr class="even">
+ <td>24</td> <td>university</td>
+</tr>
+<tr>
+ <td>14</td> <td>university#research#amateur</td>
+</tr>
+<tr class="even">
+ <td>6</td> <td>general</td>
+</tr>
+<tr>
+ <td>5</td> <td>research#general</td>
+</tr>
+<tr class="even">
+ <td>4</td> <td>general#research</td>
+</tr>
+<tr>
+ <td>3</td> <td>secondary education#community college#university#research#amateur</td>
+</tr>
+<tr class="even">
+ <td>3</td> <td>elementary education#middle school education#secondary education</td>
+</tr>
+<tr>
+ <td>3</td> <td>research#university#community college</td>
+</tr>
+<tr class="even">
+ <td>2</td> <td>general#university#research</td>
+</tr>
+<tr>
+ <td>2</td> <td>general#elementary education#middle school education#secondary education#community college#university#research#amateur#informal education</td>
+</tr>
+<tr class="even">
+ <td>2</td> <td>general#informal education</td>
+</tr>
+<tr>
+ <td>2</td> <td>research#amateur#university#community college</td>
+</tr>
+<tr class="even">
+ <td>2</td> <td>research#university</td>
+</tr>
+<tr>
+ <td>1</td> <td>general#university#research#informal education</td>
+</tr>
+<tr class="even">
+ <td>1</td> <td>research#university#amateur</td>
+</tr>
+<tr>
+ <td>1</td> <td>university#research#general#informal education</td>
+</tr>
+<tr class="even">
+ <td>1</td> <td>general#secondary education#university#research</td>
+</tr>
+<tr>
+ <td>1</td> <td>elementary education#middle school education#secondary education#community college#university#research#amateur</td>
+</tr>
+<tr class="even">
+ <td>1</td> <td>elementary education#middle school education#secondary education#community college#university#research#amateur#informal education</td>
+</tr>
+<tr>
+ <td>1</td> <td>university#research#amateur#informal education</td>
+</tr>
+<tr class="even">
+ <td>1</td> <td>university#community college#research</td>
+</tr>
+<tr>
+ <td>1</td> <td>general#university#research#amateur#informal education</td>
+</tr>
+<tr class="even">
+ <td>1</td> <td>elementary education#middle school education#secondary education#community college#university#research</td>
+</tr>
+</tbody>
+</table>
+</p>
+<p>
+This table can be easily updated from the same endpoint (or an analogue 
+one) using the following ADQL query:
+<pre>
+SELECT 
+  count(*) as cnt, content_level
+FROM 
+  rr.resource
+WHERE
+  res_type != 'vstd:servicestandard' and 
+  res_type != 'vg:authority' and 
+  res_type != 'vstd:standard' and 
+  res_type != 'vr:organization'
+GROUP BY content_level
+ORDER BY cnt DESC
+</pre>
+The table shows that only about 1% of the ContentLevel values use 
+something different and more complex than <i>research</i>, when 
+the element is not empty. Morever, of this 1% (142 resources), 56
+include the <i>general</i> value (roughly 40% of them), 27 (19%) 
+state that are only devoted to some <i>educational</i> level, 36 (25%) 
+can work both in <i>research</i> and <i>education</i> and the 
+remaining 23 (16%) report <i>research</i>, <i>amateur</i> and some 
+level of <i>education</i> alltogether.
+</p>
+</div> <!-- end clcurrval-->
+</div> <!-- end appendices -->
 
 <div class="section-nonum">
 <h2><a id="references"/><span class="secnum"/>References</h2>

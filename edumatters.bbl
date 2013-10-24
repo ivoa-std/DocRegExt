@@ -12,9 +12,19 @@
 <dt><a name="std:STDREGEXT">[std:STDREGEXT] Paul Harrison, Douglas Burke, Ray
   Plante, Guy Rixon, and Dave Morris.</a></dt> <dd>
   <a
-  href="http://www.ivoa.net/Documents/StandardsRegExt/20120508/REC-StandardsRegExt-1.0-20120508.html" >StandardsRegExt: a VOResource schema extension for
-  describing IVOA standards, version 1.0</a>.
+  href="http://www.ivoa.net/Documents/StandardsRegExt/20120508/REC-StandardsRegExt-1.0-20120508.html"
+  >StandardsRegExt: a VOResource schema extension for describing IVOA
+  standards, version 1.0</a>.
   IVOA Recommendation, May 2012.
+</dd>
+
+<dt><a name="std:VOR">[std:VOR] Raymond Plante, Kevin Benson, Matthew Graham,
+  Gretchen Greene, Paul Harrison, Gerard Lemson, Tony Linde, Guy Rixon, and
+  Aurélien Stébé.</a></dt> <dd>
+  <a href="http://www.ivoa.net/Documents/REC/ReR/VOResource-20080222.html"
+  >VOResource: an XML encoding schema for resource metadata version
+  1.03</a>.
+  IVOA Recommendation, February 2008.
 </dd>
 
 </dl>
