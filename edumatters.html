@@ -181,7 +181,7 @@ on different levels of importance.
   <p>
   In the next subsection a possible tagging solution, based upon the existing
   <i>ContentLevel</i> element of VOResource, but requiring a small change
-  to it is presented. The subsequent subsection describes the idea of a
+  to, it is presented. The subsequent subsection describes the idea of a
   curated registry for educational resources and the reasons for it to exist.
   </p>
 </div> <!-- subsection eduvspro -->
@@ -214,13 +214,15 @@ on different levels of importance.
   </ul>
   possible values may lead to both a better description of their resources
   by data providers and a suitable tagging solution for a first filtering on
-  differently targeted resources at client level.
+  differently targeted resources at client level. Of course, the chance to 
+  add and <i>Educational</i> value option to this shrinked list, or even
+  substitute it to the <i>General</i> one, would be a valuable change.
   </p>
   <p>
   This change in the already existing standard will require only 
-  a small effort to update already registered resources because 97% of 
-  them currently have ContentLevel set to <i>research</i>, 2% of them have
-  no ContentLevel defined and only the remaining 1% have a different value
+  a small effort to update already registered resources because nearly 97% of 
+  them currently have ContentLevel set to <i>research</i>, about 2% of them have
+  no ContentLevel defined at all and only the remaining (about 1%) have a different value
   (or set of values) set for this element (Appendix A details better these
   figures).
   </p>
@@ -233,7 +235,7 @@ on different levels of importance.
   a curated registry for educational VO resources will be useful for
   educators to easily access the wanted data and services. A good example
   for this is the educational version of the Aladin sky atlas, that has a
-  built in curated set of resources suitable for educational level 
+  built in, curated set of resources suitable for educational level 
   tutorials.
   </p>
   <p>
@@ -244,9 +246,9 @@ on different levels of importance.
   <p>
   If such a registry were a standard local registry (<cite>std:RI1</cite>) 
   its resources would be harvested by the full registries: this means 
-  that any educational dedicated resource will go up to the full VO 
+  that any educational dedicated resource will go into the full VO 
   set of resources, which is what we don't want to happen to keep the
-  <i>professional</i> side to be robust.
+  <i>professional</i> side robust.
   </p>
   <p>
   If it were to be a full registry, it will harvest itself all the existing
@@ -373,11 +375,10 @@ Here what it would be nice to discuss is whether this means:
 <h2><a id="clcurrval">ContentLevel values summary</a></h2>
 <p>
 This appendix reports some statistics on the usage of the ContentLevel 
-element in <cite>std:VOR</cite> as of 2013-10-24, taken from the
-GAVO RegTAP endpoint 
-http://dc.zah.uni-heidelberg.de/__system__/tap/run/tap .
-There are 14044 useful resources (excluding authorities, standards and
-similar) that expose 27 different values as their ContentLevel.
+element in <cite>std:VOR</cite> as of 2014-01-30, taken from the
+GAVO RegTAP endpoint http://dc.g-vo.org/tap .
+There are 14392 useful resources (excluding authorities, standards and
+similar) that expose 26 different values as their ContentLevel.
 In the following table these values are reported in order of count.
 </p>
 <p>
@@ -388,86 +389,86 @@ In the following table these values are reported in order of count.
 </tr>
 </thead>
 <tbody>
-<tr class="even">
- <td>13623</td> <td>research</td>
+<tr>
+ <td>13937</td> <td>research</td>
 </tr>
 <tr>
- <td>279</td> <td>&nbsp;</td>
-</tr>
-<tr class="even">
- <td>31</td> <td>general#university#research#amateur</td>
+ <td>290</td> <td>&nbsp;</td>
 </tr>
 <tr>
- <td>29</td> <td>university#research</td>
+ <td>41</td> <td>university#research</td>
 </tr>
-<tr class="even">
+<tr>
+ <td>40</td> <td>general#university#research#amateur</td>
+</tr>
+<tr>
  <td>24</td> <td>university</td>
 </tr>
 <tr>
  <td>14</td> <td>university#research#amateur</td>
 </tr>
-<tr class="even">
- <td>6</td> <td>general</td>
+<tr>
+ <td>7</td> <td>general</td>
 </tr>
 <tr>
  <td>5</td> <td>research#general</td>
 </tr>
-<tr class="even">
+<tr>
  <td>4</td> <td>general#research</td>
 </tr>
 <tr>
  <td>3</td> <td>secondary education#community college#university#research#amateur</td>
 </tr>
-<tr class="even">
- <td>3</td> <td>elementary education#middle school education#secondary education</td>
-</tr>
 <tr>
  <td>3</td> <td>research#university#community college</td>
 </tr>
-<tr class="even">
- <td>2</td> <td>general#university#research</td>
+<tr>
+ <td>3</td> <td>elementary education#middle school education#secondary education</td>
 </tr>
 <tr>
- <td>2</td> <td>general#elementary education#middle school education#secondary education#community college#university#research#amateur#informal education</td>
+ <td>3</td> <td>general#university#research</td>
 </tr>
-<tr class="even">
- <td>2</td> <td>general#informal education</td>
+<tr>
+ <td>2</td> <td>research#university</td>
 </tr>
 <tr>
  <td>2</td> <td>research#amateur#university#community college</td>
 </tr>
-<tr class="even">
- <td>2</td> <td>research#university</td>
+<tr>
+ <td>2</td> <td>general#informal education</td>
 </tr>
 <tr>
- <td>1</td> <td>general#university#research#informal education</td>
-</tr>
-<tr class="even">
- <td>1</td> <td>research#university#amateur</td>
+ <td>2</td> <td>general#elementary education#middle school education#secondary education#community college#university#research#amateur#informal education</td>
 </tr>
 <tr>
- <td>1</td> <td>university#research#general#informal education</td>
-</tr>
-<tr class="even">
- <td>1</td> <td>general#secondary education#university#research</td>
-</tr>
-<tr>
- <td>1</td> <td>elementary education#middle school education#secondary education#community college#university#research#amateur</td>
-</tr>
-<tr class="even">
- <td>1</td> <td>elementary education#middle school education#secondary education#community college#university#research#amateur#informal education</td>
-</tr>
-<tr>
- <td>1</td> <td>university#research#amateur#informal education</td>
-</tr>
-<tr class="even">
  <td>1</td> <td>university#community college#research</td>
 </tr>
 <tr>
  <td>1</td> <td>general#university#research#amateur#informal education</td>
 </tr>
-<tr class="even">
+<tr>
  <td>1</td> <td>elementary education#middle school education#secondary education#community college#university#research</td>
+</tr>
+<tr>
+ <td>1</td> <td>general#secondary education#university#research</td>
+</tr>
+<tr>
+ <td>1</td> <td>university#research#general#informal education</td>
+</tr>
+<tr>
+ <td>1</td> <td>research#university#amateur</td>
+</tr>
+<tr>
+ <td>1</td> <td>elementary education#middle school education#secondary education#community college#university#research#amateur</td>
+</tr>
+<tr>
+ <td>1</td> <td>elementary education#middle school education#secondary education#community college#university#research#amateur#informal education</td>
+</tr>
+<tr>
+ <td>1</td> <td>university#research#amateur#informal education</td>
+</tr>
+<tr>
+ <td>1</td> <td>general#university#research#informal education</td>
 </tr>
 </tbody>
 </table>
@@ -484,18 +485,17 @@ WHERE
   res_type != 'vstd:servicestandard' and 
   res_type != 'vg:authority' and 
   res_type != 'vstd:standard' and 
+  res_type != 'va:application' and
   res_type != 'vr:organization'
 GROUP BY content_level
 ORDER BY cnt DESC
 </pre>
 The table shows that only about 1% of the ContentLevel values use 
 something different and more complex than <i>research</i>, when 
-the element is not empty. Morever, of this 1% (142 resources), 56
-include the <i>general</i> value (roughly 40% of them), 27 (19%) 
-state that are only devoted to some <i>educational</i> level, 36 (25%) 
-can work both in <i>research</i> and <i>education</i> and the 
-remaining 23 (16%) report <i>research</i>, <i>amateur</i> and some 
-level of <i>education</i> alltogether.
+the element is not empty. Morever, of this 1% (165 resources), 
+61 include the <i>general</i> value (roughly 37% of them), 
+29 (17%) state that are devoted to some <i>education</i> level only,
+while 148 (90%) state that are also devoted to some <i>education</i> level (up to <i>university</i>).
 </p>
 </div> <!-- end clcurrval-->
 </div> <!-- end appendices -->
