@@ -12,11 +12,6 @@ Paul Harrison -->
 <meta name="author" content="Marco Molinaro" />
 <meta name="maintainedBy" content="Marco Molinaro" />
 <link href="http://www.ivoa.net/misc/ivoa_a.css" rel="stylesheet" type="text/css" />
-<style type="text/css">
-.edit {
-	background-color: red;
-}
-</style>
 <link href="./ivoadoc/XMLPrint.css" rel="stylesheet" type="text/css" />
 <link href="./ivoadoc/ivoa-extras.css" rel="stylesheet" type="text/css" />
 
@@ -28,6 +23,10 @@ td.even {
   padding-top: 2px;
   padding-bottom: 2px;
   background: #EEEEFF;
+}
+
+.edit {
+	background-color: red;
 }
 </style>
 
@@ -286,7 +285,7 @@ on different levels of importance.
 
 <div class="section">
 <h2><a id="regext">Registering Texts</a></h2>
-<p>Educational material is not only about services -- text-like material
+<p>Educational material is not only about services – text-like material
 like tutorials, worked-out use cases, or textbook-like material is at
 least as important.  Within the VO community, there is a large body of
 such material for a wide variety of audiences ranging from pre-school to
@@ -300,14 +299,13 @@ propose to keep record of such material in the registry.</p>
 
 <p>The VO already has a registry extension for standards, which of
 course are also text-like (<cite>std:STDREGEXT</cite>).  This extension,
-however, focuses on metadata important for standards -- e.g.,
-vocabularies and status -- that is not pertinent for educational
+however, focuses on metadata important for standards – e.g.,
+vocabularies and status – that is not pertinent for educational
 material.  Conversely, it is not concerned with document language (which
 can safely be assumed to be English for standards), and it disregards
-the issue of document formats, which for educational material is
-important.  We therefore propose a simple registry extension covering
-text-like material, dubbed DocRegExt.  In the following, we collect
-use cases for that extension.</p>
+the issue of locating formatted and source version, which for educational
+material is important.  We therefore propose a simple registry extension
+covering text-like material, dubbed DocRegExt.</p>
 
 
 <div class="section">
@@ -348,16 +346,69 @@ information in useable form)</li>
 the latest version?  If not, where can I find an update? (Unless the
 title of the text changed, standard VOResource should suffice)</li>
 </ul>
-</div> <!-- section regext-usecases -->
 
-<p>On the use cases of locating editable forms of such texts -- which
-has been found to be necessary fairly regularly -- we note in passing
+<p>On the use cases of locating editable forms of such texts – which
+has been found to be necessary fairly regularly – we note in passing
 that representing source-product relationships is in principle in the
 domain of provenance and thus not in scope for the registry. However, in
 the case discussed here the relation is so simple and its representation
 so useful that we propose to include it in a DocRegExt.</p>
 
-<p class="edit">Actually write the extension</p>
+</div> <!-- section regext-usecases -->
+
+
+<div class="section">
+<h3><a id="regext-ext">A Document Registry Extension</a></h3>
+
+<p>To satisfy our use cases, we have designed a registry extension with
+a single definition, extending the basic <code>vr:Resource</code>
+element with three concepts to make the <code>doc:Document</code>
+resource type.</p>
+
+<?schemadef href="../DocRegExt-v1.0.xsd" defn="Document"?>
+
+<p>The full schema is given in Appendix <span
+class="xref">app:schema</span></p>
+
+<p>We considered  having language as an attribute of accessURL to allow
+language-specific document discovery.  We decided against this mainly
+for reasons of maintainability; the same reason is behind the
+recommendation to have both access and source URLs as landing pages.</p>
+
+<p>Since the access URL is supposed to point to a "landing page" anyway,
+it is tempting to just unify it with the standard VOResource reference
+URL, as a "human-readable document describing this resource"
+<cite>std:VOR</cite> quite conceivably could very well work as a landing
+page.  For many documents having identical access and reference urls
+will certainly work fine.  However, we wanted to cover the cases in
+which different projects offer different translations or even versions
+of a document at different sites, which is not possible with just a
+single reference URL.  A similar reasoning is behind including source
+URIs, except that in this case we wanted to allow URIs with non-HTTP
+schemes like svn or git.</p>
+
+<p>Document-typed resource records should define relations to services
+they use; extending the vocabulary of allowed types in VOResource,
+we suggest the relationshipType for these relations should be
+<code>uses</code>.</p>
+
+<p class="edit">TBD: do we want i18ned titles?</p>
+
+<p>In the relational registry <cite>std:REGTAP</cite>, DocRegExt is
+entirely represented in the <code>res_details</code>, with details</p>
+<ul>
+<li><code>/language</code> -- A language the document is available in.</li>
+<li><code>/accessURL</code> -- A URL allowing access to one or more
+renderings of the document.</li>
+<li><code>/sourceURI</code> -- A URL allowing access to an editable version of the document.</li>
+</ul>
+
+<p>Here is a (slightly abridged) example record:</p>
+
+<?incxml href="../m1distance-example.xml"?>
+
+</div> <!-- subsection regext-ext -->
+
 
 </div> <!-- section regext -->
 
@@ -514,6 +565,12 @@ the element is not empty. Morever, of this 1% (165 resources),
 while 148 (90%) state that are also devoted to some <i>education</i> level (up to <i>university</i>).
 </p>
 </div> <!-- end clcurrval-->
+
+<div class="section">
+<h2><a id="app:schema">The proposed DocRegExt Schema</a></h2>
+<?incxml href="../DocRegExt-v1.0.xsd"?>
+
+</div> <!-- app:schema -->
 </div> <!-- end appendices -->
 
 <div class="section-nonum">
