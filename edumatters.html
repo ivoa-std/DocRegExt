@@ -270,15 +270,17 @@ on different levels of importance.
 	sibling publishing registry dedicated to host those educational
 	resources that are to be harvested by the standard full registries.</li>
   </ul>
-  </p>
-  <p>
-  In Fig. 1 wie illustrate this <span class="edit">(XXX NO FIGURE IN
-  SVN, PLUS MAKE THIS A CAPTION XXX)</span>
-  scenario. This solution will, again, not touch the existing architecture
+  This solution, also presented in Fig. 1, will not touch the existing architecture
   while giving flexibility for the emerging educational resources to 
   be curated.
-  <img src="curation.png"></img>
   </p>
+  <div class="figure" style="text-align: center;">
+    <img src="curation.png"></img>
+    <p class="figurecaption"><strong>Figure 1:</strong> Graphic illustration
+    of the connecting interfaces between full registries and the educational
+    curated one. The <i>auxiliary</i> publishing is the only automatic token
+    from the edu part.</p>  
+  </div><!-- figure -->
 </div> <!-- subsection edureg -->
 
 </div> <!-- section curreg -->
@@ -289,8 +291,13 @@ on different levels of importance.
 like tutorials, worked-out use cases, or textbook-like material is at
 least as important.  Within the VO community, there is a large body of
 such material for a wide variety of audiences ranging from pre-school to
-researchers <span class="edit">(TODO: cite AIDA, EuroVO, VAO
-works).</span></p>
+researchers:
+<ul>
+<li>EURO-VO AIDA WP5 - http://wwwas.oats.inaf.it/aidawp5/eng_download.html</li>
+<li>EURO-VO Scientific Tutorials - http://www.euro-vo.org/?q=science/scientific-tutorials</li>
+<li>VAO for Education - http://virtualobservatory.org/education/</li>
+</ul>
+</p>
 
 <p>To date, such material has been collected informally by the various
 projects on plain web pages.  It was, in consequence, hard to find, with
@@ -387,7 +394,8 @@ single reference URL.  A similar reasoning is behind including source
 URIs, except that in this case we wanted to allow URIs with non-HTTP
 schemes like svn or git.</p>
 
-<p>Document-typed resource records should define relations to services
+<p>Document-typed resource records should define relations to other
+general resources (e.g. applications, services, ...) 
 they use; extending the vocabulary of allowed types in VOResource,
 we suggest the relationshipType for these relations should be
 <code>uses</code>.</p>
@@ -406,6 +414,12 @@ renderings of the document.</li>
 <p>Here is a (slightly abridged) example record:</p>
 
 <?incxml href="../m1distance-example.xml"?>
+
+<p class="edit">TBD: should we use ISO-3166-1 two letter 
+country codes or ISO-639-2 two letter language codes?<br/>
+MMo: I vote for 639-2. This shouldn't requires changes now, 
+but it's better to clarify it in advance IMHO.
+</p>
 
 </div> <!-- subsection regext-ext -->
 

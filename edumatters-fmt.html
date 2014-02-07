@@ -228,15 +228,17 @@ on different levels of importance.
 	harvested by full registries (e.g. this could be done using a
 	sibling publishing registry dedicated to host those educational
 	resources that are to be harvested by the standard full registries.</li></ul>
-  </p>
-  <p>
-  In Fig. 1 wie illustrate this <span class="edit">(XXX NO FIGURE IN
-  SVN, PLUS MAKE THIS A CAPTION XXX)</span>
-  scenario. This solution will, again, not touch the existing architecture
+  This solution, also presented in Fig. 1, will not touch the existing architecture
   while giving flexibility for the emerging educational resources to 
   be curated.
-  <img src="curation.png"/>
   </p>
+  <div class="figure" style="text-align: center;">
+    <img src="curation.png"/>
+    <p class="figurecaption"><strong>Figure 1:</strong> Graphic illustration
+    of the connecting interfaces between full registries and the educational
+    curated one. The <i>auxiliary</i> publishing is the only automatic token
+    from the edu part.</p>  
+  </div><!-- figure -->
 </div> <!-- subsection edureg -->
 
 </div> <!-- section curreg -->
@@ -246,8 +248,9 @@ on different levels of importance.
 like tutorials, worked-out use cases, or textbook-like material is at
 least as important.  Within the VO community, there is a large body of
 such material for a wide variety of audiences ranging from pre-school to
-researchers <span class="edit">(TODO: cite AIDA, EuroVO, VAO
-works).</span></p>
+researchers:
+<ul><li>EURO-VO AIDA WP5 - http://wwwas.oats.inaf.it/aidawp5/eng_download.html</li><li>EURO-VO Scientific Tutorials - http://www.euro-vo.org/?q=science/scientific-tutorials</li><li>VAO for Education - http://virtualobservatory.org/education/</li></ul>
+</p>
 
 <p>To date, such material has been collected informally by the various
 projects on plain web pages.  It was, in consequence, hard to find, with
@@ -366,7 +369,8 @@ resource type.</p>
 									Declaring support for a language does not necessarily mean
 									a given translation is up to date or maintained.  Having
 									a complete text in a language of some previous version of
-									a master document is enough.
+									a master document is enough. There required master
+									language should be english.
 								</p>
               </td> 
           </tr>
@@ -467,7 +471,8 @@ single reference URL.  A similar reasoning is behind including source
 URIs, except that in this case we wanted to allow URIs with non-HTTP
 schemes like svn or git.</p>
 
-<p>Document-typed resource records should define relations to services
+<p>Document-typed resource records should define relations to other
+general resources (e.g. applications, services, ...) 
 they use; extending the vocabulary of allowed types in VOResource,
 we suggest the relationshipType for these relations should be
 <code>uses</code>.</p>
@@ -485,6 +490,12 @@ renderings of the document.</li><li><code>/sourceURI</code> -- A URL allowing ac
           	[...]
           </span><span class="markup">&lt;/</span><span class="end-tag">curation</span><span class="markup">&gt;</span></div><div class="element"><span class="markup">&lt;</span><span class="start-tag">content</span><span class="markup">&gt;</span><div class="indent"><div class="element"><span class="markup">&lt;</span><span class="start-tag">subject</span><span class="markup">&gt;</span><span class="text">Virtual observatory</span><span class="markup">&lt;/</span><span class="end-tag">subject</span><span class="markup">&gt;</span></div><div class="element"><span class="markup">&lt;</span><span class="start-tag">subject</span><span class="markup">&gt;</span><span class="text">Tutorials</span><span class="markup">&lt;/</span><span class="end-tag">subject</span><span class="markup">&gt;</span></div><div class="element"><span class="markup">&lt;</span><span class="start-tag">subject</span><span class="markup">&gt;</span><span class="text">Supernovae</span><span class="markup">&lt;/</span><span class="end-tag">subject</span><span class="markup">&gt;</span></div><div class="element"><span class="markup">&lt;</span><span class="start-tag">subject</span><span class="markup">&gt;</span><span class="text">Nebulae</span><span class="markup">&lt;/</span><span class="end-tag">subject</span><span class="markup">&gt;</span></div><div class="element"><span class="markup">&lt;</span><span class="start-tag">description</span><span class="markup">&gt;</span><span class="text"> In this tutorial, the students measure the distance of the Crab
 nebula (M1) by using Aladin to compute angular and linear dimensions.</span><span class="markup">&lt;/</span><span class="end-tag">description</span><span class="markup">&gt;</span></div><div class="element"><span class="markup">&lt;</span><span class="start-tag">referenceURL</span><span class="markup">&gt;</span><span class="text">http://wwwas.oats.inaf.it/aidawp5/eng_download.html</span><span class="markup">&lt;/</span><span class="end-tag">referenceURL</span><span class="markup">&gt;</span></div><div class="element"><span class="markup">&lt;</span><span class="start-tag">relationship</span><span class="markup">&gt;</span><div class="indent"><div class="element"><span class="markup">&lt;</span><span class="start-tag">relationshipType</span><span class="markup">&gt;</span><span class="text">uses</span><span class="markup">&lt;/</span><span class="end-tag">relationshipType</span><span class="markup">&gt;</span></div><div class="element"><span class="markup">&lt;</span><span class="start-tag">relatedResource</span><span class="markup">&gt;</span><span class="text">The ALADIN image server</span><span class="markup">&lt;/</span><span class="end-tag">relatedResource</span><span class="markup">&gt;</span></div></div><span class="markup">&lt;/</span><span class="end-tag">relationship</span><span class="markup">&gt;</span></div></div><span class="markup">&lt;/</span><span class="end-tag">content</span><span class="markup">&gt;</span></div><div class="element"><span class="markup">&lt;</span><span class="start-tag">language</span><span class="markup">&gt;</span><span class="text">de</span><span class="markup">&lt;/</span><span class="end-tag">language</span><span class="markup">&gt;</span></div><div class="element"><span class="markup">&lt;</span><span class="start-tag">language</span><span class="markup">&gt;</span><span class="text">en</span><span class="markup">&lt;/</span><span class="end-tag">language</span><span class="markup">&gt;</span></div><div class="element"><span class="markup">&lt;</span><span class="start-tag">language</span><span class="markup">&gt;</span><span class="text">es</span><span class="markup">&lt;/</span><span class="end-tag">language</span><span class="markup">&gt;</span></div><div class="element"><span class="markup">&lt;</span><span class="start-tag">language</span><span class="markup">&gt;</span><span class="text">fr</span><span class="markup">&lt;/</span><span class="end-tag">language</span><span class="markup">&gt;</span></div><div class="element"><span class="markup">&lt;</span><span class="start-tag">language</span><span class="markup">&gt;</span><span class="text">it</span><span class="markup">&lt;/</span><span class="end-tag">language</span><span class="markup">&gt;</span></div><div class="element"><span class="markup">&lt;</span><span class="start-tag">accessURL</span><span class="markup">&gt;</span><span class="text">http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance</span><span class="markup">&lt;/</span><span class="end-tag">accessURL</span><span class="markup">&gt;</span></div><div class="element"><span class="markup">&lt;</span><span class="start-tag">sourceURI</span><span class="markup">&gt;</span><span class="text">http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance</span><span class="markup">&lt;/</span><span class="end-tag">sourceURI</span><span class="markup">&gt;</span></div></div><span class="markup">&lt;/</span><span class="end-tag">vr:Resource</span><span class="markup">&gt;</span></div></h:div>
+
+<p class="edit">TBD: should we use ISO-3166-1 two letter 
+country codes or ISO-639-2 two letter language codes?<br clear="none"/>
+MMo: I vote for 639-2. This shouldn't requires changes now, 
+but it's better to clarify it in advance IMHO.
+</p>
 
 </div> <!-- subsection regext-ext -->
 
@@ -565,7 +576,8 @@ while 148 (90%) state that are also devoted to some <i>education</i> level (up t
 									Declaring support for a language does not necessarily mean
 									a given translation is up to date or maintained.  Having
 									a complete text in a language of some previous version of
-									a master document is enough.
+									a master document is enough. There required master
+									language should be english.
 								</span><span class="markup">&lt;/</span><span class="end-tag">xs:documentation</span><span class="markup">&gt;</span></div></div><span class="markup">&lt;/</span><span class="end-tag">xs:annotation</span><span class="markup">&gt;</span></div></div><span class="markup">&lt;/</span><span class="end-tag">xs:element</span><span class="markup">&gt;</span></div><div class="element"><span class="markup">&lt;</span><span class="start-tag">xs:element</span> <span class="attribute-name">name</span><span class="markup">=</span><span class="attribute-value">"accessURL"</span> <span class="attribute-name">type</span><span class="markup">=</span><span class="attribute-value">"vr:AccessURL"</span> <span class="attribute-name">minOccurs</span><span class="markup">=</span><span class="attribute-value">"0"</span> <span class="attribute-name">maxOccurs</span><span class="markup">=</span><span class="attribute-value">"unbounded"</span><span class="markup">&gt;</span><div class="indent"><div class="element"><span class="markup">&lt;</span><span class="start-tag">xs:annotation</span><span class="markup">&gt;</span><div class="indent"><div class="element"><span class="markup">&lt;</span><span class="start-tag">xs:documentation</span><span class="markup">&gt;</span><span class="text">
 									A URL allowing access to one or more renderings of 
 									the document.
@@ -609,6 +621,14 @@ while 148 (90%) state that are also devoted to some <i>education</i> level (up t
   <a href="http://www.ivoa.net/Documents/RegistryInterface/">IVOA registry
   interfaces version 1.0</a>.
   IVOA Recommendation, 2009.
+</dd>
+
+<dt><a name="std:REGTAP">[std:REGTAP] Markus Demleitner, Paul Harrison, Marco
+  Molinaro, Gretchen Greene, Theresa Dower, and Menelaos Perdikeas, Markus
+  Demleitner, editor.</a></dt> <dd>
+  <a href="http://www.ivoa.net/documents/RegTAP/">IVOA registry relational
+  schema</a>.
+  IVOA Working Draft, 2013.
 </dd>
 
 <dt><a name="std:STDREGEXT">[std:STDREGEXT] Paul Harrison, Douglas Burke, Ray

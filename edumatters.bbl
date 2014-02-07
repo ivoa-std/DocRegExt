@@ -9,6 +9,14 @@
   IVOA Recommendation, 2009.
 </dd>
 
+<dt><a name="std:REGTAP">[std:REGTAP] Markus Demleitner, Paul Harrison, Marco
+  Molinaro, Gretchen Greene, Theresa Dower, and Menelaos Perdikeas, Markus
+  Demleitner, editor.</a></dt> <dd>
+  <a href="http://www.ivoa.net/documents/RegTAP/" >IVOA registry relational
+  schema</a>.
+  IVOA Working Draft, 2013.
+</dd>
+
 <dt><a name="std:STDREGEXT">[std:STDREGEXT] Paul Harrison, Douglas Burke, Ray
   Plante, Guy Rixon, and Dave Morris.</a></dt> <dd>
   <a
