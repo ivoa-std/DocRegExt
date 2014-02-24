@@ -417,12 +417,36 @@ renderings of the document.</li>
 
 <p class="edit">TBD: should we use ISO-3166-1 two letter 
 country codes or ISO-639-2 two letter language codes?<br/>
-MMo: I vote for 639-2. This shouldn't requires changes now, 
+MMo: I vote for 639-2. This shouldn't require changes now, 
 but it's better to clarify it in advance IMHO.
 </p>
 
 </div> <!-- subsection regext-ext -->
 
+<div class="section">
+<h3><a id="svn-repo">A versioned repository for tutorials</a></h3>
+<p>Registering texts as VO resources allows search for tutorials and other 
+materials through standard registry interfaces, but keeping 
+tutorials up to date, in their master form and also in their translated 
+versions, is another important issue to allow proficient use.<br/>
+A versioned repository (using subversion as the version control system) 
+has been set up at GAVO data center (
+http://svn.ari.uni-heidelberg.de/svn/edu/) and collects part of the
+already existing VO tutorials with the goal of preserve them and let users 
+update and translate them in favour of the whole community.<br/>
+The repository has an internal structure that takes care for:
+<ul>
+  <li>different national languages (master language set to english)</li>
+  <li>translation vs. master language updates</li>
+  <li>licensing, in order to clarify how and whether a tutorial can be changed or re-used</li>
+  <li>additional materials used by tutorials</li>
+  <li>access roles to allow everyone to access tutorials but prevent untrusted updates or additions to it</li>
+</ul>
+The repository is intended to work as a space for cooperatively 
+tutorials development and spread out the VO efforts on education and outrech.
+
+</p>
+</div> <!-- subsection svn-repo -->
 
 </div> <!-- section regext -->
 
