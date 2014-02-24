@@ -36,7 +36,7 @@ STDNAME=edumatters
 # The current version
 DOCVERSION=1.0
 # YYYYMMDD of the current release
-DOCDATE=20130909
+DOCDATE=20140225
 # One of NOTE, WD, PR, REC
 PUBSTATUS=NOTE
 # Extra files that need to end up in the final package
