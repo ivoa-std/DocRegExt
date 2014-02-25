@@ -102,15 +102,15 @@ Advances in technology and communications are creating new and exciting
 opportunities for teachers to bring astronomy into their 
 classrooms.  As the VO makes science-grade data publicly available and
 classroom sets of (suitably) networked PCs are now standard in schools,
-exciting projects come within reach of common schools.  To realize the
-possiblities, it is important to disseminate material to help teachers
+exciting projects come within reach of teachers.  In order to make things happen
+, it is important to disseminate material to help teachers
 tap into these resources.  These include documented step-by-step
-tutorials, use cases that explain basic astrophysical research performed
+tutorials, use cases explaining how to perform basic astrophysical research 
 using VO tools and resources, and similar exist in various formats and
 have been translated in different languages.
 </p>
 
-<p>But new opportunities also come on the observational side. 
+<p>New opportunities also come on the observational side. 
 There is a growing availability of remotely controlled 
 telescopes dedicated to education in many countries world-wide, from the 
 Bradford Robotic Telescope on MountTeide, Tenerife (http://www.telescope.org) 
@@ -134,17 +134,18 @@ therefore a natural decision for VO to tackle the problem of publishing
 educational data in VO archives.
 </p>
 
-<p>Resource registration for both data services and documents is the
-obvious answer to the questions raised by this scenario.  While
-technically this seems not a great problem, keeping too technical
+<p>Resource registration for both educational data services and documents 
+is the most appropriate approach toward making educational resources 
+available within the VO.  While
+technically this may seem trivial, keeping too technical
 research services out of the the resources devoted to education will
-require some effort, as will avoiding a contamination of the "research
-VO" with obviously inadequate material.</p>
+require some effort, that will also be needed in order to avoid contaminating 
+VO professional research with obviously inadequate material.</p>
 
-<p>The next section will discuss the idea of educational resources curation, then 
-<a href="#regext">Registering Texts</a> will work out the use cases and needs for
-registration of tutorials and documents. Finally, the idea of introducing language
-internationalization of resources will be discussed.
+<p>In the next section we discuss the idea of educational resources curation, then 
+<a href="#regext">Registering Texts</a> we work out the use cases and needs for
+registration of tutorials and documents. Finally, we discuss the idea of introducing language
+internationalization in the resources.
 </p>
 </div> <!-- section Introduction -->
 
@@ -159,26 +160,25 @@ use case's distinction between resources to be used in teaching and disseminatio
 versus all the research driven resources that exist in the VO.
 </p>
 <p>
-For the sake of simplicity here we will distinguish these two groups of resources as
+For simplicity here we will distinguish these two groups of resources as
 <i>educational</i> and <i>professional</i> but without any intent of putting them
 on different levels of importance.
 </p>
 <div class="section">
   <h3><a id="eduvspro">Educational vs. Professional Resources</a></h3>
   <p>
-  On one side, teachers and educators may find it difficult to filter out 
-  from all VO resources the ones that are suitable for their tutorials and
-  examples. On the other side, researchers may find annoying having,
-  possibly non-trusted, resources in the output of their search. Again,
-  we stress it is not a matter of the quality of the data deployed, but 
-  only a distinction made upon the resources' scope. Moreover, the same 
-  resource may be useful for both the goals, but this leads to the same
-  point of discussion: how to properly tag resources?
+  On the one side, teachers and educators may find it difficult to filter out 
+  from all VO resources those that are suitable for their tutorials and
+  examples. On the other side, educational resources should not be retrieved 
+  by a standard professional query.
+  Given that it is not a matter of data quality, but only a distinction upon 
+  the resources' scope, nevertheless this duality leads to an issue about the
+  proper way to tag resources for educational usage.
   </p>
   <p>
-  In the next subsection a possible tagging solution, based upon the existing
-  <i>ContentLevel</i> element of VOResource, but requiring a small change
-  to, it is presented. The subsequent subsection describes the idea of a
+  In the next subsection we propose a possible tagging solution, based upon 
+  the existing <i>ContentLevel</i> element of VOResource, but requiring a small change
+  to it. The subsequent subsection describes the idea of a
   curated registry for educational resources and the reasons for it to exist.
   </p>
 </div> <!-- subsection eduvspro -->
@@ -202,7 +202,7 @@ on different levels of importance.
   </ul>
   <p>This element turns out to be misused by many publishers, presumably because
   it is not really clear what the subtle differences between the available
-  possibilities are; also, requiring a fairly substantial enumeration to
+  possibilities are; also, to require a fairly substantial enumeration to
   convey "for school use" seems, in retrospect, not likely to promote
   widespread adoption. We hence propose to simplify the content model
   to:</p>
@@ -211,25 +211,30 @@ on different levels of importance.
 	<li>Research</li>
 	<li>Amateur</li>
   </ul>
-  <p>We expect this to make publishers to, on average, better describe 
-  their resources while still providing
-  a suitable tagging solution for a first filtering on
-  differently targeted resources at client level. Of course, the chance to 
-  add and <i>Educational</i> value option to this shrinked list, or even
+  <p>We expect this to reach two goals:
+  <ul>
+    <li>to make publishers to better describe (on the average)
+    their resources</li>
+    <li>to providing a tagging solution that suits a first filtering 
+    on the resources at client level</li>
+  </ul>
+  Of course, the chance to 
+  add an <i>Educational</i> value option to this shrinked list, or even
   substitute it to the <i>General</i> one, would be a valuable change.
   </p>
   <p>
   This change in the already existing standard will require only 
   a small effort to update already registered resources because nearly 97% of 
   them currently have ContentLevel set to <i>research</i>, about 2% of them have
-  no ContentLevel defined at all and only the remaining (about 1%) have a different value
+  no ContentLevel defined at all and only the remaining have a different value
   (or set of values) set for this element (Appendix A details better these
   figures).
   </p>
-  <p>Until the change in VOResource can be effected, the proposed
-  change can work as a "best practice" recommendation, possibly even on
-  registry level, where registries can map University to Research and
-  everything else except Amateur to General.</p>
+  <p>Until the change in VOResource can be performed, it
+  can work as a "best practice" recommendation, possibly even at a
+  registry level, where registries can map existing <i>ContentLevel</i>s values 
+  of <i>University</i> to <i>Research</i> and
+  everything else except <i>Amateur</i> to <i>General</i>.</p>
 </div> <!-- subsection contentlvl -->
 
 <div class="section">
@@ -237,7 +242,7 @@ on different levels of importance.
   <p>
   Even in the case of the simplified <i>ContentLevel</i> tagging system
   a curated registry for educational VO resources will be useful for
-  educators let their students work with a registry without having to
+  educators in order to let their students work with a registry without having to
   worry about confusing material or overwhelming data sizes. A good example
   for this is the educational version of the Aladin sky atlas that has a
   built in, curated set of resources suitable for educational level 
@@ -245,7 +250,7 @@ on different levels of importance.
   </p>
   <p>
   Curation will require some effort in managing and keeping up to date
-  such a registry but, most important, has some restrictions coming from
+  such a registry but, most important, it is subjected to  some restrictions coming from
   the IVOA resource registry architecture. 
   </p>
   <p>
@@ -253,15 +258,15 @@ on different levels of importance.
   (<cite>std:RI1</cite>),
   its resources would be harvested by the full registries: this means 
   that any dedicated educational resource would end up in the full VO 
-  set of resources.  For reasons mentioned above, this does not seem
+  set of resources.  For reasons mentioned above, this is not
   desirable.</p>
   <p>
   If it were to be a full registry, it will harvest itself all the existing
-  resources, and not all of them will fit or be suitable for the educational
-  scope the registry has to be preservde for.
+  resources, and not all of them will fit, or be suitable for, the educational
+  scope the registry has to be preserved for.
   </p>
   <p>
-  What is needed is a resource (the curated, in <cite>std:RI1</cite>
+  We need a resource (the curated, in <cite>std:RI1</cite>
   parlance, local, registry) capable of :
   <ul>
 	<li><i>selectively</i> harvesting the existing VO resources 
@@ -289,9 +294,9 @@ on different levels of importance.
 <div class="section">
 <h2><a id="regext">Registering Texts</a></h2>
 <p>Educational material is not only about services – text-like material
-like tutorials, worked-out use cases, or textbook-like material is at
+like tutorials, worked-out use cases, or textbook-like material are at
 least as important.  Within the VO community, there is a large body of
-such material for a wide variety of audiences ranging from pre-school to
+educational material for a wide variety of audiences ranging from pre-school to
 researchers:
 <ul>
 <li>EURO-VO AIDA WP5 - http://wwwas.oats.inaf.it/aidawp5/eng_download.html</li>
@@ -301,9 +306,10 @@ researchers:
 </p>
 
 <p>To date, such material has been collected informally by the various
-projects on plain web pages.  It was, in consequence, hard to find, with
-knowledge of it often passed on antecdotically.  To remedy this, we
-propose to keep record of such material in the registry.</p>
+projects on plain web pages.  It is, in consequence, hard to find, with
+knowledge of it often passed on antecdotically. In order to improve upon 
+this situation, we
+propose to keep record of educational material in the registry.</p>
 
 <p>The VO already has a registry extension for standards, which of
 course are also text-like (<cite>std:STDREGEXT</cite>).  This extension,
@@ -350,7 +356,7 @@ relationships covers this use case)</li>
 allowing the coverage element withing DocRegExt resources would allow
 answering the question; in reality, few registries expose this
 information in useable form)</li>
-<li>I've found this VO tutorial somewhere on the net ("on a mirror").  Is it
+<li>I found this VO tutorial somewhere on the net ("on a mirror").  Is it
 the latest version?  If not, where can I find an update? (Unless the
 title of the text changed, standard VOResource should suffice)</li>
 </ul>
@@ -385,10 +391,10 @@ recommendation to have both access and source URLs as landing pages.</p>
 
 <p>Since the access URL is supposed to point to a "landing page" anyway,
 it is tempting to just unify it with the standard VOResource reference
-URL, as a "human-readable document describing this resource"
+URL. As a "human-readable document describing this resource"
 <cite>std:VOR</cite> quite conceivably could very well work as a landing
-page.  For many documents having identical access and reference urls
-will certainly work fine.  However, we wanted to cover the cases in
+page.  For many documents having identical access and reference, urls
+will certainly work fine.  However, we want to cover the cases in
 which different projects offer different translations or even versions
 of a document at different sites, which is not possible with just a
 single reference URL.  A similar reasoning is behind including source
@@ -401,7 +407,7 @@ they use; extending the vocabulary of allowed types in VOResource,
 we suggest the relationshipType for these relations should be
 <code>uses</code>.</p>
 
-<p class="edit">TBD: do we want i18ned titles?</p>
+<p class="edit">TBD: do we want i18n-ed titles?</p>
 
 <p>In the relational registry <cite>std:REGTAP</cite>, DocRegExt is
 entirely represented in the <code>res_details</code>, with details</p>
@@ -426,7 +432,7 @@ but it's better to clarify it in advance IMHO.
 
 <div class="section">
 <h3><a id="svn-repo">A versioned repository for tutorials</a></h3>
-<p>Registering texts as VO resources allows search for tutorials and other 
+<p>Registering text document as VO resources allows search for tutorials and other 
 materials through standard registry interfaces, but keeping 
 tutorials up to date, in their master form and also in their translated 
 versions, is another important issue to allow proficient use.<br/>
@@ -443,8 +449,8 @@ The repository has an internal structure that takes care for:
   <li>additional materials used by tutorials</li>
   <li>access roles to allow everyone to access tutorials but prevent untrusted updates or additions to it</li>
 </ul>
-The repository is intended to work as a space for cooperatively 
-tutorials development and spread out the VO efforts on education and outrech.
+The repository is intended to work as a space for cooperative 
+VO tutorials development.
 
 </p>
 </div> <!-- subsection svn-repo -->
@@ -454,16 +460,15 @@ tutorials development and spread out the VO efforts on education and outrech.
 <div class="section">
 <h2><a id="lang">Internationalization of VO Resources</a></h2>
 <p>
-The EURO-VO AIDA project WP5 put some effort also in translating tutorials
-in different languages, meeting the needs for high schools and lower level 
-educational degrees when starting dissemination in astrophysics to an 
-audience not skilled enough with the English language. It would be an added
-value in this case to be able to register an educational or
+The EURO-VO AIDA project WP5 produced multilingual tutorials, 
+meeting the needs for high schools and lower level 
+educational degrees in countries where English is not the native language. 
+Clearly, it would be an added value to be able to register an educational or
 document resource not only in english (as it is done currently with 
 standard VO resources) but also in other national languages.
 </p>
 <p>
-Here what it would be nice to discuss is whether this means:
+Here we propose discuss whether this means:
 <ul>
   <li>changing VOResource to allow different languages in resource 
   descriptions;</li>
