@@ -403,9 +403,11 @@ schemes like svn or git.</p>
 
 <p>Document-typed resource records should define relations to other
 general resources (e.g. applications, services, ...) 
-they use; extending the vocabulary of allowed types in VOResource,
+they use; since an extension of the vocabulary allowed for relationship types
+in VOResource will probably not be possible in the near future,
 we suggest the relationshipType for these relations should be
-<code>uses</code>.</p>
+<code>related-to</code>.  If a relation <code>uses</code> becomes available
+in the future, it should be used in this situation.</p>
 
 <p class="edit">TBD: do we want i18n-ed titles?</p>
 
