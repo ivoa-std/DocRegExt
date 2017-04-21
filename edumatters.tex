@@ -3,7 +3,7 @@
 
 \usepackage{todonotes}
 \usepackage{listings}
-\lstloadlanguages{XML,sh}
+\lstloadlanguages{XML,sh,SQL}
 \lstset{flexiblecolumns=true,tagstyle=\ttfamily, showstringspaces=False}
 
 \ivoagroup{Edu IG}
@@ -435,20 +435,15 @@ so useful that we propose to include it in a DocRegExt.
 
 \label{sect:regext-ext}
 
-To satisfy our use cases, we have designed a registry extension with
-two definitions. First, we extend the basic \vorent{vr:Resource}
-to build the \texttt{doc:Document} resource type; essentially, a
-\vorent{doc:Document} copies the \vorent{vs:CatalogService} content
-model from VODataService 1.1 \citep{2010ivoa.spec.1202P}.  The
-\vorent{facility} and \vorent{instrument} items should only be set if
-the text in question actually exploits particular properties of the
-entity in question.  A \vorent{tableset} can be given for the central
-table-like structures a text deals with.
+To satisfy the requirements derived above, we have designed a registry extension with
+two definitions. First, we re-use the \vorent{vs:CatalogService} type
+from VODataService 1.1 \citep{2010ivoa.spec.1202P} to construct
+the \texttt{doc:Document} resource type.  
 
 While the schema does not limit what kinds of capabilities a
 \vorent{doc:Document} record has -- it is conceivable that tailored
-services are communicated in this way --, the actual documents are
-described using \vorent{doc:DocFile}-typed capabilities.  It may be
+services are communicated in this way --, access to actual files is
+enabled using \vorent{doc:Edition}-typed capabilities.  It may be
 argued that this use of VOResource capabilities stretches their
 semantics a bit.  We argue, however, that these documents can well be
 understood as parameterless service endpoints.  Using capabilities
@@ -467,43 +462,161 @@ acceptable to use the English-language document itself as
 \vorent{referenceURL}; documents only available in non-English should
 provide a landing page with an English-language abstract, though.
 
+The \vorent{facility} and \vorent{instrument} items should only be set
+if the text in question actually exploits particular properties of the
+concrete instrument.  A \vorent{tableset} can be given for the central
+table-like structures a text deals with and facilitates discovery by
+physics via the UCDs given in the tableset.
+
 Document-typed resource records should define relations to other
-general resources (e.g. applications, services, \dots) 
+general resources (e.g., applications, services,\dots) 
 they use.  VOResource 1.1 provides a vocabulary of possible
-relationships; Document records should preferably use \emph{Cites} and
+relationships. Document records should preferably use \emph{Cites} and
 in particular declare relationships to tools.  If these are not
 registred, use the name of their binary name as the name of the related
 resource; this will very typically be lowercase-only.
 
-Each capability should correspond to a translation of the document.  It
+Each \vorent{Edition}-typed capability should 
+correspond to a translation of the document.  It
 is recommended to list the English-language version first if it exists.
 
-The following description of the \vorent{doc:DocFile} capability
-is generated from the schema file:
+The following description of the \vorent{doc:Edition} capability
+is generated from the schema file.
 
-% GENERATED: !schemadoc DocRegExt-1.xsd DocFile
+% GENERATED: !schemadoc DocRegExt-1.xsd Edition
+\begin{generated}
+\begingroup
+      	\renewcommand*\descriptionlabel[1]{%
+      	\hbox to 5.5em{\emph{#1}\hfil}}\vspace{2ex}\noindent\textbf{\xmlel{doc:Edition} Type Schema Documentation}
+
+\noindent{\small
+        An "edition" (typically: translation) of the document.
+      \par}
+
+\noindent{\small
+        Although for a while, multiple editions of the document in one language
+        may be given (corresponding perhaps to two "major versions), in
+        general, only the latest version of the document per language should be
+        given.
+
+        At least one vr:WebBrowser-typed interface with 
+        role="rendered" must be present. The access URL of the interface
+        points to a rendered version of the edition (preferably in PDF, 
+        but HTML is acceptable, too).
+
+        Editors are strongly encourated to also provide an 
+        interface with role="source", the accessURL of which should point
+        to an editable version of the document, a version controlled
+        repository, or the like.
+      \par}
+
+\vspace{1ex}\noindent\textbf{\xmlel{doc:Edition} Type Schema Definition}
+
+\begin{lstlisting}[language=XML,basicstyle=\footnotesize]
+<xs:complexType name="Edition" >
+  <xs:complexContent >
+    <xs:extension base="vr:Capability" >
+      <xs:sequence >
+        <xs:element name="language" type="xs:token" minOccurs="1"
+                  maxOccurs="1" />
+        <xs:element name="locTitle" type="xs:token" minOccurs="0"
+                  maxOccurs="1" />
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+\end{lstlisting}
+
+\vspace{0.5ex}\noindent\textbf{\xmlel{doc:Edition} Extension Metadata Elements}
+
+\begingroup\small\begin{bigdescription}\item[Element \xmlel{language}]
+\begin{description}
+\item[Type] string: \xmlel{xs:token}
+\item[Meaning] 
+                The language this document is (mainly) written in,
+                as an RFC 3066 language code.
+              
+\item[Occurrence] required
+\item[Comment] 
+                The country codes must be given in all lowercase.  This
+                results in strings like en-us, de-de, or es-mx.
+
+                This language is also the language for locTitle, 
+                irrespective or that element's xml:lang setting.
+              
+
+\end{description}
+\item[Element \xmlel{locTitle}]
+\begin{description}
+\item[Type] string: \xmlel{xs:token}
+\item[Meaning] 
+\item[Occurrence] optional
+
+\end{description}
+
+
+\end{bigdescription}\endgroup
+
+\endgroup
+\end{generated}
+
 % /GENERATED
 
 \subsection{DocRegExt in RegTAP}
 \label{sect:docregext-regtap}
 
 In the relational registry \citep{2014ivoa.spec.1208D}, DocRegExt is
-entirely represented in the \verb|res_details|, with details
+straightforwardly represented in the standard VOResource tables.  in
+particular, to find all titles and access urls for documents, one would
+write:
 
+\begin{lstlisting}[language=SQL]
+SELECT res_title, access_url FROM
+  rr.resource 
+  NATURAL JOIN rr.interface
+WHERE
+  res_type='doc:document'
+  and intf_role='rendered'
+\end{lstlisting}
+
+The \vorent{language} and \vorent{locTitle} elements from the
+\vorent{doc:Edition} capability extension are mapped into
+\verb|res_details| with the following \verb|detail_xpath|s:
 
 \begin{itemize}
 
 \item \texttt{/capability/language} -- the document language as an RFC
 3066 language code.
-
-\item \texttt{/capability/accessURL} -- a URI at which the document can be
-retrieved.  A PDF version is preferred.
-
-\item \texttt{capability/sourceURI} -- a URI for an editable version of
-the document (e.g., a VCS URL, an office document)..
+\item \texttt{/capability/locTitle} -- the title in the national
+languate.
 \end{itemize}
 
-Here is a (slightly abridged) example record:
+The downside of not defining an extra table for the documents is that
+the query patterns in RegTAP are somewhat clumsy.  For instance, to list
+the English and Italian titles of all texts available in Italian, one
+has to carefully join two subqueries to \verb|res_details|:
+
+\begin{lstlisting}[language=SQL]
+SELECT res_title, loctitle FROM
+  rr.resource 
+  NATURAL JOIN (
+    SELECT ivoid, loctitle FROM (
+        SELECT ivoid, cap_index, detail_value as loctitle
+        FROM rr.res_detail
+        WHERE detail_xpath='/capability/locTitle') AS titles
+      NATURAL JOIN (
+        SELECT ivoid, cap_index 
+        FROM rr.res_detail
+        WHERE 
+          detail_xpath='/capability/language'
+          AND detail_value LIKE 'it_%') AS italiancaps
+    ) as loctitles
+WHERE
+  res_type='doc:document'
+\end{lstlisting}
+
+
+Here is a (slightly abridged) example record (TBD: update this):
 
 \lstinputlisting[language=XML,basicstyle=\footnotesize]{m1distance-example.xml}
 
@@ -643,7 +756,7 @@ Volute\footnote{\url{https://volute.g-vo.org/svn/trunk/projects/edu/edumatters/D
 We intend to have it endorsed by the IVOA, after which the canonical
 source will be the IVOA schema repository.
 
-\lstinputlisting[language=XML]{DocRegExt-v1.0.xsd}
+\lstinputlisting[language=XML]{DocRegExt-1.xsd}
 
 \bibliography{ivoatex/ivoabib,ivoatex/docrepo}
 
