@@ -27,7 +27,9 @@
 The goal of this IVOA Note is to introduce and explain practices followed
 and requirements found while creating and 
 deploying astrophysical resources 
-dedicated to educational purposes within the standard VO framework.
+dedicated to educational purposes ranging from pre-school outreach
+material to courseware intended for active researchers
+within the standard VO framework.
 Issues, proposed solutions and desirables are here reported to be
 possibly taken into account in future modifications of relevant
 standards.
@@ -43,21 +45,29 @@ Advances in technology and communications are creating new and exciting
 opportunities for teachers to bring astronomy into their 
 classrooms.  As the VO makes science-grade data publicly available and
 classroom sets of (suitably) networked PCs are now standard in schools,
-exciting projects come within reach of teachers.  In order to make things happen
-, it is important to disseminate material to help teachers
+exciting projects come within reach of teachers.  In order to make things 
+happen, it is important to disseminate material to help teachers
 tap into these resources.  These include documented step-by-step
 tutorials, use cases explaining how to perform basic astrophysical research 
 using VO tools and resources, and similar exist in various formats and
 have been translated in different languages.
 
+At the same time, the VO as used in research is a complex tool,
+introducing many novel techniques.  To enable university level students
+and active researchers to fully exploit the VO's capabilities, course
+materials and worked-out use-cases have been found an efficient means of
+developing the necessary skills far beyond interactive course situations
+like ``VO Days''.  Efficient ways for interested users to locate such
+material as well as for VO operators to curate it are highly desirable.
 
 New opportunities also come on the observational side. 
 There is a growing availability of remotely controlled 
 telescopes dedicated to education in many countries world-wide, from the 
-Bradford Robotic Telescope\footnote{\url{http://www.telescope.org}} on MountTeide, Tenerife 
+Bradford Robotic Telescope\footnote{\url{http://www.telescope.org}} on Mount
+Teide, Tenerife 
 to the radio telescopes of the Radio Physics
-Lab\footnote{\url{http://www.ncra.tifr.res.in/rpl}}, IUCAA, Pune 
-. In some cases, educational telescopes are 
+Lab\footnote{\url{http://www.ncra.tifr.res.in/rpl}}, IUCAA, Pune. 
+In some cases, educational telescopes are 
 linked into a network with the aim of guaranteeing the best observing conditions, 
 including deep sky observations during regular daytime school hours, and 
 the best instrument for the particular program of interest. Examples
@@ -145,7 +155,7 @@ curated registry for educational resources and the reasons for it to exist.
 
 \label{sect:contentlvl}
 
-\citep{2008ivoa.spec.0222P} already has the 
+VOResource already has the 
 \vorent{ContentLevel}
 element
 allowing data publishers to optionally identify their resources as being 
@@ -262,8 +272,9 @@ the IVOA resource registry architecture.
   
 
 
-If such a registry were a standard publishing registry
-(\citep{2009ivoa.spec.1104B}),
+If such a registry were a standard publishing registry as laid down in
+Registry Interfaces
+\citep{2009ivoa.spec.1104B},
 its resources would be harvested by the full registries: this means 
 that any dedicated educational resource would end up in the full VO 
 set of resources.  For reasons mentioned above, this is not
@@ -276,7 +287,7 @@ scope the registry has to be preserved for.
   
 
 
-We need a resource (the curated, in \citep{2009ivoa.spec.1104B}
+We need a resource (the curated, in Registry Interfaces
 parlance, local, registry) capable of:
   
 \begin{itemize}
@@ -284,10 +295,10 @@ parlance, local, registry) capable of:
 \item 
 \emph{selectively}
  harvesting the existing VO resources 
-	(e.g. from a full registry);{}
+	(e.g., from a full registry);{}
 
 \item register its own educational resources without being directly
-	harvested by full registries (e.g. this could be done using a
+	harvested by full registries (e.g., this could be done using a
 	sibling publishing registry dedicated to host those educational
 	resources that are to be harvested by the standard full registries.{}
 
@@ -339,12 +350,12 @@ this situation, we
 propose to keep record of educational material in the registry.
 
 The VO already has a registry extension for standards, which of
-course are also text-like (\citep{2012ivoa.spec.0508H}).  This extension,
+course are also text-like, StandardsRegExt \citep{2012ivoa.spec.0508H}.  This extension,
 however, focuses on metadata important for standards – e.g.,
 vocabularies and status – that is not pertinent for educational
 material.  Conversely, it is not concerned with document language (which
 can safely be assumed to be English for standards), and it disregards
-the issue of locating formatted and source version, which for educational
+the issue of locating formatted and source versions, which for educational
 material is important.  We therefore propose a simple registry extension
 covering text-like material, dubbed DocRegExt.
 
@@ -392,11 +403,11 @@ resources){}
 relationships covers this use case){}
 
 \item Is there material about something visible tonight? (In principle,
-allowing the coverage element withing DocRegExt resources would allow
-answering the question; in reality, few registries expose this
-information in useable form){}
+allowing the coverage element withing DocRegExt resources enables this
+use case, although as of this writing, the Registry infrastructure does
+not support spatial discovery).
 
-\item I found this VO tutorial somewhere on the net ("on a mirror").  Is it
+\item I found this VO tutorial somewhere on the net (``on a mirror'').  Is it
 the latest version?  If not, where can I find an update? (Unless the
 title of the text changed, standard VOResource should suffice){}
 
@@ -405,7 +416,7 @@ title of the text changed, standard VOResource should suffice){}
 On the use cases of locating editable forms of such texts – which
 has been found to be necessary fairly regularly – we note in passing
 that representing source-product relationships is in principle in the
-domain of provenance and thus not in scope for the registry. However, in
+domain of provenance and thus not in the Registry's main scope. However, in
 the case discussed here the relation is so simple and its representation
 so useful that we propose to include it in a DocRegExt.
 
@@ -419,7 +430,7 @@ a single definition, extending the basic \texttt{vr:Resource}
 element with three concepts to make the \texttt{doc:Document}
 resource type.
 
-The full schema is given in Appendix \ref{app:schema}
+The full schema is given in Appendix \ref{app:schema}.
 
 We considered  having language as an attribute of \xmlel{accessURL} to allow
 language-specific document discovery.  We decided against this mainly
@@ -474,8 +485,9 @@ but it's better to clarify it in advance IMHO.
 
 \label{sect:svn-repo}
 
-Registering text document as VO resources allows search for tutorials and other 
-materials through standard registry interfaces, but keeping 
+Registering text document as VO resources allows searching for tutorials
+and similar 
+material through standard registry interfaces, but keeping 
 tutorials up to date, in their master form and also in their translated 
 versions, is another important issue to allow proficient use.
 A versioned repository (using subversion as the version control system) 
@@ -483,7 +495,7 @@ has been set up at GAVO data
 center\footnote{\url{http://svn.ari.uni-heidelberg.de/svn/edu/}} 
 and collects part of the
 already existing VO tutorials with the goal of preserve them and let users 
-update and translate them in favour of the whole community.
+update and translate them.
 The repository has an internal structure that takes care for:
 
 \begin{itemize}
@@ -500,38 +512,13 @@ The repository has an internal structure that takes care for:
 
 \end{itemize}
 
+Details of this structure are discussed in a \texttt{README} file at the
+root of the
+repository\footnote{\url{http://svn.ari.uni-heidelberg.de/svn/edu/README}}.
 The repository is intended to work as a space for cooperative 
 VO tutorials development.
 
 
-
-\section{Internationalization of VO Resources}
-
-\label{sect:lang}
-
-
-The EURO-VO AIDA project WP5 produced multilingual tutorials, 
-meeting the needs for high schools and lower level 
-educational degrees in countries where English is not the native language. 
-Clearly, it would be an added value to be able to register an educational or
-document resource not only in english (as it is done currently with 
-standard VO resources) but also in other national languages.
-
-
-
-Here we propose discuss whether this means:
-
-\begin{itemize}
-
-\item changing VOResource to allow different languages in resource 
-  descriptions;{}
-
-\item enable internazionalization in VO resources within existing
-  resources: one resource described in multiple languages{}
-
-\item other\dots
-
-\end{itemize}
 
 
 \appendix
@@ -600,11 +587,8 @@ SELECT
 FROM 
   rr.resource
 WHERE
-  res_type not in ('vstd:servicestandard',
-    'vg:authority',
-    'vstd:standard',
-    'va:application',
-    'vr:organization')
+  res_type not in ('vstd:servicestandard', 'vg:authority', 
+    'vstd:standard', 'va:application', 'vr:organization')
 GROUP BY content_level
 ORDER BY cnt DESC
 \end{verbatim}
@@ -624,6 +608,14 @@ while 148 (90\%) state that are also devoted to some
 \section{The proposed DocRegExt Schema}
 
 \label{app:schema}
+
+The following XML schema is given here for reference and convenience.
+It should not be used in software development.  As long as the schema is
+not formally endorsed by the IVOA, the authoritative version is the one
+on
+Volute\footnote{\url{https://volute.g-vo.org/svn/trunk/projects/edu/edumatters/DocRegExt-1.xsd}}.
+We intend to have it endorsed by the IVOA, after which the canonical
+source will be the IVOA schema repository.
 
 \lstinputlisting[language=XML]{DocRegExt-v1.0.xsd}
 
