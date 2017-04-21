@@ -39,4 +39,14 @@
   IVOA Recommendation 22 February 2008,  arXiv:1110.0515.
 \newline\url{http://adsabs.harvard.edu/abs/2008ivoa.spec.0222P}
 
+\harvarditem[{Plante} \harvardand\ {St{\'e}b{\'e}} et~al.]{{Plante},
+  {St{\'e}b{\'e}}, {Benson}, {Dowler}, {Graham}, {Greene}, {Harrison},
+  {Lemson}, {Linde} \harvardand\ {Rixon}}{2010}{2010ivoa.spec.1202P}
+{Plante}, R., {St{\'e}b{\'e}}, A., {Benson}, K., {Dowler}, P., {Graham}, M.,
+  {Greene}, G., {Harrison}, P., {Lemson}, G., {Linde}, T. \harvardand\ {Rixon},
+  G.  \harvardyearleft 2010\harvardyearright , `{VODataService: a VOResource
+  Schema Extension for Describing Collections, Services Version 1.1}', IVOA
+  Recommendation 02 December 2010,  arXiv:1110.0516.
+\newline\url{http://adsabs.harvard.edu/abs/2010ivoa.spec.1202P}
+
 \end{thebibliography}

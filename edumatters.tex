@@ -365,7 +365,7 @@ covering text-like material, dubbed DocRegExt.
 \label{sect:regext-usecases}
 
 The design of DocRegExt has been guided by the desire to fulfill the
-following use cases:
+following discovery cases:
 
 
 \begin{itemize}
@@ -413,6 +413,13 @@ title of the text changed, standard VOResource should suffice){}
 
 \end{itemize}
 
+An important additional use case is enabling an attractive, browsable
+``roster'' of registred educational material.  A first attempt at such a
+service is GAVO's VO Text Treasures (VOTT)
+service\footnote{\url{http://dc.g-vo.org/VOTT}}.  It was found that one
+requirement resulting from this use case is direct access to formatted
+material in order to enable thumbnail generation.
+
 On the use cases of locating editable forms of such texts – which
 has been found to be necessary fairly regularly – we note in passing
 that representing source-product relationships is in principle in the
@@ -420,44 +427,61 @@ domain of provenance and thus not in the Registry's main scope. However, in
 the case discussed here the relation is so simple and its representation
 so useful that we propose to include it in a DocRegExt.
 
-
 \subsection{A Document Registry Extension}
 
 \label{sect:regext-ext}
 
 To satisfy our use cases, we have designed a registry extension with
-a single definition, extending the basic \texttt{vr:Resource}
-element with three concepts to make the \texttt{doc:Document}
-resource type.
+two definitions. First, we extend the basic \vorent{vr:Resource}
+to build the \texttt{doc:Document} resource type; essentially, a
+\vorent{doc:Document} copies the \vorent{vs:CatalogService} content
+model from VODataService 1.1 \citep{2010ivoa.spec.1202P}.  The
+\vorent{facility} and \vorent{instrument} items should only be set if
+the text in question actually exploits particular properties of the
+entity in question.  A \vorent{tableset} can be given for the central
+table-like structures a text deals with.
 
-The full schema is given in Appendix \ref{app:schema}.
+While the schema does not limit what kinds of capabilities a
+\vorent{doc:Document} record has -- it is conceivable that tailored
+services are communicated in this way --, the actual documents are
+described using \vorent{doc:DocFile}-typed capabilities.  It may be
+argued that this use of VOResource capabilities stretches their
+semantics a bit.  We argue, however, that these documents can well be
+understood as parameterless service endpoints.  Using capabilities
+furthermore allows a complete representation of the metadata in RegTAP
+without any extra tables (cf.~sect.~\ref{sect:docregext-regtap}).
 
-We considered  having language as an attribute of \xmlel{accessURL} to allow
-language-specific document discovery.  We decided against this mainly
-for reasons of maintainability; the same reason is behind the
-recommendation to have both access and source URLs as landing pages.
+For reference, Appendix \ref{app:schema} contains a rendering of the
+extension schema as of the publication of the note.  
 
-Since the access URL is supposed to point to a ``landing page'' anyway,
-it is tempting to just unify it with the standard VOResource reference
-URL. As a ``human-readable document describing this resource''
-\citep{2008ivoa.spec.0222P} quite conceivably could very well work as a landing
-page.  For many documents having identical access and reference, urls
-will certainly work fine.  However, we want to cover the cases in
-which different projects offer different translations or even versions
-of a document at different sites, which is not possible with just a
-single reference URL.  A similar reasoning is behind including source
-URIs, except that in this case we wanted to allow URIs with non-HTTP
-schemes like svn or git.
+The resource-level reference URL in \vorent{doc:Document} records should
+be some sort of landing page with an abstract of the text and links to
+the full texts and perhaps the document source(s).  When using the
+versioned repository (sect.~\ref{sect:svn-repo}), this could be the
+top-level README file within the VCS.  For simple documents, it is
+acceptable to use the English-language document itself as
+\vorent{referenceURL}; documents only available in non-English should
+provide a landing page with an English-language abstract, though.
 
 Document-typed resource records should define relations to other
 general resources (e.g. applications, services, \dots) 
-they use; since an extension of the vocabulary allowed for relationship types
-in VOResource will probably not be possible in the near future,
-we suggest the relationshipType for these relations should be
-\emph{related-to}.  If a relation \emph{uses} becomes available
-in the future, it should be used in this situation.
+they use.  VOResource 1.1 provides a vocabulary of possible
+relationships; Document records should preferably use \emph{Cites} and
+in particular declare relationships to tools.  If these are not
+registred, use the name of their binary name as the name of the related
+resource; this will very typically be lowercase-only.
 
-\todo{do we want i18n-ed titles?}
+Each capability should correspond to a translation of the document.  It
+is recommended to list the English-language version first if it exists.
+
+The following description of the \vorent{doc:DocFile} capability
+is generated from the schema file:
+
+% GENERATED: !schemadoc DocRegExt-1.xsd DocFile
+% /GENERATED
+
+\subsection{DocRegExt in RegTAP}
+\label{sect:docregext-regtap}
 
 In the relational registry \citep{2014ivoa.spec.1208D}, DocRegExt is
 entirely represented in the \verb|res_details|, with details
@@ -465,21 +489,19 @@ entirely represented in the \verb|res_details|, with details
 
 \begin{itemize}
 
-\item \texttt{/language} -- A language the document is available in.{}
+\item \texttt{/capability/language} -- the document language as an RFC
+3066 language code.
 
-\item \texttt{/accessURL} -- A URL allowing access to one or more
-renderings of the document.{}
+\item \texttt{/capability/accessURL} -- a URI at which the document can be
+retrieved.  A PDF version is preferred.
 
-\item \texttt{/sourceURI} -- A URL allowing access to an editable version of the document.{}
-
+\item \texttt{capability/sourceURI} -- a URI for an editable version of
+the document (e.g., a VCS URL, an office document)..
 \end{itemize}
+
 Here is a (slightly abridged) example record:
 
-TBD: should we use ISO-3166-1 two letter 
-country codes or ISO-639-2 two letter language codes?\\
-MMo: I vote for 639-2. This shouldn't require changes now, 
-but it's better to clarify it in advance IMHO.
-
+\lstinputlisting[language=XML,basicstyle=\footnotesize]{m1distance-example.xml}
 
 \subsection{A versioned repository for tutorials}
 
