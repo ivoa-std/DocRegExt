@@ -1,38 +1,42 @@
-<dl xmlns='http://www.w3.org/1999/xhtml'>
+\begin{thebibliography}{xx}
 
-<dt><a name="std:RI1">[std:RI1] Kevin Benson, Ray Plante, Elizabeth Auden,
-  Matthew Graham, Gretchen Greene, Martin Hill, Tony Linde, Dave Morris, Wil
-  O'Mullane, Guy Rixon, Aurélien Stébé, and Kona Andrews, Kevin Benson and
-  Ray Plante, editors.</a></dt> <dd>
-  <a href="http://www.ivoa.net/Documents/RegistryInterface/" >IVOA registry
-  interfaces version 1.0</a>.
-  IVOA Recommendation, 2009.
-</dd>
+\harvarditem[{Benson} \harvardand\ {Plante} et~al.]{{Benson}, {Plante},
+  {Auden}, {Graham}, {Greene}, {Hill}, {Linde}, {Morris}, {O`Mullane}, {Rixon},
+  {St{\'e}b{\'e}} \harvardand\ {Andrews}}{2009}{2009ivoa.spec.1104B}
+{Benson}, K., {Plante}, R., {Auden}, E., {Graham}, M., {Greene}, G., {Hill},
+  M., {Linde}, T., {Morris}, D., {O`Mullane}, W., {Rixon}, G., {St{\'e}b{\'e}},
+  A. \harvardand\ {Andrews}, K.  \harvardyearleft 2009\harvardyearright ,
+  `{IVOA Registry Interfaces Version 1.0}', IVOA Recommendation 04 November
+  2009,  arXiv:1110.0513.
+\newline\url{http://adsabs.harvard.edu/abs/2009ivoa.spec.1104B}
 
-<dt><a name="std:REGTAP">[std:REGTAP] Markus Demleitner, Paul Harrison, Marco
-  Molinaro, Gretchen Greene, Theresa Dower, and Menelaos Perdikeas, Markus
-  Demleitner, editor.</a></dt> <dd>
-  <a href="http://www.ivoa.net/documents/RegTAP/" >IVOA registry relational
-  schema</a>.
-  IVOA Working Draft, 2013.
-</dd>
+\harvarditem[{Demleitner} \harvardand\ {Harrison} et~al.]{{Demleitner},
+  {Harrison}, {Molinaro}, {Greene}, {Dower} \harvardand\
+  {Perdikeas}}{2014}{2014ivoa.spec.1208D}
+{Demleitner}, M., {Harrison}, P., {Molinaro}, M., {Greene}, G., {Dower}, T.
+  \harvardand\ {Perdikeas}, M.  \harvardyearleft 2014\harvardyearright , `{IVOA
+  Registry Relational Schema Version 1.0}', IVOA Recommendation 08 December
+  2014,  arXiv:1510.02275.
+\newline\url{http://adsabs.harvard.edu/abs/2014ivoa.spec.1208D}
 
-<dt><a name="std:STDREGEXT">[std:STDREGEXT] Paul Harrison, Douglas Burke, Ray
-  Plante, Guy Rixon, and Dave Morris.</a></dt> <dd>
-  <a
-  href="http://www.ivoa.net/Documents/StandardsRegExt/20120508/REC-StandardsRegExt-1.0-20120508.html"
-  >StandardsRegExt: a VOResource schema extension for describing IVOA
-  standards, version 1.0</a>.
-  IVOA Recommendation, May 2012.
-</dd>
+\harvarditem[{Harrison} \harvardand\ {Burke} et~al.]{{Harrison}, {Burke},
+  {Plante}, {Rixon}, {Morris} \harvardand\ {IVOA Registry Working
+  Group}}{2012}{2012ivoa.spec.0508H}
+{Harrison}, P., {Burke}, D., {Plante}, R., {Rixon}, G., {Morris}, D.
+  \harvardand\ {IVOA Registry Working Group}  \harvardyearleft
+  2012\harvardyearright , `{StandardsRegExt: a VOResource Schema Extension for
+  Describing IVOA Standards Version 1.0}', IVOA Recommendation 08 May 2012,
+  arXiv:1402.4745.
+\newline\url{http://adsabs.harvard.edu/abs/2012ivoa.spec.0508H}
 
-<dt><a name="std:VOR">[std:VOR] Raymond Plante, Kevin Benson, Matthew Graham,
-  Gretchen Greene, Paul Harrison, Gerard Lemson, Tony Linde, Guy Rixon, and
-  Aurélien Stébé.</a></dt> <dd>
-  <a href="http://www.ivoa.net/Documents/REC/ReR/VOResource-20080222.html"
-  >VOResource: an XML encoding schema for resource metadata version
-  1.03</a>.
-  IVOA Recommendation, February 2008.
-</dd>
+\harvarditem[{Plante} \harvardand\ {Benson} et~al.]{{Plante}, {Benson},
+  {Graham}, {Greene}, {Harrison}, {Lemson}, {Linde}, {Rixon}, {St{\'e}b{\'e}}
+  \harvardand\ {IVOA Registry Working Group}}{2008}{2008ivoa.spec.0222P}
+{Plante}, R., {Benson}, K., {Graham}, M., {Greene}, G., {Harrison}, P.,
+  {Lemson}, G., {Linde}, T., {Rixon}, G., {St{\'e}b{\'e}}, A. \harvardand\
+  {IVOA Registry Working Group}  \harvardyearleft 2008\harvardyearright ,
+  `{VOResource: an XML Encoding Schema for Resource Metadata Version 1.03}',
+  IVOA Recommendation 22 February 2008,  arXiv:1110.0515.
+\newline\url{http://adsabs.harvard.edu/abs/2008ivoa.spec.0222P}
 
-</dl>
+\end{thebibliography}
