@@ -49,11 +49,11 @@
   <xs:complexType name="Edition">
     <xs:annotation>
       <xs:documentation>
-        An "edition" (typically: translation) of the document.
+        An “edition” (typically: translation) of the document.
       </xs:documentation>
       <xs:documentation>
         Although for a while, multiple editions of the document in one language
-        may be given (corresponding perhaps to two "major versions), in
+        may be given (corresponding perhaps to two “major” versions), in
         general, only the latest version of the document per language should be
         given.
 

@@ -338,20 +338,22 @@ researchers:
 
 \begin{itemize}
 
-\item EURO-VO AIDA WP5 - \url{http://wwwas.oats.inaf.it/aidawp5/eng_download.html}
+\item EURO-VO AIDA WP5 -- \url{http://wwwas.oats.inaf.it/aidawp5/eng_download.html}
 
-\item EURO-VO Scientific Tutorials - \url{http://www.euro-vo.org/?q=science/scientific-tutorials}
+\item EURO-VO Scientific Tutorials -- \url{http://www.euro-vo.org/?q=science/scientific-tutorials}
 
-\item VAO for Education - \url{http://virtualobservatory.org/education/}
+\item GAVO tutorials --
+\url{http://www.g-vo.org/pmwiki/Documents/Tutorials}
 
+\item CDS tutorials -- \url{http://cdsweb.u-strasbg.fr/tutorials/}
 \end{itemize}
 
 
 To date, such material has been collected informally by the various
 projects on plain web pages.  It is, in consequence, hard to find, with
-knowledge of it often passed on antecdotically. In order to improve upon 
+knowledge of its existence often passed on antecdotically. In order to improve upon 
 this situation, we
-propose to keep record of educational material in the registry.
+propose to keep record of educational material in the VO Registry.
 
 The VO already has a registry extension for standards, which of
 course are also text-like, StandardsRegExt \citep{2012ivoa.spec.0508H}.  This extension,
@@ -360,8 +362,10 @@ vocabularies and status – that is not pertinent for educational
 material.  Conversely, it is not concerned with document language (which
 can safely be assumed to be English for standards), and it disregards
 the issue of locating formatted and source versions, which for educational
-material is important.  We therefore propose a simple registry extension
-covering text-like material, dubbed DocRegExt.
+material is important.  
+
+Therefore, we believe text-like material should be described in a 
+registry extension of its own: DocRegExt.
 
 
 \subsection{Use Cases}
@@ -380,10 +384,10 @@ holes? (Standard VOResource is sufficient){}
 \item Is there a tutorial covering working with X-Ray data? (Standard
 VOResource is sufficient){}
 
-\item Is there a tutorial dealing with Planets suitable for school use?
+\item Is there a tutorial dealing with planets suitable for school use?
 (Standard VOResource is sufficient){}
 
-\item Is there a tutorial dealing with Planets suitable for school use in
+\item Is there a tutorial dealing with planets suitable for school use in
 Italian? (That requires the declaration of the document language){}
 
 \item What are the subjects of maintained (in the sense of: probably
@@ -418,7 +422,7 @@ title of the text changed, standard VOResource should suffice){}
 \end{itemize}
 
 An important additional use case is enabling an attractive, browsable
-``roster'' of registred educational material.  A first attempt at such a
+list of registred educational material.  A first attempt at such a
 service is GAVO's VO Text Treasures (VOTT)
 service\footnote{\url{http://dc.g-vo.org/VOTT}}.  It was found that one
 requirement resulting from this use case is direct access to formatted
@@ -433,12 +437,29 @@ so useful that we propose to include it in a DocRegExt.
 
 \subsection{A Document Registry Extension}
 
+%% NOTE: When you change the schema, make Markus run a 
+%% make install-schema
+%% to update the current "canonical" schema location.
+
 \label{sect:regext-ext}
 
 To satisfy the requirements derived above, we have designed a registry extension with
-two definitions. First, we re-use the \vorent{vs:CatalogService} type
+two definitions. 
+To avoid unnecessary incompatibilities when migrating to a proper IVOA
+standard, we use the namespace URI
+
+$$\hbox{\nolinkurl{http://www.ivoa.net/xml/DocRegExt-1.xsd}}$$
+
+for DocRegExt even while the schema cannot actually retrieved from
+there.  The canonical schema location until the extension is endorsed by
+the IVOA is \url{http://docs.g-vo.org/xml/DocRegExt-1.xsd}.
+
+The recommended schema prefix for DocRegExt is \texttt{doc}.
+
+To let authors define comprehensive metadata, the schema
+re-uses the \vorent{vs:CatalogService} type
 from VODataService 1.1 \citep{2010ivoa.spec.1202P} to construct
-the \texttt{doc:Document} resource type.  
+the \vorent{doc:Document} resource type.
 
 While the schema does not limit what kinds of capabilities a
 \vorent{doc:Document} record has -- it is conceivable that tailored
@@ -449,9 +470,6 @@ semantics a bit.  We argue, however, that these documents can well be
 understood as parameterless service endpoints.  Using capabilities
 furthermore allows a complete representation of the metadata in RegTAP
 without any extra tables (cf.~sect.~\ref{sect:docregext-regtap}).
-
-For reference, Appendix \ref{app:schema} contains a rendering of the
-extension schema as of the publication of the note.  
 
 The resource-level reference URL in \vorent{doc:Document} records should
 be some sort of landing page with an abstract of the text and links to
@@ -490,12 +508,12 @@ is generated from the schema file.
       	\hbox to 5.5em{\emph{#1}\hfil}}\vspace{2ex}\noindent\textbf{\xmlel{doc:Edition} Type Schema Documentation}
 
 \noindent{\small
-        An "edition" (typically: translation) of the document.
+        An “edition” (typically: translation) of the document.
       \par}
 
 \noindent{\small
         Although for a while, multiple editions of the document in one language
-        may be given (corresponding perhaps to two "major versions), in
+        may be given (corresponding perhaps to two “major” versions), in
         general, only the latest version of the document per language should be
         given.
 
@@ -616,7 +634,8 @@ WHERE
 \end{lstlisting}
 
 
-Here is a (slightly abridged) example record (TBD: update this):
+Here is a (slightly abridged) example record\todo{Update this to the new
+schema}:
 
 \lstinputlisting[language=XML,basicstyle=\footnotesize]{m1distance-example.xml}
 
@@ -628,14 +647,20 @@ Registering text document as VO resources allows searching for tutorials
 and similar 
 material through standard registry interfaces, but keeping 
 tutorials up to date, in their master form and also in their translated 
-versions, is another important issue to allow proficient use.
-A versioned repository (using subversion as the version control system) 
+versions, is an obviously important management issue not really
+addressed by the Registry.
+
+For tracking changes and versions, the standard tool is a version
+control system.  Therefore,
+a versioned repository (using subversion as the version control system) 
 has been set up at GAVO data
-center\footnote{\url{http://svn.ari.uni-heidelberg.de/svn/edu/}} 
-and collects part of the
-already existing VO tutorials with the goal of preserve them and let users 
+center\footnote{\url{http://svn.ari.uni-heidelberg.de/svn/edu/}}.
+It collects part of the
+already existing VO tutorials with the goal of preserving them and
+letting users 
 update and translate them.
-The repository has an internal structure that takes care for:
+
+The repository has an internal structure designed to enable:
 
 \begin{itemize}
 
@@ -742,21 +767,6 @@ the element is not empty. Morever, of this 1\% (165 resources),
 while 148 (90\%) state that are also devoted to some 
 \emph{education} level (up to 
 \emph{university}).
-
-
-\section{The proposed DocRegExt Schema}
-
-\label{app:schema}
-
-The following XML schema is given here for reference and convenience.
-It should not be used in software development.  As long as the schema is
-not formally endorsed by the IVOA, the authoritative version is the one
-on
-Volute\footnote{\url{https://volute.g-vo.org/svn/trunk/projects/edu/edumatters/DocRegExt-1.xsd}}.
-We intend to have it endorsed by the IVOA, after which the canonical
-source will be the IVOA schema repository.
-
-\lstinputlisting[language=XML]{DocRegExt-1.xsd}
 
 \bibliography{ivoatex/ivoabib,ivoatex/docrepo}
 

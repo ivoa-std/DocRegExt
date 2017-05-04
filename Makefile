@@ -26,3 +26,6 @@ VECTORFIGURES =
 AUX_FILES = 
 
 include ivoatex/Makefile
+
+install-schema:
+	scp DocRegExt-1.xsd alnilam:/var/www/docs/xml/
