@@ -636,8 +636,17 @@ WHERE
   res_type='doc:document'
 \end{lstlisting}
 
+\subsection{An Example DocRegExt Record}
 
-Here is a (slightly abridged) example record:
+The following example record corresponds to an actual resource.  It
+omits curation information and two of the available languages.  Long
+URLs have been wrapped for typographic reasons; of course, in actual
+records, no whitespace is allowed within URLs (but since
+\xmlel{accessURL} is of type \xmlel{xs:token}, leading and trailing
+whitespace is discarded).  Also note that no \doit{source} interfaces
+are given for the German and Spanish versions.  This is because the
+corresponding files were lost (see sect.~\ref{sect:svn-repo} for a
+proposal designed to reduce such problems).
 
 \lstinputlisting[language=XML,basicstyle=\footnotesize]{m1distance-example.xml}
 
