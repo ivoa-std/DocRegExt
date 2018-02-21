@@ -449,18 +449,20 @@ two definitions.
 To avoid unnecessary incompatibilities when migrating to a proper IVOA
 standard, we use the namespace URI
 
-$$\hbox{\nolinkurl{http://www.ivoa.net/xml/DocRegExt-1.xsd}}$$
+$$\hbox{\nolinkurl{http://www.ivoa.net/xml/DocRegExt/v1/}}$$
 
 for DocRegExt even while the schema cannot actually retrieved from
 there.  The canonical schema location until the extension is endorsed by
-the IVOA is \url{http://docs.g-vo.org/xml/DocRegExt-1.xsd}.
+the IVOA is \url{http://docs.g-vo.org/xml/DocRegExt/v1}.
 
 The recommended schema prefix for DocRegExt is \texttt{doc}.
 
 To let authors define comprehensive metadata, the schema
 re-uses the \vorent{vs:CatalogService} type
 from VODataService 1.1 \citep{2010ivoa.spec.1202P} to construct
-the \vorent{doc:Document} resource type.
+the \vorent{doc:Document} resource type.  We import the schema by major
+version, such that further enhancements within the VODataService version
+1 series will apply to DocRegExt records, too.
 
 While the schema does not limit what kinds of capabilities a
 \vorent{doc:Document} record has -- it is conceivable that tailored
@@ -635,8 +637,7 @@ WHERE
 \end{lstlisting}
 
 
-Here is a (slightly abridged) example record\todo{Update this to the new
-schema}:
+Here is a (slightly abridged) example record:
 
 \lstinputlisting[language=XML,basicstyle=\footnotesize]{m1distance-example.xml}
 

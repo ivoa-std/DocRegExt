@@ -1,15 +1,15 @@
 <vr:Resource 
-	created="2014-02-06T13:23:00Z" 
-	status="active" 
-	updated="2014-02-06T14:15:41" 
-	xsi:type="doc:Document" 
-	xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:doc="http://www.ivoa.net/xml/DocRegExt/v1.0">
+  created="2014-02-06T13:23:00Z" 
+  status="active" 
+  updated="2014-02-06T14:15:41" 
+  xsi:type="doc:Document" 
+  xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:doc="http://www.ivoa.net/xml/DocRegExt/v1.0">
   <title>Distance to the Crab Nebula</title>
   <identifier>ivo://aida/tutorials/08_m1_distance</identifier>
   <curation>
-  	[...]
+    [...]
   </curation>
   <content>
     <subject>Virtual observatory</subject>
@@ -21,15 +21,44 @@
     angular and linear dimensions.</description>
     <referenceURL>http://wwwas.oats.inaf.it/aidawp5/eng_download.html</referenceURL>
     <relationship>
-      <relationshipType>uses</relationshipType>
-      <relatedResource>The ALADIN image server</relatedResource>
+      <relationshipType>Cites</relationshipType>
+      <relatedResource ivo-id="ivo://CDS/aladin"
+        >The ALADIN image server</relatedResource>
+      <relatedResource>Aladin</relatedResource>
     </relationship>
   </content>
-  <language>de</language>
-  <language>en</language>
-  <language>es</language>
-  <language>fr</language>
-  <language>it</language>
-  <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance</accessURL>
-  <sourceURI>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance</sourceURI>
+
+  <capability xsi:type="doc:Edition">
+    <language>en</language>
+    <locTitle>Distance of the Crab Nebula</locTitle>
+    <interface role="rendered">
+      <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/
+      	en/en_aida_08_m1_distance.pdf</accessURL>
+    </interface>
+    <interface role="source">
+      <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/
+      	aida_08_m1_distance/en/en_aida_08_m1_distance.doc</accessURL>
+    </interface>
+  </capability>
+
+  <capability xsi:type="doc:Edition">
+    <language>de</language>
+    <locTitle>Die Entfernung zum Krebsnebel</locTitle>
+    <interface role="rendered">
+      <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/
+      	de/de_aida_08_m1_distance.pdf</accessURL>
+    </interface>
+    <!-- source lost -->
+  </capability>
+
+  <capability xsi:type="doc:Edition">
+    <language>es</language>
+    <locTitle>Distancia a la Nebulosa del Cancrejo</locTitle>
+    <interface role="rendered">
+      <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/
+      	es/es_aida_08_m1_distance.pdf</accessURL>
+    </interface>
+    <!-- Ouch: another lost source -->
+  </capability>
+
 </vr:Resource>
