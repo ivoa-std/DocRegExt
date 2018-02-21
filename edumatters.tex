@@ -108,224 +108,6 @@ internationalization in the resources.
 
 
 
-\section{A Curated Registry for Education}
-
-\label{sect:curreg}
-
-
-From a technical point of view the registration of educational services
-does not require extensions
-to the existing for VOResource standard \citep{2008ivoa.spec.0222P}.
-The only real need for investigating changes to what already exists is due to a
-use case's distinction between resources to be used in teaching and dissemination
-versus all the research driven resources that exist in the VO.
-
-
-
-For simplicity here we will distinguish these two groups of resources as
-\emph{educational}
- and 
-\emph{professional}
- but without any intent of putting them
-on different levels of importance.
-
-
-
-\subsection{Educational vs. Professional Resources}
-
-\label{sect:eduvspro}
-
-
-On the one side, teachers and educators may find it difficult to filter out 
-from all VO resources those that are suitable for their tutorials and
-examples. On the other side, educational resources should not be retrieved 
-by a standard professional query.
-Given that it is not a matter of data quality, but only a distinction upon 
-the resources' scope, nevertheless this duality leads to an issue about the
-proper way to tag resources for educational usage.
-  
-
-
-In the next subsection we propose a possible tagging solution, based upon 
-the existing 
-\vorent{ContentLevel}
-element of VOResource, but requiring a small change
-to it. The subsequent subsection describes the idea of a
-curated registry for educational resources and the reasons for it to exist.
-  
-
-
-\subsection{ContentLevel granularity issue}
-
-\label{sect:contentlvl}
-
-VOResource already has the 
-\vorent{ContentLevel}
-element
-allowing data publishers to optionally identify their resources as being 
-suitable for one or more of the following audiences:
-
-
-\begin{itemize}
-
-\item General{}
-
-\item Elementary Education{}
-
-\item Middle School Education{}
-
-\item Secondary Education{}
-
-\item Community College{}
-
-\item University{}
-
-\item Research{}
-
-\item Amateur{}
-
-\item Informal Education{}
-
-\end{itemize}
-
-This element turns out to be misused by many publishers, presumably because
-it is not really clear what the subtle differences between the available
-possibilities are; also, to require a fairly substantial enumeration to
-convey ``for school use'' seems, in retrospect, not likely to promote
-widespread adoption. We hence propose to simplify the content model
-to:
-
-
-\begin{itemize}
-
-\item General{}
-
-\item Research{}
-
-\item Amateur{}
-
-\end{itemize}
-
-We expect this to reach two goals:
-  
-\begin{itemize}
-
-\item to make publishers to better describe (on the average)
-    their resources{}
-
-\item to providing a tagging solution that suits a first filtering 
-    on the resources at client level{}
-
-\end{itemize}
-
-Of course, the chance to 
-add an 
-\emph{Educational}
-value option to this shrinked list, or even
-substitute it to the 
-\emph{General}
-one, would be a valuable change.
-  
-
-
-This change in the already existing standard will require only 
-a small effort to update already registered resources because nearly 97\% of 
-them currently have \vorent{ContentLevel} set to 
-\emph{research}, about 2\% of them have
-no \vorent{ContentLevel} defined at all and only the remaining have a different value
-(or set of values) set for this element (Appendix \ref{app:clcurrval} details better these
-figures).
-  
-
-Until the change in VOResource can be performed, it
-can work as a ``best practice'' recommendation, possibly even at a
-registry level, where registries can map existing 
-\vorent{ContentLevel} values 
-  of 
-\emph{University}
- to 
-\emph{Research}
- and
-  everything else except 
-\emph{Amateur}
- to 
-\emph{General}.
-.
-
-
-\subsection{Curating the Edu Registry}
-
-\label{sect:edureg}
-
-
-Even in the case of the simplified 
-\vorent{ContentLevel}
-tagging system
-a curated registry for educational VO resources will be useful for
-educators in order to let their students work with a registry without having to
-worry about confusing material or overwhelming data sizes. A good example
-for this is the educational version of the Aladin sky atlas that has a
-built in, curated set of resources suitable for educational level 
-tutorials.
-  
-
-
-Curation will require some effort in managing and keeping up to date
-such a registry but, most important, it is subjected to  some restrictions coming from
-the IVOA resource registry architecture. 
-  
-
-
-If such a registry were a standard publishing registry as laid down in
-Registry Interfaces
-\citep{2009ivoa.spec.1104B},
-its resources would be harvested by the full registries: this means 
-that any dedicated educational resource would end up in the full VO 
-set of resources.  For reasons mentioned above, this is not
-desirable.
-
-
-If it were to be a full registry, it will harvest itself all the existing
-resources, and not all of them will fit, or be suitable for, the educational
-scope the registry has to be preserved for.
-  
-
-
-We need a resource (the curated, in Registry Interfaces
-parlance, local, registry) capable of:
-  
-\begin{itemize}
-
-\item 
-\emph{selectively}
- harvesting the existing VO resources 
-	(e.g., from a full registry);{}
-
-\item register its own educational resources without being directly
-	harvested by full registries (e.g., this could be done using a
-	sibling publishing registry dedicated to host those educational
-	resources that are to be harvested by the standard full registries.{}
-
-\end{itemize}
-
-This solution, also presented in Fig. 1, will not touch the existing architecture
-while giving flexibility for the emerging educational resources to 
-be curated.
-  
-
-
-\begin{figure}
-
-\includegraphics[width=0.9\textwidth]{curation.png}
-\caption{Graphic illustration
-    of the connecting interfaces between full registries and the educational
-    curated one. The 
-\emph{auxiliary}
- publishing is the only automatic token
-    from the edu part.}
-\label{fig:curation}
-\end{figure}
-
 \section{Registering Texts}
 
 \label{sect:regext}
@@ -643,7 +425,8 @@ omits curation information and two of the available languages.  Long
 URLs have been wrapped for typographic reasons; of course, in actual
 records, no whitespace is allowed within URLs (but since
 \xmlel{accessURL} is of type \xmlel{xs:token}, leading and trailing
-whitespace is discarded).  Also note that no \doit{source} interfaces
+whitespace is discarded).  Also note that interfaces with
+\textit{source} roles
 are given for the German and Spanish versions.  This is because the
 corresponding files were lost (see sect.~\ref{sect:svn-repo} for a
 proposal designed to reduce such problems).
@@ -694,6 +477,224 @@ The repository is intended to work as a space for cooperative
 VO tutorials development.
 
 
+
+\section{A Curated Registry for Education}
+
+\label{sect:curreg}
+
+
+From a technical point of view the registration of educational services
+does not require extensions
+to the existing for VOResource standard \citep{2008ivoa.spec.0222P}.
+The only real need for investigating changes to what already exists is due to a
+use case's distinction between resources to be used in teaching and dissemination
+versus all the research driven resources that exist in the VO.
+
+
+
+For simplicity here we will distinguish these two groups of resources as
+\emph{educational}
+ and 
+\emph{professional}
+ but without any intent of putting them
+on different levels of importance.
+
+
+
+\subsection{Educational vs. Professional Resources}
+
+\label{sect:eduvspro}
+
+
+On the one side, teachers and educators may find it difficult to filter out 
+from all VO resources those that are suitable for their tutorials and
+examples. On the other side, educational resources should not be retrieved 
+by a standard professional query.
+Given that it is not a matter of data quality, but only a distinction upon 
+the resources' scope, nevertheless this duality leads to an issue about the
+proper way to tag resources for educational usage.
+  
+
+
+In the next subsection we propose a possible tagging solution, based upon 
+the existing 
+\vorent{ContentLevel}
+element of VOResource, but requiring a small change
+to it. The subsequent subsection describes the idea of a
+curated registry for educational resources and the reasons for it to exist.
+  
+
+
+\subsection{ContentLevel granularity issue}
+
+\label{sect:contentlvl}
+
+VOResource already has the 
+\vorent{ContentLevel}
+element
+allowing data publishers to optionally identify their resources as being 
+suitable for one or more of the following audiences:
+
+
+\begin{itemize}
+
+\item General{}
+
+\item Elementary Education{}
+
+\item Middle School Education{}
+
+\item Secondary Education{}
+
+\item Community College{}
+
+\item University{}
+
+\item Research{}
+
+\item Amateur{}
+
+\item Informal Education{}
+
+\end{itemize}
+
+This element turns out to be misused by many publishers, presumably because
+it is not really clear what the subtle differences between the available
+possibilities are; also, to require a fairly substantial enumeration to
+convey ``for school use'' seems, in retrospect, not likely to promote
+widespread adoption. We hence propose to simplify the content model
+to:
+
+
+\begin{itemize}
+
+\item General{}
+
+\item Research{}
+
+\item Amateur{}
+
+\end{itemize}
+
+We expect this to reach two goals:
+  
+\begin{itemize}
+
+\item to make publishers to better describe (on the average)
+    their resources{}
+
+\item to providing a tagging solution that suits a first filtering 
+    on the resources at client level{}
+
+\end{itemize}
+
+Of course, the chance to 
+add an 
+\emph{Educational}
+value option to this shrinked list, or even
+substitute it to the 
+\emph{General}
+one, would be a valuable change.
+  
+
+
+This change in the already existing standard will require only 
+a small effort to update already registered resources because nearly 97\% of 
+them currently have \vorent{ContentLevel} set to 
+\emph{research}, about 2\% of them have
+no \vorent{ContentLevel} defined at all and only the remaining have a different value
+(or set of values) set for this element (Appendix \ref{app:clcurrval} details better these
+figures).
+  
+
+Until the change in VOResource can be performed, it
+can work as a ``best practice'' recommendation, possibly even at a
+registry level, where registries can map existing 
+\vorent{ContentLevel} values 
+  of 
+\emph{University}
+ to 
+\emph{Research}
+ and
+  everything else except 
+\emph{Amateur}
+ to 
+\emph{General}.
+.
+
+
+\subsection{Curating the Edu Registry}
+
+\label{sect:edureg}
+
+
+Even in the case of the simplified 
+\vorent{ContentLevel}
+tagging system
+a curated registry for educational VO resources will be useful for
+educators in order to let their students work with a registry without having to
+worry about confusing material or overwhelming data sizes. A good example
+for this is the educational version of the Aladin sky atlas that has a
+built in, curated set of resources suitable for educational level 
+tutorials.
+  
+
+
+Curation will require some effort in managing and keeping up to date
+such a registry but, most important, it is subjected to  some restrictions coming from
+the IVOA resource registry architecture. 
+  
+
+
+If such a registry were a standard publishing registry as laid down in
+Registry Interfaces
+\citep{2009ivoa.spec.1104B},
+its resources would be harvested by the full registries: this means 
+that any dedicated educational resource would end up in the full VO 
+set of resources.  For reasons mentioned above, this is not
+desirable.
+
+
+If it were to be a full registry, it will harvest itself all the existing
+resources, and not all of them will fit, or be suitable for, the educational
+scope the registry has to be preserved for.
+  
+
+
+We need a resource (the curated, in Registry Interfaces
+parlance, local, registry) capable of:
+  
+\begin{itemize}
+
+\item 
+\emph{selectively}
+ harvesting the existing VO resources 
+	(e.g., from a full registry);{}
+
+\item register its own educational resources without being directly
+	harvested by full registries (e.g., this could be done using a
+	sibling publishing registry dedicated to host those educational
+	resources that are to be harvested by the standard full registries.{}
+
+\end{itemize}
+
+This solution, also presented in Fig. 1, will not touch the existing architecture
+while giving flexibility for the emerging educational resources to 
+be curated.
+  
+
+
+\begin{figure}
+
+\includegraphics[width=0.9\textwidth]{curation.png}
+\caption{Graphic illustration
+    of the connecting interfaces between full registries and the educational
+    curated one. The 
+\emph{auxiliary}
+ publishing is the only automatic token
+    from the edu part.}
+\label{fig:curation}
+\end{figure}
 
 
 \appendix
