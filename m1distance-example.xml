@@ -29,7 +29,7 @@
   </content>
 
   <capability xsi:type="doc:Edition">
-    <language>en</language>
+    <languageCode>en-us</languageCode>
     <locTitle>Distance of the Crab Nebula</locTitle>
     <interface role="rendered">
       <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/
@@ -42,7 +42,7 @@
   </capability>
 
   <capability xsi:type="doc:Edition">
-    <language>de</language>
+    <languageCode>de-de</languageCode>
     <locTitle>Die Entfernung zum Krebsnebel</locTitle>
     <interface role="rendered">
       <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/
@@ -52,7 +52,7 @@
   </capability>
 
   <capability xsi:type="doc:Edition">
-    <language>es</language>
+    <languageCode>es-es</languageCode>
     <locTitle>Distancia a la Nebulosa del Cancrejo</locTitle>
     <interface role="rendered">
       <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/

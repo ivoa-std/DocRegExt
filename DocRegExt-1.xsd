@@ -71,7 +71,7 @@
     <xs:complexContent>
       <xs:extension base="vr:Capability">
         <xs:sequence>
-          <xs:element name="language" type="xs:token"
+          <xs:element name="languageCode" type="xs:token"
             minOccurs="1" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>

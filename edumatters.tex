@@ -538,7 +538,7 @@ is generated from the schema file.
   <xs:complexContent >
     <xs:extension base="vr:Capability" >
       <xs:sequence >
-        <xs:element name="language" type="xs:token" minOccurs="1"
+        <xs:element name="languageCode" type="xs:token" minOccurs="1"
                   maxOccurs="1" />
         <xs:element name="locTitle" type="xs:token" minOccurs="0"
                   maxOccurs="1" />
@@ -550,7 +550,7 @@ is generated from the schema file.
 
 \vspace{0.5ex}\noindent\textbf{\xmlel{doc:Edition} Extension Metadata Elements}
 
-\begingroup\small\begin{bigdescription}\item[Element \xmlel{language}]
+\begingroup\small\begin{bigdescription}\item[Element \xmlel{languageCode}]
 \begin{description}
 \item[Type] string: \xmlel{xs:token}
 \item[Meaning] 
@@ -560,7 +560,7 @@ is generated from the schema file.
 \item[Occurrence] required
 \item[Comment] 
                 The country codes must be given in all lowercase.  This
-                results in strings like en-us, de-de, or es-mx.
+                results in strings like en-us, de-de, es-es, or es-mx.
 
                 This language is also the language for locTitle, 
                 irrespective or that element's xml:lang setting.
