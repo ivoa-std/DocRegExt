@@ -27,96 +27,74 @@
 \begin{document}
 
 \begin{abstract}
-
-The goal of this IVOA Note is to introduce and explain practices followed
-and requirements found while creating and 
-deploying astrophysical resources 
-dedicated to educational purposes ranging from pre-school outreach
-material to courseware intended for active researchers
-within the standard VO framework.
-Issues, proposed solutions and desirables are here reported to be
-possibly taken into account in future modifications of relevant
-standards.
-
-
-
+Following the spirit of the Virtual Observatory (VO), the production and
+provision of services and material to teach VO usage, both for
+introducting VO workflows and as an element of a larger astronomy
+curriculum, proceeds in a decentralised manner.  This poses at least two
+challenges: First, such material needs to be discoverable, ideally in
+both source and rendered forms.  Second, resources suitable for use in
+outreach and education, targeted at diverse audiences ranging for
+pre-school to researchers also need to be discoverable against the
+background of tens of thousands resources targeted at research
+astronomers.  This document proposes solutions to both of these
+challenges.
 \end{abstract}
 
 
 \section{Introduction}
 
-Advances in technology and communications are creating new and exciting 
+The Virtual Observatory is a complex tool, introducing numerous
+technologies not immediately familiar to the average astronomer.
+In enabling university level students
+and active researchers to fully exploit the VO's capabilities, course
+materials and worked-out use-cases have been found an efficient means of
+developing the necessary skills both in interactive course situations
+like ``VO Days'' and beyond.  
+Efficient ways for interested users to locate such
+material as well as for VO operators to curate it are highly desirable.
+
+At the same time, advances in technology and 
+communications are creating new and exciting 
 opportunities for teachers to bring astronomy into their 
 classrooms.  As the VO makes science-grade data publicly available and
 classroom sets of (suitably) networked PCs are now standard in schools,
-exciting projects come within reach of teachers.  In order to make things 
-happen, it is important to disseminate material to help teachers
-tap into these resources.  These include documented step-by-step
+exciting projects come within reach of teachers.  To realise these
+potentials,
+it is necessary to disseminate educational material to help teachers
+in preparing classes.  Such material includes documented step-by-step
 tutorials, use cases explaining how to perform basic astrophysical research 
 using VO tools and resources, and similar exist in various formats and
 have been translated in different languages.
 
-At the same time, the VO as used in research is a complex tool,
-introducing many novel techniques.  To enable university level students
-and active researchers to fully exploit the VO's capabilities, course
-materials and worked-out use-cases have been found an efficient means of
-developing the necessary skills far beyond interactive course situations
-like ``VO Days''.  Efficient ways for interested users to locate such
-material as well as for VO operators to curate it are highly desirable.
+Hence, both training professionals for VO exploitation and the provision
+of educational material to school teachers and the greater public
+require some way of handling metadata on the available material.  Since
+the VO has no central body that could curate such a metadata collection
+but instead uses a decentralised registry for the similar problem of
+service discovery, it seems natural to employ the VO Registry for
+metadata management in text resources as well.  This is what the first
+part of this document endeavours to do.
 
-New opportunities also come on the observational side. 
-There is a growing availability of remotely controlled 
-telescopes dedicated to education in many countries world-wide, from the 
-Bradford Robotic Telescope\footnote{\url{http://www.telescope.org}} on Mount
-Teide, Tenerife 
-to the radio telescopes of the Radio Physics
-Lab\footnote{\url{http://www.ncra.tifr.res.in/rpl}}, IUCAA, Pune. 
-In some cases, educational telescopes are 
-linked into a network with the aim of guaranteeing the best observing conditions, 
-including deep sky observations during regular daytime school hours, and 
-the best instrument for the particular program of interest. Examples
-of these networks are
-iTelescope.net\footnote{\url{http://www.itelescope.net}} and
-EuHOU-MW\footnote{\url{http://euhou.obspm.fr/public}}.
-
-
-
-As telescopes enter classrooms more frequently, interest is growing for a 
-public archive of observations and hence for publishing and curation tools, 
-together with the basic applications needed to retrieve, display
-and analyze data. The VO already includes most of the technology needed 
-to satisfy the requests of educational observatories. In fact, since several 
-years, VO, and in particular the European project EuroVO, is devoting part 
-of its resources to
-education\footnote{\url{http://wwwas.oats.inaf.it/aidawp5}}. It is 
-therefore a natural decision for VO to tackle the problem of publishing 
-educational data in VO archives.
-
-
-Resource registration for both educational data services and documents 
-is the most appropriate approach toward making educational resources 
-available within the VO.  While
-technically this may seem trivial, keeping too technical
-research services out of the the resources devoted to education will
-require some effort, that will also be needed in order to avoid contaminating 
-VO professional research with obviously inadequate material.
-
-In the next section we discuss the idea of educational resources curation, then 
-we work out the use cases and needs for
-registration of tutorials and documents. Finally, we discuss the idea of introducing language
-internationalization in the resources.
-
+In particular in educational settings below university level, however,
+it is frequantly desirable to, in effect, hide parts of the VO from
+users that would provide for overly frustrating experiences (e.g., data
+too complex or too unattractive for the general public, or data so
+voluminous that consumer-level hardware would fail).  In the second part
+of this document, we propose a mechanism through which a specialised
+registry could be curated to provide resources specifically selected as
+being appropriate for outreach and school-level education.
 
 
 \section{Registering Texts}
 
 \label{sect:regext}
 
-Educational material is not only about services – text-like material
-like tutorials, worked-out use cases, or textbook-like material are at
-least as important.  Within the VO community, there is a large body of
+As argued above, disseminating text-like material
+like tutorials, worked-out use cases, or larger introductions,
+is an important task in facilitating VO exploitation.  
+Within the VO community, there is a large body of
 educational material for a wide variety of audiences ranging from pre-school to
-researchers:
+researchers.  Existing collections include:
 
 \begin{itemize}
 
@@ -127,18 +105,22 @@ researchers:
 \item GAVO tutorials --
 \url{http://www.g-vo.org/pmwiki/Documents/Tutorials}
 
+\item GAVO's courses on ADQL (\url{http://docs.g-vo.org/adql}) and pvVO
+(\url{http://docs.g-vo.org/pyvo})
+
 \item CDS tutorials -- \url{http://cdsweb.u-strasbg.fr/tutorials/}
 \end{itemize}
 
 
 To date, such material has been collected informally by the various
-projects on plain web pages.  It is, in consequence, hard to find, with
+projects on plain web pages as the ones just mentioned.  
+It is, in consequence, hard to find, with
 knowledge of its existence often passed on antecdotically. In order to improve upon 
 this situation, we
 propose to keep record of educational material in the VO Registry.
 
 The VO already has a registry extension for standards, which of
-course are also text-like, StandardsRegExt \citep{2012ivoa.spec.0508H}.  This extension,
+course are also text-like: StandardsRegExt \citep{2012ivoa.spec.0508H}.  This extension,
 however, focuses on metadata important for standards – e.g.,
 vocabularies and status – that is not pertinent for educational
 material.  Conversely, it is not concerned with document language (which
@@ -183,15 +165,14 @@ unmaintained before this use case can actually be supported)
 table metadata in DocRegExt){}
 
 \item Where can I find an editable version of tutorial ivo://auth/tut1?
-(This is solved by allowing multiple access URLs with different content
-types, which should be sufficient to allow answering the question){}
+(This is solved by interfaces with a \xmlel{role} of \textit{source}).
 
-\item Are there translations of tutorial ivo://auth/tut2? (This is covered
-by the recommendations on declaring relationships between text-like
-resources){}
+\item Are there translations of tutorial ivo://auth/tut2? (This is
+solved by modelling different translations as capabilities of the same
+resource).
 
-\item Is there material using service ivo://auth/svc1? (Again, declaring
-relationships covers this use case){}
+\item Is there material using service ivo://auth/svc1? (Declaring
+standard VOResource relationships covers this use case)
 
 \item Is there material about something visible tonight? (In principle,
 allowing the coverage element withing DocRegExt resources enables this
@@ -235,34 +216,36 @@ $$\hbox{\nolinkurl{http://www.ivoa.net/xml/DocRegExt/v1/}}$$
 
 for DocRegExt even while the schema cannot actually retrieved from
 there.  The canonical schema location until the extension is endorsed by
-the IVOA is \url{http://docs.g-vo.org/xml/DocRegExt/v1}.
+the IVOA is \url{http://docs.g-vo.org/xml/DocRegExt/v1/}.
 
 The recommended schema prefix for DocRegExt is \texttt{doc}.
 
 To let authors define comprehensive metadata, the schema
-re-uses the \vorent{vs:CatalogService} type
+re-uses the \xmlel{vs:CatalogService} type
 from VODataService 1.1 \citep{2010ivoa.spec.1202P} to construct
-the \vorent{doc:Document} resource type.  We import the schema by major
+the \xmlel{doc:Document} resource type.  We import the schema by major
 version, such that further enhancements within the VODataService version
-1 series will apply to DocRegExt records, too.
+1 series will apply to DocRegExt records, too.  This in particular
+applies to the proposed extensions to declare space-time coverage
+\citep{note:regstc}.
 
 While the schema does not limit what kinds of capabilities a
-\vorent{doc:Document} record has -- it is conceivable that tailored
+\xmlel{doc:Document} record has -- it is conceivable that tailored
 services are communicated in this way --, access to actual files is
-enabled using \vorent{doc:Edition}-typed capabilities.  It may be
+enabled using \xmlel{doc:Edition}-typed capabilities.  It may be
 argued that this use of VOResource capabilities stretches their
 semantics a bit.  We argue, however, that these documents can well be
 understood as parameterless service endpoints.  Using capabilities
 furthermore allows a complete representation of the metadata in RegTAP
 without any extra tables (cf.~sect.~\ref{sect:docregext-regtap}).
 
-The resource-level reference URL in \vorent{doc:Document} records should
+The resource-level reference URL in \xmlel{doc:Document} records should
 be some sort of landing page with an abstract of the text and links to
 the full texts and perhaps the document source(s).  When using the
 versioned repository (sect.~\ref{sect:svn-repo}), this could be the
 top-level README file within the VCS.  For simple documents, it is
 acceptable to use the English-language document itself as
-\vorent{referenceURL}; documents only available in non-English should
+\xmlel{referenceURL}; documents only available in non-English should
 provide a landing page with an English-language abstract, though.
 
 The \vorent{facility} and \vorent{instrument} items should only be set
@@ -272,18 +255,18 @@ table-like structures a text deals with and facilitates discovery by
 physics via the UCDs given in the tableset.
 
 Document-typed resource records should define relations to other
-general resources (e.g., applications, services,\dots) 
+general resources (e.g., applications or services)
 they use.  VOResource 1.1 provides a vocabulary of possible
 relationships. Document records should preferably use \emph{Cites} and
 in particular declare relationships to tools.  If these are not
-registred, use the name of their binary name as the name of the related
+registred, use the name of their binary as the name of the related
 resource; this will very typically be lowercase-only.
 
-Each \vorent{Edition}-typed capability should 
+Each \xmlel{doc:Edition}-typed capability should 
 correspond to a translation of the document.  It
 is recommended to list the English-language version first if it exists.
 
-The following description of the \vorent{doc:Edition} capability
+The following description of the \xmlel{doc:Edition} capability
 is generated from the schema file.
 
 % GENERATED: !schemadoc DocRegExt-1.xsd Edition
@@ -370,8 +353,8 @@ is generated from the schema file.
 
 In the relational registry \citep{2014ivoa.spec.1208D}, DocRegExt is
 straightforwardly represented in the standard VOResource tables.  in
-particular, to find all titles and access urls for documents, one would
-write:
+particular, to find all access urls for documents together with their
+English-language titles, one would write:
 
 \begin{lstlisting}[language=SQL]
 SELECT res_title, access_url FROM
@@ -382,13 +365,13 @@ WHERE
   and intf_role='rendered'
 \end{lstlisting}
 
-The \vorent{language} and \vorent{locTitle} elements from the
-\vorent{doc:Edition} capability extension are mapped into
+The \xmlel{languageCode} and \xmlel{locTitle} elements from the
+\xmlel{doc:Edition} capability extension are mapped into
 \verb|res_details| with the following \verb|detail_xpath|s:
 
 \begin{itemize}
 
-\item \texttt{/capability/language} -- the document language as an RFC
+\item \texttt{/capability/languageCode} -- the document language as an RFC
 3066 language code.
 \item \texttt{/capability/locTitle} -- the title in the national
 languate.
@@ -397,7 +380,8 @@ languate.
 The downside of not defining an extra table for the documents is that
 the query patterns in RegTAP are somewhat clumsy.  For instance, to list
 the English and Italian titles of all texts available in Italian, one
-has to carefully join two subqueries to \verb|res_details|:
+has to carefully join two subqueries to \verb|res_details|\todo{Simplify
+this a bit}:
 
 \begin{lstlisting}[language=SQL]
 SELECT res_title, loctitle FROM
@@ -411,7 +395,7 @@ SELECT res_title, loctitle FROM
         SELECT ivoid, cap_index 
         FROM rr.res_detail
         WHERE 
-          detail_xpath='/capability/language'
+          detail_xpath='/capability/languageCode'
           AND detail_value LIKE 'it_%') AS italiancaps
     ) as loctitles
 WHERE
@@ -437,7 +421,7 @@ proposal designed to reduce such problems).
 
 \label{sect:svn-repo}
 
-Registering text document as VO resources allows searching for tutorials
+Registering text documents as VO resources allows searching for tutorials
 and similar 
 material through standard registry interfaces, but keeping 
 tutorials up to date, in their master form and also in their translated 
@@ -460,13 +444,13 @@ The repository has an internal structure designed to enable:
 
 \item different national languages (master language set to english){}
 
-\item translation vs. master language updates{}
+\item translation vs.~master language updates{}
 
 \item licensing, in order to clarify how and whether a tutorial can be changed or re-used{}
 
-\item additional materials used by tutorials{}
+\item additional material used by tutorials
 
-\item access roles to allow everyone to access tutorials but prevent untrusted updates or additions to it{}
+\item access roles to let everyone access tutorials but prevent untrusted updates or additions to it
 
 \end{itemize}
 
@@ -486,18 +470,20 @@ VO tutorials development.
 From a technical point of view the registration of educational services
 does not require extensions
 to the existing for VOResource standard \citep{2008ivoa.spec.0222P}.
-The only real need for investigating changes to what already exists is due to a
-use case's distinction between resources to be used in teaching and dissemination
-versus all the research driven resources that exist in the VO.
-
-
+The only real need for investigating changes to what already exists
+because several
+use cases require a distinction particularly suitable for teaching and
+outreach
+versus resources targeted at professional researchers that might be a
+liability in outreach settings.
 
 For simplicity here we will distinguish these two groups of resources as
 \emph{educational}
  and 
 \emph{professional}
  but without any intent of putting them
-on different levels of importance.
+on different levels of importance.  In particular, we recognise that the
+two sets are not disjunct.
 
 
 
@@ -510,8 +496,8 @@ On the one side, teachers and educators may find it difficult to filter out
 from all VO resources those that are suitable for their tutorials and
 examples. On the other side, educational resources should not be retrieved 
 by a standard professional query.
-Given that it is not a matter of data quality, but only a distinction upon 
-the resources' scope, nevertheless this duality leads to an issue about the
+Even allowing that it is not a matter of data quality but rather a distinction on 
+the resources' scope, this duality nevertheless poses question as to the
 proper way to tag resources for educational usage.
   
 
@@ -529,7 +515,7 @@ curated registry for educational resources and the reasons for it to exist.
 
 \label{sect:contentlvl}
 
-VOResource already has the 
+VOResource 1.0 already has the 
 \vorent{ContentLevel}
 element
 allowing data publishers to optionally identify their resources as being 
@@ -588,28 +574,29 @@ We expect this to reach two goals:
 
 \end{itemize}
 
-Of course, the chance to 
-add an 
+The eventual
+addition of an 
 \emph{Educational}
-value option to this shrinked list, or even
+value in the list (or perhaps even
 substitute it to the 
-\emph{General}
-one, would be a valuable change.
+\emph{General} term with it),
+could enhance overall utility of the classification.
   
 
 
 This change in the already existing standard will require only 
 a small effort to update already registered resources because nearly 97\% of 
-them currently have \vorent{ContentLevel} set to 
+them currently have \xmlel{contentLevel} set to 
 \emph{research}, about 2\% of them have
-no \vorent{ContentLevel} defined at all and only the remaining have a different value
+no \xmlel{contentLevel} defined at all and only the remaining have a different value
 (or set of values) set for this element (Appendix \ref{app:clcurrval} details better these
 figures).
   
 
-Until the change in VOResource can be performed, it
-can work as a ``best practice'' recommendation, possibly even at a
-registry level, where registries can map existing 
+The change proposed here is part of VOResource~1.1, which is in late
+public review as this is written.  Even publishing registries not yet
+transitioning to VOResource~1.1 are encouraged as
+a ``best practice'' to map VOResource~1.0
 \vorent{ContentLevel} values 
   of 
 \emph{University}
@@ -620,7 +607,7 @@ registry level, where registries can map existing
 \emph{Amateur}
  to 
 \emph{General}.
-.
+
 
 
 \subsection{Curating the Edu Registry}
@@ -628,20 +615,20 @@ registry level, where registries can map existing
 \label{sect:edureg}
 
 
-Even in the case of the simplified 
+Even when the simplified 
 \vorent{ContentLevel}
-tagging system
+tagging system is in place,
 a curated registry for educational VO resources will be useful for
 educators in order to let their students work with a registry without having to
 worry about confusing material or overwhelming data sizes. A good example
 for this is the educational version of the Aladin sky atlas that has a
-built in, curated set of resources suitable for educational level 
+built-in, curated set of resources suitable for educational level 
 tutorials.
   
 
 
 Curation will require some effort in managing and keeping up to date
-such a registry but, most important, it is subjected to  some restrictions coming from
+such a registry but, most important, it is subject to  some restrictions coming from
 the IVOA resource registry architecture. 
   
 
@@ -661,7 +648,7 @@ scope the registry has to be preserved for.
   
 
 
-We need a resource (the curated, in Registry Interfaces
+What we need is a resource (the curated, in Registry Interfaces
 parlance, local, registry) capable of:
   
 \begin{itemize}
@@ -678,7 +665,7 @@ parlance, local, registry) capable of:
 
 \end{itemize}
 
-This solution, also presented in Fig. 1, will not touch the existing architecture
+This solution, also illustrated in Fig. 1, will not touch the existing architecture
 while giving flexibility for the emerging educational resources to 
 be curated.
   
@@ -696,6 +683,10 @@ be curated.
 \label{fig:curation}
 \end{figure}
 
+
+\section{Implementation Status}
+
+TBD
 
 \appendix
 
