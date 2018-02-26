@@ -1,7 +1,6 @@
 \documentclass{ivoa}
 \input tthdefs
 
-\usepackage{todonotes}
 \usepackage{listings}
 \lstloadlanguages{XML,sh,SQL}
 \lstset{flexiblecolumns=true,tagstyle=\ttfamily, showstringspaces=False}
@@ -380,8 +379,7 @@ languate.
 The downside of not defining an extra table for the documents is that
 the query patterns in RegTAP are somewhat clumsy.  For instance, to list
 the English and Italian titles of all texts available in Italian, one
-has to carefully join two subqueries to \verb|res_details|\todo{Simplify
-this a bit}:
+has to carefully join two subqueries to \verb|res_details|:
 
 \begin{lstlisting}[language=SQL]
 SELECT res_title, loctitle FROM
@@ -614,6 +612,20 @@ a ``best practice'' to map VOResource~1.0
 
 \label{sect:edureg}
 
+\begin{figure}
+
+\includegraphics[width=0.9\textwidth]{curation.png}
+\caption{Graphic illustration
+    of the connecting interfaces between full registries and the educational
+    curated one. The 
+\emph{auxiliary}
+ publishing is the only automatic token
+    from the edu part.}
+\label{fig:curation}
+\end{figure}
+
+
+
 
 Even when the simplified 
 \vorent{ContentLevel}
@@ -671,38 +683,11 @@ be curated.
   
 
 
-\begin{figure}
-
-\includegraphics[width=0.9\textwidth]{curation.png}
-\caption{Graphic illustration
-    of the connecting interfaces between full registries and the educational
-    curated one. The 
-\emph{auxiliary}
- publishing is the only automatic token
-    from the edu part.}
-\label{fig:curation}
-\end{figure}
-
-
-\section{Implementation Status}
-
-TBD
-
 \appendix
 
 \section{ContentLevel values summary}
 
 \label{app:clcurrval}
-
-
-This appendix reports some statistics on the usage of the ContentLevel 
-element in \citep{2008ivoa.spec.0222P} as of 2014-01-30, taken from the
-GAVO RegTAP endpoint http://dc.g-vo.org/tap .
-There are 14392 useful resources (excluding authorities, standards and
-similar) that expose 26 different values as their ContentLevel.
-In table \ref{tab:cldist} these values are reported in order of count.
-
-
 
 \begin{table}
 \begin{tabular}{lp{12cm}}
@@ -710,43 +695,50 @@ In table \ref{tab:cldist} these values are reported in order of count.
 \textbf{count}&
 \textbf{content\_level string}\\
 \sptablerule
-13937&research\\
-290&\\
-41&university research\\
-40&general university research amateur\\
-24&university\\
-14&university research amateur\\
-7&general\\
-5&research general\\
-4&general research\\
-3&secondary education community college university research amateur\\
-3&research university community college\\
-3&elementary education middle school education secondary education\\
-3&general university research\\
-2&research university\\
-2&research amateur university community college\\
-2&general informal education\\
-2&general elementary education middle school education secondary education community college university research amateur informal education\\
-1&university community college research\\
-1&general university research amateur informal education\\
-1&elementary education middle school education secondary education community college university research\\
-1&general secondary education university research\\
-1&university research general informal education\\
-1&research university amateur\\
-1&elementary education middle school education secondary education community college university research amateur\\
-1&elementary education middle school education secondary education community college university research amateur informal education\\
-1&university research amateur informal education\\
-1&general university research informal education\\
+  18875 & research\\
+  392 & \\
+  42 & general university research amateur\\
+  31 & general\\
+  19 & university research\\
+  16 & general university research\\
+  9 & university research amateur\\
+  8 & research university\\
+  4 & amateur research\\
+  3 & general research\\
+  3 & elementary education middle school education secondary education\\
+  3 & research university community college\\
+  3 & secondary education community college university research amateur\\
+  2 & research general\\
+  2 & university\\
+  2 & general informal education\\
+  2 & elementary education middle school education secondary education community college university research\\
+  1 & university community college research\\
+  1 & university research amateur informal education\\
+  1 & university research general informal education\\
+  1 & content\_level\\
+  1 & general elementary education middle school education secondary education community college university research amateur informal education\\
+  1 & general university research informal education\\
+  1 & elementary education middle school education secondary education community college university research amateur informal education\\
+  1 & research amateur general\\
+  1 & research amateur informal education\\
+  1 & elementary education middle school education secondary education community college university research amateur\\
+  1 & research university amateur\\
+\sptablerule
 \end{tabular}
 \caption{Empirical distribution of \vorent{ContentLevel}s declared by VO
 resources.}
 \label{tab:cldist}
 \end{table}
 
+This appendix reports some statistics on the usage of the ContentLevel 
+element in \citep{2008ivoa.spec.0222P} as of 2018-02-26, taken from the
+GAVO RegTAP endpoint at \url{http://reg.g-vo.org/tap}.
+There were 19427 useful resources (excluding authorities, standards and
+similar) that expose 28 different values as their ContentLevel.
+In table \ref{tab:cldist} these values are reported in order of count.
 
-
-This table can be easily updated from the same endpoint (or an analogue 
-one) using the following ADQL query:
+Up-to-date numbers from the same endpoint (or an analogue 
+one) can be obtained by using the following ADQL query:
 
 \begin{verbatim}
 SELECT 
@@ -760,12 +752,12 @@ GROUP BY content_level
 ORDER BY cnt DESC
 \end{verbatim}
 
-The table shows that only about 1\% of the ContentLevel values use 
-something different and more complex than 
+The table shows that less than 1\% of the ContentLevel values 
+are different from
 \emph{research}, when 
-the element is not empty. Morever, of this 1\% (165 resources), 
-61 include the \emph{general} value (roughly 37\% of them), 
-29 (17\%) state that are devoted to some 
+the element is not empty. Morever, of the 160 ``non-trivial'' resources,
+100 include the \emph{general} value (63\% of them), 
+only 3 (2\%) state that are devoted to some 
 \emph{education} level only,
 while 148 (90\%) state that are also devoted to some 
 \emph{education} level (up to 
