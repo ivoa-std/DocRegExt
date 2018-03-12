@@ -10,6 +10,11 @@
   2009,  arXiv:1110.0513.
 \newline\url{http://adsabs.harvard.edu/abs/2009ivoa.spec.1104B}
 
+\harvarditem{Demleitner}{2018}{note:regstc}
+Demleitner, M.  \harvardyearleft 2018\harvardyearright , `A roadmap for
+  space-time discovery in the {VO} registry', {IVOA Note}.
+\newline\url{http://ivoa.net/documents/Notes/Regstc/20180208/NOTE-regstcnote-1.0-20180115.html}
+
 \harvarditem[{Demleitner} \harvardand\ {Harrison} et~al.]{{Demleitner},
   {Harrison}, {Molinaro}, {Greene}, {Dower} \harvardand\
   {Perdikeas}}{2014}{2014ivoa.spec.1208D}

@@ -3,6 +3,8 @@
 # short name of your document (edit $DOCNAME.tex; would be like RegTAP)
 DOCNAME = edumatters
 
+IVOA_GROUP=Education
+
 # count up; you probably do not want to bother with versions <1.0
 DOCVERSION = 1.0
 
