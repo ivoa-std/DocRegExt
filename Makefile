@@ -7,7 +7,7 @@ DOCNAME = edumatters
 DOCVERSION = 1.0
 
 # Publication date, ISO format; update manually for "releases"
-DOCDATE = 2017-06-04
+DOCDATE = 2018-03-12
 
 # What is it you're writing: NOTE, WD, PR, REC, PEN, or EN
 DOCTYPE = NOTE
@@ -24,6 +24,8 @@ VECTORFIGURES =
 
 # Additional files to distribute (e.g., CSS, schema files, examples...)
 AUX_FILES = 
+
+AUTHOR_EMAIL=msdemlei@ari.uni-heidelberg.de
 
 include ivoatex/Makefile
 

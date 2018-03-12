@@ -22,7 +22,7 @@
     <referenceURL>http://wwwas.oats.inaf.it/aidawp5/eng_download.html</referenceURL>
     <relationship>
       <relationshipType>Cites</relationshipType>
-      <relatedResource ivo-id="ivo://CDS/aladin"
+      <relatedResource ivo-id="ivo://cds.aladin/sia"
         >The ALADIN image server</relatedResource>
       <relatedResource>Aladin</relatedResource>
     </relationship>
