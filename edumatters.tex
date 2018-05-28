@@ -283,14 +283,14 @@ is generated from the schema file.
         Although for a while, multiple editions of the document in one language
         may be given (corresponding perhaps to two “major” versions), in
         general, only the latest version of the document per language should be
-        given.
+        present.
 
         At least one vr:WebBrowser-typed interface with 
         role="rendered" must be present. The access URL of the interface
         points to a rendered version of the edition (preferably in PDF, 
         but HTML is acceptable, too).
 
-        Editors are strongly encourated to also provide an 
+        Editors are strongly encouraged to also provide an 
         interface with role="source", the accessURL of which should point
         to an editable version of the document, a version controlled
         repository, or the like.
@@ -320,15 +320,16 @@ is generated from the schema file.
 \item[Type] string: \xmlel{xs:token}
 \item[Meaning] 
                 The language this document is (mainly) written in,
-                as an RFC 3066 language code.
+                as an BCP 47 language code.
               
 \item[Occurrence] required
 \item[Comment] 
                 The country codes must be given in all lowercase.  This
-                results in strings like en-us, de-de, es-es, or es-mx.
+                results in strings like en, de, or, where regions
+                might actually matter, es-es or es-mx.
 
                 This language is also the language for locTitle, 
-                irrespective or that element's xml:lang setting.
+                irrespective of that element's xml:lang setting.
               
 
 \end{description}
@@ -336,7 +337,17 @@ is generated from the schema file.
 \begin{description}
 \item[Type] string: \xmlel{xs:token}
 \item[Meaning] 
+              	The translated document's title in the language specified
+              	by the language sibling.
+            	
 \item[Occurrence] optional
+\item[Comment] 
+              	It is recommended to set this element's xml:lang element
+              	to the same value as the language sibling.  The reason
+              	xml:lang is not used in the first place is that with an
+              	extra element, enforcing that the content language is
+              	given is more straightforward.
+              
 
 \end{description}
 
@@ -371,8 +382,8 @@ The \xmlel{languageCode} and \xmlel{locTitle} elements from the
 
 \begin{itemize}
 
-\item \texttt{/capability/languageCode} -- the document language as an RFC
-3066 language code.
+\item \texttt{/capability/languageCode} -- the document language as an 
+BCP 47 \citep{std:BCP47} language code.
 \item \texttt{/capability/locTitle} -- the title in the national
 languate.
 \end{itemize}
@@ -763,6 +774,15 @@ only 3 (2\%) state that are devoted to some
 while 148 (90\%) state that are also devoted to some 
 \emph{education} level (up to 
 \emph{university}).
+
+\section{Changes}
+
+\subsection{Changes from 1.0}
+
+\begin{itemize}
+\item Following XML itself, we now ask for BCP 47 rather than RFC
+3066 language codes.
+\end{itemize}
 
 \bibliography{ivoatex/ivoabib,ivoatex/docrepo}
 

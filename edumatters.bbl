@@ -34,6 +34,11 @@ Demleitner, M.  \harvardyearleft 2018\harvardyearright , `A roadmap for
   arXiv:1402.4745.
 \newline\url{http://adsabs.harvard.edu/abs/2012ivoa.spec.0508H}
 
+\harvarditem{Phillips \harvardand\ Davis}{2009}{std:BCP47}
+Phillips, A. \harvardand\ Davis, M.  \harvardyearleft 2009\harvardyearright ,
+  `Tags for identifying languages', {IETF BCP 47}.
+\newline\url{https://tools.ietf.org/html/bcp47}
+
 \harvarditem[{Plante} \harvardand\ {Benson} et~al.]{{Plante}, {Benson},
   {Graham}, {Greene}, {Harrison}, {Lemson}, {Linde}, {Rixon}, {St{\'e}b{\'e}}
   \harvardand\ {IVOA Registry Working Group}}{2008}{2008ivoa.spec.0222P}
