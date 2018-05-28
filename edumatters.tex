@@ -406,7 +406,7 @@ SELECT res_title, loctitle FROM
         FROM rr.res_detail
         WHERE 
           detail_xpath='/capability/languageCode'
-          AND detail_value LIKE 'it_%') AS italiancaps
+          AND detail_value LIKE 'it%') AS italiancaps
     ) as loctitles
 WHERE
   res_type='doc:document'
