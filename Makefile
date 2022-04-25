@@ -6,10 +6,10 @@ DOCNAME = edumatters
 IVOA_GROUP=Education
 
 # count up; you probably do not want to bother with versions <1.0
-DOCVERSION = 1.0
+DOCVERSION = 1.1
 
 # Publication date, ISO format; update manually for "releases"
-DOCDATE = 2018-03-12
+DOCDATE = 2022-12-31
 
 # What is it you're writing: NOTE, WD, PR, REC, PEN, or EN
 DOCTYPE = NOTE
@@ -29,7 +29,15 @@ AUX_FILES =
 
 AUTHOR_EMAIL=msdemlei@ari.uni-heidelberg.de
 
-include ivoatex/Makefile
+-include ivoatex/Makefile
+
+ivoatex/Makefile:
+	@echo "*** ivoatex submodule not found.  Initialising submodules."
+	@echo
+	git submodule update --init
+
+test:
+	@echo "No tests defined yet"
 
 install-schema:
 	scp DocRegExt-1.xsd alnilam:/var/www/docs/xml/

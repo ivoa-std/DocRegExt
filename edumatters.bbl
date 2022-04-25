@@ -8,7 +8,7 @@
   A. \harvardand\ {Andrews}, K.  \harvardyearleft 2009\harvardyearright ,
   `{IVOA Registry Interfaces Version 1.0}', IVOA Recommendation 04 November
   2009,  arXiv:1110.0513.
-\newline\url{http://adsabs.harvard.edu/abs/2009ivoa.spec.1104B}
+\newline\url{http://doi.org/10.5479/ADS/bib/2009ivoa.spec.1104B}
 
 \harvarditem{Demleitner}{2018}{note:regstc}
 Demleitner, M.  \harvardyearleft 2018\harvardyearright , `A roadmap for
@@ -22,7 +22,7 @@ Demleitner, M.  \harvardyearleft 2018\harvardyearright , `A roadmap for
   \harvardand\ {Perdikeas}, M.  \harvardyearleft 2014\harvardyearright , `{IVOA
   Registry Relational Schema Version 1.0}', IVOA Recommendation 08 December
   2014,  arXiv:1510.02275.
-\newline\url{http://adsabs.harvard.edu/abs/2014ivoa.spec.1208D}
+\newline\url{http://doi.org/10.5479/ADS/bib/2014ivoa.spec.1208D}
 
 \harvarditem[{Harrison} \harvardand\ {Burke} et~al.]{{Harrison}, {Burke},
   {Plante}, {Rixon}, {Morris} \harvardand\ {IVOA Registry Working
@@ -32,7 +32,7 @@ Demleitner, M.  \harvardyearleft 2018\harvardyearright , `A roadmap for
   2012\harvardyearright , `{StandardsRegExt: a VOResource Schema Extension for
   Describing IVOA Standards Version 1.0}', IVOA Recommendation 08 May 2012,
   arXiv:1402.4745.
-\newline\url{http://adsabs.harvard.edu/abs/2012ivoa.spec.0508H}
+\newline\url{http://doi.org/10.5479/ADS/bib/2012ivoa.spec.0508H}
 
 \harvarditem{Phillips \harvardand\ Davis}{2009}{std:BCP47}
 Phillips, A. \harvardand\ Davis, M.  \harvardyearleft 2009\harvardyearright ,
@@ -47,7 +47,7 @@ Phillips, A. \harvardand\ Davis, M.  \harvardyearleft 2009\harvardyearright ,
   {IVOA Registry Working Group}  \harvardyearleft 2008\harvardyearright ,
   `{VOResource: an XML Encoding Schema for Resource Metadata Version 1.03}',
   IVOA Recommendation 22 February 2008,  arXiv:1110.0515.
-\newline\url{http://adsabs.harvard.edu/abs/2008ivoa.spec.0222P}
+\newline\url{http://doi.org/10.5479/ADS/bib/2008ivoa.spec.0222P}
 
 \harvarditem[{Plante} \harvardand\ {St{\'e}b{\'e}} et~al.]{{Plante},
   {St{\'e}b{\'e}}, {Benson}, {Dowler}, {Graham}, {Greene}, {Harrison},
@@ -57,6 +57,6 @@ Phillips, A. \harvardand\ Davis, M.  \harvardyearleft 2009\harvardyearright ,
   G.  \harvardyearleft 2010\harvardyearright , `{VODataService: a VOResource
   Schema Extension for Describing Collections, Services Version 1.1}', IVOA
   Recommendation 02 December 2010,  arXiv:1110.0516.
-\newline\url{http://adsabs.harvard.edu/abs/2010ivoa.spec.1202P}
+\newline\url{http://doi.org/10.5479/ADS/bib/2010ivoa.spec.1202P}
 
 \end{thebibliography}
