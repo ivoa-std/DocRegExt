@@ -183,6 +183,9 @@ not support spatial discovery).
 the latest version?  If not, where can I find an update? (Unless the
 title of the text changed, standard VOResource should suffice){}
 
+\item I want a tutorial that is likely to be relatively unaffected by
+bitrot (i.e., has been recently tried and corrected where necessary).
+
 \end{itemize}
 
 An important additional use case is enabling an attractive, browsable
@@ -211,9 +214,7 @@ To satisfy the requirements derived above, we have designed a registry extension
 two definitions. 
 To avoid unnecessary incompatibilities when migrating to a proper IVOA
 standard, we use the namespace URI
-
 $$\hbox{\nolinkurl{http://www.ivoa.net/xml/DocRegExt/v1/}}$$
-
 for DocRegExt even while the schema cannot actually retrieved from
 there.  The canonical schema location until the extension is endorsed by
 the IVOA is \url{http://docs.g-vo.org/xml/DocRegExt/v1/}.
@@ -239,7 +240,7 @@ understood as parameterless service endpoints.  Using capabilities
 furthermore allows a complete representation of the metadata in RegTAP
 without any extra tables (cf.~sect.~\ref{sect:docregext-regtap}).
 
-The resource-level reference URL in \xmlel{doc:Document} records should
+The resource-level \vorent{referenceURL} in \xmlel{doc:Document} records should
 be some sort of landing page with an abstract of the text and links to
 the full texts and perhaps the document source(s).  When using the
 versioned repository (sect.~\ref{sect:svn-repo}), this could be the
@@ -261,6 +262,11 @@ relationships. Document records should preferably use \emph{Cites} and
 in particular declare relationships to tools.  If these are not
 registred, use the name of their binary as the name of the related
 resource; this will very typically be lowercase-only.
+
+Document-typed resource records should contain a \vorent{date} element
+with a \vorent{role} of \emph{Inspected}.  This should correspond to the
+last time that the current editor has made sure the tutorial or use case
+works as expected.
 
 Each \xmlel{doc:Edition}-typed capability should 
 correspond to a translation of the document.  It
