@@ -15,7 +15,7 @@
 
 \editor{Demleitner, M.}
 
-\previousversion{First published version}
+\previousversion[http://ivoa.net/documents/Notes/EDU/index.html]{Version 1.1}
 
 
 \title{Educational Resources in the Virtual Observatory}
@@ -45,20 +45,20 @@ In enabling university level students
 and active researchers to fully exploit the VO's capabilities, course
 materials and worked-out use-cases have been found an efficient means of
 developing the necessary skills both in interactive course situations
-like ``VO Days'' and beyond.  
+like ``VO Days'' and beyond.
 Efficient ways for interested users to locate such
 material as well as for VO operators to curate it are highly desirable.
 
-At the same time, advances in technology and 
-communications are creating new and exciting 
-opportunities for teachers to bring astronomy into their 
+At the same time, advances in technology and
+communications are creating new and exciting
+opportunities for teachers to bring astronomy into their
 classrooms.  As the VO makes science-grade data publicly available and
 classroom sets of (suitably) networked PCs are now standard in schools,
 exciting projects come within reach of teachers.  To realise these
 potentials,
 it is necessary to disseminate educational material to help teachers
 in preparing classes.  Such material includes documented step-by-step
-tutorials, use cases explaining how to perform basic astrophysical research 
+tutorials, use cases explaining how to perform basic astrophysical research
 using VO tools and resources, and similar exist in various formats and
 have been translated in different languages.
 
@@ -87,7 +87,7 @@ being appropriate for outreach and school-level education.
 
 As argued above, disseminating text-like material
 like tutorials, worked-out use cases, or larger introductions,
-is an important task in facilitating VO exploitation.  
+is an important task in facilitating VO exploitation.
 Within the VO community, there is a large body of
 educational material for a wide variety of audiences ranging from pre-school to
 researchers.  Existing collections include:
@@ -109,9 +109,9 @@ researchers.  Existing collections include:
 
 
 To date, such material has been collected informally by the various
-projects on plain web pages as the ones just mentioned.  
+projects on plain web pages as the ones just mentioned.
 It is, in consequence, hard to find, with
-knowledge of its existence often passed on anectdotically. In order to improve upon 
+knowledge of its existence often passed on anectdotically. In order to improve upon
 this situation, we
 propose to keep record of educational material in the VO Registry.
 
@@ -122,9 +122,9 @@ vocabularies and status – that is not pertinent for educational
 material.  Conversely, it is not concerned with document language (which
 can safely be assumed to be English for standards), and it disregards
 the issue of locating formatted and source versions, which for educational
-material is important.  
+material is important.
 
-Therefore, we believe text-like material should be described in a 
+Therefore, we believe text-like material should be described in a
 registry extension of its own: DocRegExt.
 
 
@@ -200,14 +200,14 @@ so useful that we propose to include it in a DocRegExt.
 
 \subsection{A Document Registry Extension}
 
-%% NOTE: When you change the schema, make Markus run a 
+%% NOTE: When you change the schema, make Markus run a
 %% make install-schema
 %% to update the current "canonical" schema location.
 
 \label{sect:regext-ext}
 
 To satisfy the requirements derived above, we have designed a registry extension with
-two definitions. 
+two definitions.
 To avoid unnecessary incompatibilities when migrating to a proper IVOA
 standard, we use the namespace URI
 $$\hbox{\nolinkurl{http://www.ivoa.net/xml/DocRegExt/v1/}}$$
@@ -264,7 +264,7 @@ with a \vorent{role} of \emph{Inspected}.  This should correspond to the
 last time that the current editor has made sure the tutorial or use case
 works as expected.
 
-Each \xmlel{doc:Edition}-typed capability should 
+Each \xmlel{doc:Edition}-typed capability should
 correspond to a translation of the document.  It
 is recommended to list the English-language version first if it exists.
 
@@ -287,12 +287,12 @@ is generated from the schema file.
         general, only the latest version of the document per language should be
         present.
 
-        At least one vr:WebBrowser-typed interface with 
+        At least one vr:WebBrowser-typed interface with
         role="rendered" must be present. The access URL of the interface
-        points to a rendered version of the edition (preferably in PDF, 
+        points to a rendered version of the edition (preferably in PDF,
         but HTML is acceptable, too).
 
-        Editors are strongly encouraged to also provide an 
+        Editors are strongly encouraged to also provide an
         interface with role="source", the accessURL of which should point
         to an editable version of the document, a version controlled
         repository, or the like.
@@ -320,36 +320,36 @@ is generated from the schema file.
 \begingroup\small\begin{bigdescription}\item[Element \xmlel{languageCode}]
 \begin{description}
 \item[Type] string: \xmlel{xs:token}
-\item[Meaning] 
+\item[Meaning]
                 The language this document is (mainly) written in,
                 as an BCP 47 language code.
-              
+
 \item[Occurrence] required
-\item[Comment] 
+\item[Comment]
                 The country codes must be given in all lowercase.  This
                 results in strings like en, de, or, where regions
                 might actually matter, es-es or es-mx.
 
-                This language is also the language for locTitle, 
+                This language is also the language for locTitle,
                 irrespective of that element's xml:lang setting.
-              
+
 
 \end{description}
 \item[Element \xmlel{locTitle}]
 \begin{description}
 \item[Type] string: \xmlel{xs:token}
-\item[Meaning] 
+\item[Meaning]
               	The translated document's title in the language specified
               	by the language sibling.
             	
 \item[Occurrence] optional
-\item[Comment] 
+\item[Comment]
               	It is recommended to set this element's xml:lang element
               	to the same value as the language sibling.  The reason
               	xml:lang is not used in the first place is that with an
               	extra element, enforcing that the content language is
               	given is more straightforward.
-              
+
 
 \end{description}
 
@@ -371,7 +371,7 @@ English-language titles, one would write:
 
 \begin{lstlisting}[language=SQL]
 SELECT res_title, access_url FROM
-  rr.resource 
+  rr.resource
   NATURAL JOIN rr.interface
 WHERE
   res_type='doc:document'
@@ -384,7 +384,7 @@ The \xmlel{languageCode} and \xmlel{locTitle} elements from the
 
 \begin{itemize}
 
-\item \texttt{/capability/languageCode} -- the document language as an 
+\item \texttt{/capability/languageCode} -- the document language as an
 BCP 47 \citep{std:BCP47} language code.
 \item \texttt{/capability/locTitle} -- the title in the national
 languate.
@@ -397,16 +397,16 @@ has to carefully join two subqueries to \verb|res_details|:
 
 \begin{lstlisting}[language=SQL]
 SELECT res_title, loctitle FROM
-  rr.resource 
+  rr.resource
   NATURAL JOIN (
     SELECT ivoid, loctitle FROM (
         SELECT ivoid, cap_index, detail_value as loctitle
         FROM rr.res_detail
         WHERE detail_xpath='/capability/locTitle') AS titles
       NATURAL JOIN (
-        SELECT ivoid, cap_index 
+        SELECT ivoid, cap_index
         FROM rr.res_detail
-        WHERE 
+        WHERE
           detail_xpath='/capability/languageCode'
           AND detail_value LIKE 'it%') AS italiancaps
     ) as loctitles
@@ -434,20 +434,20 @@ proposal designed to reduce such problems).
 \label{sect:svn-repo}
 
 Registering text documents as VO resources allows searching for tutorials
-and similar 
-material through standard registry interfaces, but keeping 
-tutorials up to date, in their master form and also in their translated 
+and similar
+material through standard registry interfaces, but keeping
+tutorials up to date, in their master form and also in their translated
 versions, is an obviously important management issue not really
 addressed by the Registry.
 
 For tracking changes and versions, the standard tool is a version
 control system.  Therefore,
-a versioned repository (using subversion as the version control system) 
+a versioned repository (using subversion as the version control system)
 has been set up at GAVO data
 center\footnote{\url{http://svn.ari.uni-heidelberg.de/svn/edu/}}.
 It collects part of the
 already existing VO tutorials with the goal of preserving them and
-letting users 
+letting users
 update and translate them.
 
 The repository has an internal structure designed to enable:
@@ -469,7 +469,7 @@ The repository has an internal structure designed to enable:
 Details of this structure are discussed in a \texttt{README} file at the
 root of the
 repository\footnote{\url{http://svn.ari.uni-heidelberg.de/svn/edu/README}}.
-The repository is intended to work as a space for cooperative 
+The repository is intended to work as a space for cooperative
 VO tutorials development.
 
 
@@ -491,7 +491,7 @@ liability in outreach settings.
 
 For simplicity here we will distinguish these two groups of resources as
 \emph{educational}
- and 
+ and
 \emph{professional}
  but without any intent of putting them
 on different levels of importance.  In particular, we recognise that the
@@ -504,33 +504,33 @@ two sets are not disjunct.
 \label{sect:eduvspro}
 
 
-On the one side, teachers and educators may find it difficult to filter out 
+On the one side, teachers and educators may find it difficult to filter out
 from all VO resources those that are suitable for their tutorials and
-examples. On the other side, educational resources should not be retrieved 
+examples. On the other side, educational resources should not be retrieved
 by a standard professional query.
-Even allowing that it is not a matter of data quality but rather a distinction on 
+Even allowing that it is not a matter of data quality but rather a distinction on
 the resources' scope, this duality nevertheless poses question as to the
 proper way to tag resources for educational usage.
-  
 
 
-In the next subsection we propose a possible tagging solution, based upon 
-the existing 
+
+In the next subsection we propose a possible tagging solution, based upon
+the existing
 \vorent{ContentLevel}
 element of VOResource, but requiring a small change
 to it. The subsequent subsection describes the idea of a
 curated registry for educational resources and the reasons for it to exist.
-  
+
 
 
 \subsection{ContentLevel granularity issue}
 
 \label{sect:contentlvl}
 
-VOResource 1.0 already has the 
+VOResource 1.0 already has the
 \vorent{ContentLevel}
 element
-allowing data publishers to optionally identify their resources as being 
+allowing data publishers to optionally identify their resources as being
 suitable for one or more of the following audiences:
 
 
@@ -575,49 +575,49 @@ to:
 \end{itemize}
 
 We expect this to reach two goals:
-  
+
 \begin{itemize}
 
 \item to make publishers to better describe (on the average)
     their resources{}
 
-\item to providing a tagging solution that suits a first filtering 
+\item to providing a tagging solution that suits a first filtering
     on the resources at client level{}
 
 \end{itemize}
 
 The eventual
-addition of an 
+addition of an
 \emph{Educational}
 value in the list (or perhaps even
-substitute it to the 
+substitute it to the
 \emph{General} term with it),
 could enhance overall utility of the classification.
-  
 
 
-This change in the already existing standard will require only 
-a small effort to update already registered resources because nearly 97\% of 
-them currently have \xmlel{contentLevel} set to 
+
+This change in the already existing standard will require only
+a small effort to update already registered resources because nearly 97\% of
+them currently have \xmlel{contentLevel} set to
 \emph{research}, about 2\% of them have
 no \xmlel{contentLevel} defined at all and only the remaining have a different value
 (or set of values) set for this element (Appendix \ref{app:clcurrval} details better these
 figures).
-  
+
 
 The change proposed here is part of VOResource~1.1, which is in late
 public review as this is written.  Even publishing registries not yet
 transitioning to VOResource~1.1 are encouraged as
 a ``best practice'' to map VOResource~1.0
-\vorent{ContentLevel} values 
-  of 
+\vorent{ContentLevel} values
+  of
 \emph{University}
- to 
+ to
 \emph{Research}
  and
-  everything else except 
+  everything else except
 \emph{Amateur}
- to 
+ to
 \emph{General}.
 
 
@@ -631,7 +631,7 @@ a ``best practice'' to map VOResource~1.0
 \includegraphics[width=0.9\textwidth]{curation.png}
 \caption{Graphic illustration
     of the connecting interfaces between full registries and the educational
-    curated one. The 
+    curated one. The
 \emph{auxiliary}
  publishing is the only automatic token
     from the edu part.}
@@ -641,29 +641,29 @@ a ``best practice'' to map VOResource~1.0
 
 
 
-Even when the simplified 
+Even when the simplified
 \vorent{ContentLevel}
 tagging system is in place,
 a curated registry for educational VO resources will be useful for
 educators in order to let their students work with a registry without having to
 worry about confusing material or overwhelming data sizes. A good example
 for this is the educational version of the Aladin sky atlas that has a
-built-in, curated set of resources suitable for educational level 
+built-in, curated set of resources suitable for educational level
 tutorials.
-  
+
 
 
 Curation will require some effort in managing and keeping up to date
 such a registry but, most important, it is subject to  some restrictions coming from
-the IVOA resource registry architecture. 
-  
+the IVOA resource registry architecture.
+
 
 
 If such a registry were a standard publishing registry as laid down in
 Registry Interfaces
 \citep{2009ivoa.spec.1104B},
-its resources would be harvested by the full registries: this means 
-that any dedicated educational resource would end up in the full VO 
+its resources would be harvested by the full registries: this means
+that any dedicated educational resource would end up in the full VO
 set of resources.  For reasons mentioned above, this is not
 desirable.
 
@@ -671,17 +671,17 @@ desirable.
 If it were to be a full registry, it will harvest itself all the existing
 resources, and not all of them will fit, or be suitable for, the educational
 scope the registry has to be preserved for.
-  
+
 
 
 What we need is a resource (the curated, in Registry Interfaces
 parlance, local, registry) capable of:
-  
+
 \begin{itemize}
 
-\item 
+\item
 \emph{selectively}
- harvesting the existing VO resources 
+ harvesting the existing VO resources
 	(e.g., from a full registry);{}
 
 \item register its own educational resources without being directly
@@ -692,9 +692,9 @@ parlance, local, registry) capable of:
 \end{itemize}
 
 This solution, also illustrated in Fig. 1, will not touch the existing architecture
-while giving flexibility for the emerging educational resources to 
+while giving flexibility for the emerging educational resources to
 be curated.
-  
+
 
 
 \appendix
@@ -744,37 +744,37 @@ resources.}
 \label{tab:cldist}
 \end{table}
 
-This appendix reports some statistics on the usage of the ContentLevel 
+This appendix reports some statistics on the usage of the ContentLevel
 element in \citep{2008ivoa.spec.0222P} as of 2018-02-26, taken from the
 GAVO RegTAP endpoint at \url{http://reg.g-vo.org/tap}.
 There were 19427 useful resources (excluding authorities, standards and
 similar) that expose 28 different values as their ContentLevel.
 In table \ref{tab:cldist} these values are reported in order of count.
 
-Up-to-date numbers from the same endpoint (or an analogue 
+Up-to-date numbers from the same endpoint (or an analogue
 one) can be obtained by using the following ADQL query:
 
 \begin{verbatim}
-SELECT 
+SELECT
   count(*) as cnt, content_level
-FROM 
+FROM
   rr.resource
 WHERE
-  res_type not in ('vstd:servicestandard', 'vg:authority', 
+  res_type not in ('vstd:servicestandard', 'vg:authority',
     'vstd:standard', 'va:application', 'vr:organization')
 GROUP BY content_level
 ORDER BY cnt DESC
 \end{verbatim}
 
-The table shows that less than 1\% of the ContentLevel values 
+The table shows that less than 1\% of the ContentLevel values
 are different from
-\emph{research}, when 
+\emph{research}, when
 the element is not empty. Morever, of the 160 ``non-trivial'' resources,
-100 include the \emph{general} value (63\% of them), 
-only 3 (2\%) state that are devoted to some 
+100 include the \emph{general} value (63\% of them),
+only 3 (2\%) state that are devoted to some
 \emph{education} level only,
-while 148 (90\%) state that are also devoted to some 
-\emph{education} level (up to 
+while 148 (90\%) state that are also devoted to some
+\emph{education} level (up to
 \emph{university}).
 
 \section{Changes}
