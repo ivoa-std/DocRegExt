@@ -296,8 +296,8 @@ is generated from the schema file.
 % GENERATED: !schemadoc DocRegExt-1.0.xsd Edition
 \begin{generated}
 \begingroup
-      	\renewcommand*\descriptionlabel[1]{%
-      	\hbox to 5.5em{\emph{#1}\hfil}}\vspace{2ex}\noindent\textbf{\xmlel{doc:Edition} Type Schema Documentation}
+        \renewcommand*\descriptionlabel[1]{%
+        \hbox to 5.5em{\emph{#1}\hfil}}\vspace{2ex}\noindent\textbf{\xmlel{doc:Edition} Type Schema Documentation}
 
 \noindent{\small
         An “edition” (typically: translation) of the document.
@@ -310,12 +310,12 @@ is generated from the schema file.
         present.
 
         At least one vr:WebBrowser-typed interface with
-        role="rendered" must be present. The access URL of the interface
+        role={"}rendered{"} must be present. The access URL of the interface
         points to a rendered version of the edition (preferably in PDF,
         but HTML is acceptable, too).
 
         Editors are strongly encouraged to also provide an
-        interface with role="source", the accessURL of which should point
+        interface with role={"}source{"}, the accessURL of which should point
         to an editable version of the document, a version controlled
         repository, or the like.
       \par}
@@ -342,36 +342,36 @@ is generated from the schema file.
 \begingroup\small\begin{bigdescription}\item[Element \xmlel{languageCode}]
 \begin{description}
 \item[Type] string: \xmlel{xs:token}
-\item[Meaning]
+\item[Meaning] 
                 The language this document is (mainly) written in,
                 as an BCP 47 language code.
-
+              
 \item[Occurrence] required
-\item[Comment]
+\item[Comment] 
                 The country codes must be given in all lowercase.  This
                 results in strings like en, de, or, where regions
                 might actually matter, es-es or es-mx.
 
                 This language is also the language for locTitle,
                 irrespective of that element's xml:lang setting.
-
+              
 
 \end{description}
 \item[Element \xmlel{locTitle}]
 \begin{description}
 \item[Type] string: \xmlel{xs:token}
-\item[Meaning]
+\item[Meaning] 
               	The translated document's title in the language specified
               	by the language sibling.
             	
 \item[Occurrence] optional
-\item[Comment]
+\item[Comment] 
               	It is recommended to set this element's xml:lang element
               	to the same value as the language sibling.  The reason
               	xml:lang is not used in the first place is that with an
               	extra element, enforcing that the content language is
               	given is more straightforward.
-
+              
 
 \end{description}
 
@@ -508,6 +508,7 @@ to it, see its README\footnote{\url{http://svn.ari.uni-heidelberg.de/svn/edu/tru
 \begin{itemize}
 \item Following XML itself, we now ask for BCP 47 rather than RFC
 3066 language codes.
+\item Now basing doc:Document on vs:CatalogResource.
 \item Removed the section on the ``educational registry''.
 \end{itemize}
 

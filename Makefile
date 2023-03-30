@@ -1,7 +1,7 @@
 # ivoatex Makefile.  The ivoatex/README for the targets available.
 
 # short name of your document (edit $DOCNAME.tex; would be like RegTAP)
-DOCNAME = TextRegExt
+DOCNAME = DocRegExt
 
 IVOA_GROUP=registry
 
@@ -25,7 +25,7 @@ FIGURES = curation.png role_diagram.svg
 VECTORFIGURES =
 
 # Additional files to distribute (e.g., CSS, schema files, examples...)
-AUX_FILES = m1distance-example.xml
+AUX_FILES = m1distance-example.xml DocRegExt-1.0.xsd
 
 AUTHOR_EMAIL=msdemlei@ari.uni-heidelberg.de
 
@@ -40,4 +40,4 @@ test:
 	@echo "No tests defined yet"
 
 install-schema:
-	scp DocRegExt-1.xsd alnilam:/var/www/docs/xml/
+	scp DocRegExt-1.0.xsd alnilam:/var/www/docs/xml/
