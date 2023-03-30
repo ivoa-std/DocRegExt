@@ -16,16 +16,16 @@ DOCTYPE = WD
 
 # Source files for the TeX document (but the main file must always
 # be called $(DOCNAME).tex
-SOURCES = $(DOCNAME).tex m1distance-example.xml
+SOURCES = $(DOCNAME).tex role_diagram.pdf
 
 # List of pixel image files to be included in submitted package
-FIGURES = curation.png
+FIGURES = curation.png role_diagram.svg
 
 # List of PDF figures (for vector graphics)
 VECTORFIGURES =
 
 # Additional files to distribute (e.g., CSS, schema files, examples...)
-AUX_FILES =
+AUX_FILES = m1distance-example.xml
 
 AUTHOR_EMAIL=msdemlei@ari.uni-heidelberg.de
 

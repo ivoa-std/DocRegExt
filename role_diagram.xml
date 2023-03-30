@@ -1,0 +1,7 @@
+<archdiag xmlns="http://ivoa.net/archdiag">
+  <rec name="VOResource" x="64.5" y="155" w="71"/>
+  <rec name="RegTAP" x="76" y="180" w="48"/>
+  <rec name="VODataService" x="57.5" y="350" w="85"/>
+
+  <thisrec name="DocRegExt" x="64.5" y="325" w="71"/>
+</archdiag>
