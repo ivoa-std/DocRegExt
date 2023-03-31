@@ -1,64 +1,82 @@
-<vr:Resource 
-  created="2014-02-06T13:23:00Z" 
-  status="active" 
-  updated="2014-02-06T14:15:41" 
-  xsi:type="doc:Document" 
-  xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:doc="http://www.ivoa.net/xml/DocRegExt/v1.0">
+<ri:Resource xmlns:doc="http://www.ivoa.net/xml/DocRegExt/v1" xmlns:oai="http://www.openarchives.org/OAI/2.0/" xmlns:ri="http://www.ivoa.net/xml/RegistryInterface/v1.0" xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" created="2014-02-06T13:23:00Z" status="active" updated="2023-03-31T12:13:59Z" xsi:type="doc:Document">
   <title>Distance to the Crab Nebula</title>
-  <identifier>ivo://aida/tutorials/08_m1_distance</identifier>
+  <identifier>ivo://edu.euro-vo.org/tutorials/08_m1_distance</identifier>
   <curation>
-    [...]
+    <publisher>The GAVO DC team</publisher>
+    <creator>
+      <name>Iafrate, G.</name>
+    </creator>
+    <creator>
+      <name>Ramella, M.</name>
+    </creator>
+    <contact>
+      <name>Markus Demleitner</name>
+      <address>Mönchhofstrasse 12-14, D-69120 Heidelberg</address>
+      <email>msdemlei@ari.uni-heidelberg.de</email>
+      <telephone>++49 6221 54 1837</telephone>
+    </contact>
   </curation>
   <content>
-    <subject>Virtual observatory</subject>
-    <subject>Tutorials</subject>
-    <subject>Supernovae</subject>
-    <subject>Nebulae</subject>
-    <description> In this tutorial, the students measure the 
-    distance of the Crab nebula (M1) by using Aladin to compute 
-    angular and linear dimensions.</description>
+    <subject>virtual-observatories</subject>
+    <subject>software-tutorials</subject>
+    <subject>supernova-remnants</subject>
+    <subject>kinematic-parallax</subject>
+    <description> Within this use case you learn about supernovae, exploding or
+exploded stars. In particular you will use information on the Crab
+Nebula (the 1054 aD supernova registered by Chinese astronomers) to
+derive its distance: an example of how some very important information
+may be gained from very simple arguments and geometry.</description>
     <referenceURL>http://wwwas.oats.inaf.it/aidawp5/eng_download.html</referenceURL>
+    <contentLevel>General</contentLevel>
     <relationship>
       <relationshipType>Cites</relationshipType>
-      <relatedResource ivo-id="ivo://cds.aladin/sia"
-        >The ALADIN image server</relatedResource>
+      <relatedResource>The ALADIN image server</relatedResource>
       <relatedResource>Aladin</relatedResource>
     </relationship>
   </content>
-
   <capability xsi:type="doc:Edition">
-    <languageCode>en-us</languageCode>
-    <locTitle>Distance of the Crab Nebula</locTitle>
     <interface role="rendered" xsi:type="vr:WebBrowser">
-      <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/
-      	en/en_aida_08_m1_distance.pdf</accessURL>
+      <accessURL use="full">http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/en/en_aida_08_m1_distance.pdf</accessURL>
     </interface>
-    <interface role="source">
-      <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/
-      	aida_08_m1_distance/en/en_aida_08_m1_distance.doc</accessURL>
+    <interface role="source" xsi:type="vr:WebBrowser">
+      <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/en/en_aida_08_m1_distance.doc</accessURL>
     </interface>
+    <languageCode>en</languageCode>
   </capability>
-
   <capability xsi:type="doc:Edition">
-    <languageCode>de-de</languageCode>
+    <interface role="rendered" xsi:type="vr:WebBrowser">
+      <accessURL use="full">http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/it/it_aida_08_m1_distance.pdf</accessURL>
+    </interface>
+    <interface role="source" xsi:type="vr:WebBrowser">
+      <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/it/it_aida_08_m1_distance.doc</accessURL>
+    </interface>
+    <languageCode>it</languageCode>
+    <locTitle>Distanza della nebulosa del granchio</locTitle>
+  </capability>
+  <capability xsi:type="doc:Edition">
+    <interface role="rendered" xsi:type="vr:WebBrowser">
+      <accessURL use="full">http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/de/de_aida_08_m1_distance.pdf</accessURL>
+    </interface>
+    <languageCode>de</languageCode>
     <locTitle>Die Entfernung zum Krebsnebel</locTitle>
-    <interface role="rendered" xsi:type="vr:WebBrowser">
-      <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/
-      	de/de_aida_08_m1_distance.pdf</accessURL>
-    </interface>
-    <!-- source lost -->
   </capability>
-
   <capability xsi:type="doc:Edition">
-    <languageCode>es-es</languageCode>
-    <locTitle>Distancia a la Nebulosa del Cancrejo</locTitle>
     <interface role="rendered" xsi:type="vr:WebBrowser">
-      <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/
-      	es/es_aida_08_m1_distance.pdf</accessURL>
+      <accessURL use="full">http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/es/es_aida_08_m1_distance.pdf</accessURL>
     </interface>
-    <!-- Ouch: another lost source -->
+    <languageCode>es</languageCode>
+    <locTitle>Distancia a la Nebulosa del Cancrejo</locTitle>
   </capability>
-
-</vr:Resource>
+  <capability xsi:type="doc:Edition">
+    <interface role="rendered" xsi:type="vr:WebBrowser">
+      <accessURL use="full">http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/fr/fr_aida_08_m1_distance.pdf</accessURL>
+    </interface>
+    <languageCode>fr</languageCode>
+    <locTitle>Estimation de la distance de la nebuleuse du crabe</locTitle>
+  </capability>
+  <coverage>
+    <spatial>6/24185</spatial>
+    <waveband>Optical</waveband>
+    <waveband>X-ray</waveband>
+  </coverage>
+</ri:Resource>

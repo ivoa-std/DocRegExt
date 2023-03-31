@@ -21,9 +21,9 @@
   </xs:documentation>
   </xs:annotation>
   <xs:import namespace="http://www.ivoa.net/xml/VOResource/v1.0"
-    schemaLocation="http://www.ivoa.net/xml/VOResource/1.0"/>
+    schemaLocation="https://www.ivoa.net/xml/VOResource/v1.0"/>
   <xs:import namespace="http://www.ivoa.net/xml/VODataService/v1.1"
-    schemaLocation="http://www.ivoa.net/xml/VODataService/v1.1"/>
+    schemaLocation="https://www.ivoa.net/xml/VODataService/v1.1"/>
 
   <xs:complexType name="Document">
     <xs:annotation>
@@ -42,7 +42,7 @@
     </xs:annotation>
 
     <xs:complexContent>
-      <xs:extension base="vs:CatalogResources"/>
+      <xs:extension base="vs:CatalogResource"/>
     </xs:complexContent>
   </xs:complexType>
 
