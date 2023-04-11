@@ -27,12 +27,6 @@ VECTORFIGURES =
 # Additional files to distribute (e.g., CSS, schema files, examples...)
 AUX_FILES = m1distance-example.xml DocRegExt-1.0.xsd
 
-.PHONY: m1distance-example.xml
-m1distance-example.xml:
-	# only in case there's nice new features in there in the future
-	curl -s "http://localhost:8080/oai.xml?verb=GetRecord&metadataPrefix=ivo_vor&identifier=ivo://edu.euro-vo.org/tutorials/08_m1_distance" \
-		| xmlstarlet sel --indent -N ri=http://www.ivoa.net/xml/RegistryInterface/v1.0 -t -c //ri:Resource \
-		| xmlstarlet fo -o -s 2 | grep -v "?xml-stylesheet" > $@
 
 AUTHOR_EMAIL=msdemlei@ari.uni-heidelberg.de
 
@@ -46,12 +40,28 @@ ivoatex/Makefile:
 STILTS ?= stilts
 SCHEMA_FILE=DocRegExt-v1.0.xsd
 
+# The example targets are only relevant in case we add features in the
+# future and want to re-make the example records.
+.PHONY: m1distance-example.xml dfbs-example.xml
+m1distance-example.xml:
+	curl -s "http://dc.g-vo.org/oai.xml?verb=GetRecord&metadataPrefix=ivo_vor&identifier=ivo://edu.euro-vo.org/tutorials/08_m1_distance" \
+		| xmlstarlet sel --indent -N ri=http://www.ivoa.net/xml/RegistryInterface/v1.0 -t -c //ri:Resource \
+		| xmlstarlet fo -o -s 2 | grep -v "?xml-stylesheet" > $@
+
+dfbs-example.xml:
+	curl -s "http://dc.g-vo.org/oai.xml?verb=GetRecord&metadataPrefix=ivo_vor&identifier=ivo://edu.gavo.org/hd/arvo_dfbs" \
+		| xmlstarlet sel --indent -N ri=http://www.ivoa.net/xml/RegistryInterface/v1.0 -t -c //ri:Resource \
+		| xmlstarlet fo -o -s 2 | grep -v "?xml-stylesheet" > $@
+
+
 test:
 	@$(STILTS) xsdvalidate $(SCHEMA_FILE)
 	@$(STILTS) xsdvalidate \
 		schemaloc="http://www.ivoa.net/xml/DocRegExt/v1=$(SCHEMA_FILE)" \
 		m1distance-example.xml
-
+	@$(STILTS) xsdvalidate \
+		schemaloc="http://www.ivoa.net/xml/DocRegExt/v1=$(SCHEMA_FILE)" \
+		dfbs-example.xml
 
 install-schema:
 	scp DocRegExt-1.0.xsd alnilam:/var/www/docs/xml/

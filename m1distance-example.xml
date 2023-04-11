@@ -1,4 +1,4 @@
-<ri:Resource xmlns:doc="http://www.ivoa.net/xml/DocRegExt/v1" xmlns:oai="http://www.openarchives.org/OAI/2.0/" xmlns:ri="http://www.ivoa.net/xml/RegistryInterface/v1.0" xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" created="2014-02-06T13:23:00Z" status="active" updated="2023-03-31T12:13:59Z" xsi:type="doc:Document">
+<ri:Resource xmlns:doc="http://www.ivoa.net/xml/DocRegExt/v1" xmlns:oai="http://www.openarchives.org/OAI/2.0/" xmlns:ri="http://www.ivoa.net/xml/RegistryInterface/v1.0" xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" created="2014-02-06T13:23:00Z" status="active" updated="2023-04-11T13:12:03Z" xsi:type="doc:Document">
   <title>Distance to the Crab Nebula</title>
   <identifier>ivo://edu.euro-vo.org/tutorials/08_m1_distance</identifier>
   <curation>
@@ -10,9 +10,9 @@
       <name>Ramella, M.</name>
     </creator>
     <contact>
-      <name>Markus Demleitner</name>
+      <name>GAVO Data Center Team</name>
       <address>Mönchhofstrasse 12-14, D-69120 Heidelberg</address>
-      <email>msdemlei@ari.uni-heidelberg.de</email>
+      <email>gavo@ari.uni-heidelberg.de</email>
       <telephone>++49 6221 54 1837</telephone>
     </contact>
   </curation>

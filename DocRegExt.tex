@@ -22,11 +22,10 @@
 \lstloadlanguages{XML,sh,SQL}
 \lstset{flexiblecolumns=true,tagstyle=\ttfamily, showstringspaces=False}
 
-\ivoagroup{Edu IG}
+\ivoagroup{Registry}
 
 \author{Demleitner, M.}
 \author{Molinaro, M.}
-\author{Ramella, M.}
 \author{Iafrate, G.}
 \author{Heinl, H.}
 
@@ -41,14 +40,14 @@
 
 \begin{abstract}
 Following the spirit of the Virtual Observatory (VO), the production and
-provision of services and material to teach VO usage, both for
-introducing VO workflows and as an element of a larger astronomy
-curriculum, proceeds in a decentralised manner.  To still enable global
-discoverability -- an hence re-usability -- of such educational
-material, a scheme for registering and searching such texts in the VO
-Registry is required.  This standard provides this by providing an
-extension to the VOResource metadata model suitable for educational
-texts.
+provision of material to teach VO usage, both for introducing VO
+workflows and as an element of a larger astronomy curriculum, should be
+a joint, global, and distributed effort.  In order to ensure global
+discoverability of the results of that effort, this standard defines an
+extension to the VOResource metadata scheme suitable for educational
+texts, and it describes how RegTAP can be used to then discover
+educational material registered using that extension.
+
 \end{abstract}
 
 
@@ -68,22 +67,22 @@ At the same time, advances in technology and
 communications are creating new and exciting
 opportunities for teachers to bring astronomy into their
 classrooms.  As the VO makes science-grade data publicly available and
-classroom sets of (suitably) networked PCs are now standard in schools,
-exciting projects come within reach of teachers.  To realise these
-potentials,
+classroom sets of (suitably) networked computing devices are now
+standard in schools, exciting projects come within
+reach of teachers.  To realise these potentials,
 it is necessary to disseminate educational material to help teachers
-in preparing classes.  Such material includes documented step-by-step
-tutorials, use cases explaining how to perform basic astrophysical research
-using VO tools and resources, and similar exist in various formats and
-have been translated in different languages.
+preparing classes.  Such material -- including documented step-by-step
+tutorials and use cases explaining how to perform basic astrophysical research
+using VO tools and resources -- exists in various formats and
+has been translated in different languages.
 
 Hence, both training professionals for VO exploitation and the provision
 of educational material to school teachers and the greater public
 require some way of handling metadata on the available material.  Since
 the VO has no central body that could curate such a metadata collection
-but instead uses a decentralised registry for the similar problem of
-service discovery, it seems natural to employ the VO Registry for
-metadata management in text resources as well.
+but instead uses a decentralised registry for the analogous problem of
+service discovery, it appears natural to employ the VO Registry for the
+management of text resource metadata as well.
 
 
 \subsection{Previous Work}
@@ -104,8 +103,8 @@ material is important.
 Therefore, a new registry extension was designed, provisionally called
 DocRegExt.  With perhaps a dozen records of that type in the Registry,
 in 2016 a web page giving a near real-time display of the available
-material, was created, VO Text Treasures or
-VOTT\footnote{\url{https://dc.g-vo.org/VOTT}}.  This extension was
+material, was created, VO Text Treasures, or
+VOTT\footnote{\url{https://dc.g-vo.org/VOTT}} for short.  This extension was
 published as part of the
 IVOA note ``Educational Resources in the Virtual Observatory''
 \citep{note:edumatters}.
@@ -120,7 +119,7 @@ is what this standard provides.
 
 \label{sect:regext-usecases}
 
-The design of DocRegExt has been guided by the desire to fulfill the
+The design of DocRegExt has been guided by the
 following discovery cases:
 
 
@@ -145,7 +144,7 @@ unsuitable here since even outdated resources will still be accessible;
 instead, this standard proposes to include the date the authors last
 tried a tutorial using standard VOResource mechanisms).
 
-\item Are there tutorials using redshifts? (This is solved by allowing
+\item Are there tutorials using redshifts? (This is addressed by allowing
 table metadata in DocRegExt).
 
 \item Where can I find an editable version of tutorial ivo://auth/tut1?
@@ -159,7 +158,7 @@ resource).
 standard VOResource relationships covers this use case).
 
 \item Is there material about something visible tonight? (When tutorials
-declare their \xmlel{coverage}, this is possible -- but few dow at this
+declare their \xmlel{coverage}, this is possible -- but few do that at this
 point).
 
 \item I found this VO tutorial somewhere on the net (``on a mirror'').  Is it
@@ -243,8 +242,9 @@ version, such that further enhancements within the VODataService version
 1 series will apply to DocRegExt records, too.
 
 While the schema does not limit what kinds of capabilities a
-\xmlel{doc:Document} record has -- it is conceivable that tailored
-services are communicated in this way --, access to actual files is
+\xmlel{doc:Document} record has -- it is conceivable that custom
+services for use in a particular tutorial
+are communicated in this way --, access to actual files is
 enabled using \xmlel{doc:Edition}-typed capabilities.  It may be
 argued that this use of VOResource capabilities stretches their
 semantics a bit.  We argue, however, that these documents can well be
@@ -342,36 +342,36 @@ is generated from the schema file.
 \begingroup\small\begin{bigdescription}\item[Element \xmlel{languageCode}]
 \begin{description}
 \item[Type] string: \xmlel{xs:token}
-\item[Meaning] 
+\item[Meaning]
                 The language this document is (mainly) written in,
                 as an BCP 47 language code.
-              
+
 \item[Occurrence] required
-\item[Comment] 
+\item[Comment]
                 The country codes must be given in all lowercase.  This
                 results in strings like en, de, or, where regions
                 might actually matter, es-es or es-mx.
 
                 This language is also the language for locTitle,
                 irrespective of that element's xml:lang setting.
-              
+
 
 \end{description}
 \item[Element \xmlel{locTitle}]
 \begin{description}
 \item[Type] string: \xmlel{xs:token}
-\item[Meaning] 
+\item[Meaning]
               	The translated document's title in the language specified
               	by the language sibling.
             	
 \item[Occurrence] optional
-\item[Comment] 
+\item[Comment]
               	It is recommended to set this element's xml:lang element
               	to the same value as the language sibling.  The reason
               	xml:lang is not used in the first place is that with an
               	extra element, enforcing that the content language is
               	given is more straightforward.
-              
+
 
 \end{description}
 
@@ -441,12 +441,21 @@ WHERE
 
 \section{An Example DocRegExt Record}
 
-This document is accompanied with an example record showcasing most of
-DocRegExt's features\footnote{\auxiliaryurl{m1distance-example.xml}}
+This document is accompanied with two example records showcasing most of
+DocRegExt's features.  On example describes a tutorial for determining
+the distance to the Crab
+nebula\footnote{\auxiliaryurl{m1distance-example.xml}} and shows
+a resource with multiple translations.
 Note that no interfaces with \textit{source} roles
 are given for the German and Spanish versions.  This is because the
 corresponding files were lost (see sect.~\ref{sect:svn-repo} for a
 proposal designed to reduce such problems).
+
+The second example describes a use case for a particular set of
+low-resolution spectra\footnote{\auxiliaryurl{dfbs-example.xml}} and is
+thus related to special services having particular tables.  This is
+indicated using related resources and by including a tableset descibing
+these tables.
 
 
 \section{A versioned repository for tutorials}
