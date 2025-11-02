@@ -9,10 +9,10 @@ IVOA_GROUP=registry
 DOCVERSION = 1.0
 
 # Publication date, ISO format; update manually for "releases"
-DOCDATE = 2023-03-29
+DOCDATE = 2025-11-02
 
 # What is it you're writing: NOTE, WD, PR, REC, PEN, or EN
-DOCTYPE = WD
+DOCTYPE = PR
 
 # Source files for the TeX document (but the main file must always
 # be called $(DOCNAME).tex
@@ -25,7 +25,7 @@ FIGURES = role_diagram.svg
 VECTORFIGURES =
 
 # Additional files to distribute (e.g., CSS, schema files, examples...)
-AUX_FILES = m1distance-example.xml DocRegExt-1.0.xsd
+AUX_FILES = m1distance-example.xml DocRegExt-v1.0.xsd
 
 
 AUTHOR_EMAIL=msdemlei@ari.uni-heidelberg.de

@@ -1,4 +1,4 @@
-<ri:Resource xmlns:doc="http://www.ivoa.net/xml/DocRegExt/v1" xmlns:oai="http://www.openarchives.org/OAI/2.0/" xmlns:ri="http://www.ivoa.net/xml/RegistryInterface/v1.0" xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" created="2014-02-06T13:23:00Z" status="active" updated="2023-04-11T13:12:03Z" xsi:type="doc:Document">
+<ri:Resource xmlns:doc="http://www.ivoa.net/xml/DocRegExt/v1" xmlns:oai="http://www.openarchives.org/OAI/2.0/" xmlns:ri="http://www.ivoa.net/xml/RegistryInterface/v1.0" xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" created="2014-02-06T13:23:00Z" status="active" updated="2025-04-02T14:48:15Z" version="1.2" xsi:type="doc:Document">
   <title>Distance to the Crab Nebula</title>
   <identifier>ivo://edu.euro-vo.org/tutorials/08_m1_distance</identifier>
   <curation>
@@ -10,10 +10,10 @@
       <name>Ramella, M.</name>
     </creator>
     <contact>
-      <name>GAVO Data Center Team</name>
+      <name>GAVO Data Centre Team</name>
       <address>Mönchhofstrasse 12-14, D-69120 Heidelberg</address>
       <email>gavo@ari.uni-heidelberg.de</email>
-      <telephone>++49 6221 54 1837</telephone>
+      <telephone>+49 6221 54 1837</telephone>
     </contact>
   </curation>
   <content>
@@ -34,9 +34,15 @@ may be gained from very simple arguments and geometry.</description>
       <relatedResource>Aladin</relatedResource>
     </relationship>
   </content>
+  <rights rightsURI="https://spdx.org/licenses/CC-BY-4.0.html">The AIDA M1 tutorial is licensed under the `Creative Commons Attribution 4.0 License &lt;http://creativecommons.org/licenses/by/4.0/&gt;`_
+
+.. image:: /static/img/ccby.png
+   :alt: [CC-BY]
+
+</rights>
   <capability xsi:type="doc:Edition">
     <interface role="rendered" xsi:type="vr:WebBrowser">
-      <accessURL use="full">http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/en/en_aida_08_m1_distance.pdf</accessURL>
+      <accessURL use="full">https://vo-for-education.oats.inaf.it/use_cases/en_aida_08_m1_distance.pdf</accessURL>
     </interface>
     <interface role="source" xsi:type="vr:WebBrowser">
       <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/en/en_aida_08_m1_distance.doc</accessURL>
@@ -45,7 +51,7 @@ may be gained from very simple arguments and geometry.</description>
   </capability>
   <capability xsi:type="doc:Edition">
     <interface role="rendered" xsi:type="vr:WebBrowser">
-      <accessURL use="full">http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/it/it_aida_08_m1_distance.pdf</accessURL>
+      <accessURL use="full">https://vo-for-education.oats.inaf.it/use_cases/it_aida_08_m1_distance.pdf</accessURL>
     </interface>
     <interface role="source" xsi:type="vr:WebBrowser">
       <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/it/it_aida_08_m1_distance.doc</accessURL>
@@ -55,21 +61,21 @@ may be gained from very simple arguments and geometry.</description>
   </capability>
   <capability xsi:type="doc:Edition">
     <interface role="rendered" xsi:type="vr:WebBrowser">
-      <accessURL use="full">http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/de/de_aida_08_m1_distance.pdf</accessURL>
+      <accessURL use="full">https://vo-for-education.oats.inaf.it/use_cases/de_aida_08_m1_distance.pdf</accessURL>
     </interface>
     <languageCode>de</languageCode>
     <locTitle>Die Entfernung zum Krebsnebel</locTitle>
   </capability>
   <capability xsi:type="doc:Edition">
     <interface role="rendered" xsi:type="vr:WebBrowser">
-      <accessURL use="full">http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/es/es_aida_08_m1_distance.pdf</accessURL>
+      <accessURL use="full">https://vo-for-education.oats.inaf.it/use_cases/es_aida_08_m1_distance.pdf</accessURL>
     </interface>
     <languageCode>es</languageCode>
     <locTitle>Distancia a la Nebulosa del Cancrejo</locTitle>
   </capability>
   <capability xsi:type="doc:Edition">
     <interface role="rendered" xsi:type="vr:WebBrowser">
-      <accessURL use="full">http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/fr/fr_aida_08_m1_distance.pdf</accessURL>
+      <accessURL use="full">https://vo-for-education.oats.inaf.it/use_cases/fr_aida_08_m1_distance.pdf</accessURL>
     </interface>
     <languageCode>fr</languageCode>
     <locTitle>Estimation de la distance de la nebuleuse du crabe</locTitle>
