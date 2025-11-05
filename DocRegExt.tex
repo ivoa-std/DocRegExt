@@ -31,7 +31,9 @@
 
 \editor{Demleitner, M.}
 
-\previousversion[http://ivoa.net/documents/Notes/EDU/index.html]{Version 1.1}
+\previousversion[https://www.ivoa.net/documents/DocRegExt/20230426]{WD-1.0-20230426}
+\previousversion[http://ivoa.net/documents/Notes/EDU/index.html]{Educational
+Resources Note}
 
 
 \title{Educational Resources in the Virtual Observatory}
@@ -216,21 +218,15 @@ surprisingly smooth.
 
 \section{The DocRegExt Schema}
 
-%% NOTE: When you change the schema, make Markus run a
-%% make install-schema
-%% to update the current "canonical" schema location.
-
 \label{sect:regext}
 
 To satisfy the requirements derived above, we have designed a registry extension with
 two definitions.
 To avoid unnecessary incompatibilities when migrating to a proper IVOA
 standard, we use the namespace URI
-$$\hbox{\nolinkurl{http://www.ivoa.net/xml/DocRegExt/v1/}}$$
+$$\hbox{\nolinkurl{http://www.ivoa.net/xml/DocRegExt/v1}}$$
 for DocRegExt even while the schema cannot actually retrieved from
-there.  The canonical schema location until the extension is endorsed by
-the IVOA is \url{http://docs.g-vo.org/xml/DocRegExt/v1/}.\todo{Remove
-this when we upload the schema to the IVOA XML repo.}
+there.
 
 The canonical schema prefix for DocRegExt is \texttt{doc}.
 
@@ -386,7 +382,7 @@ is generated from the schema file.
 \section{Locating Texts using RegTAP}
 \label{sect:docregext-regtap}
 
-In the relational registry \citep{2014ivoa.spec.1208D}, DocRegExt is
+In the relational registry \citep{2019ivoa.spec.1011D}, DocRegExt is
 straightforwardly represented in the standard VOResource tables.  in
 particular, to find all access urls for documents together with their
 English-language titles, one would write:
@@ -511,6 +507,10 @@ to it, see its README\footnote{\url{http://svn.ari.uni-heidelberg.de/svn/edu/tru
 
 
 \section{Changes}
+
+\subsection{Changes from WD-1.0}
+
+None.
 
 \subsection{Changes from the Note}
 
