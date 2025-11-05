@@ -3,7 +3,7 @@
 # short name of your document (edit $DOCNAME.tex; would be like RegTAP)
 DOCNAME = DocRegExt
 
-IVOA_GROUP=registry
+IVOA_GROUP=Registry
 
 # count up; you probably do not want to bother with versions <1.0
 DOCVERSION = 1.0
@@ -16,7 +16,7 @@ DOCTYPE = PR
 
 # Source files for the TeX document (but the main file must always
 # be called $(DOCNAME).tex
-SOURCES = $(DOCNAME).tex role_diagram.pdf
+SOURCES = $(DOCNAME).tex role_diagram.pdf gitmeta.tex
 
 # List of pixel image files to be included in submitted package
 FIGURES = role_diagram.svg
@@ -42,7 +42,6 @@ SCHEMA_FILE=DocRegExt-v1.0.xsd
 
 # The example targets are only relevant in case we add features in the
 # future and want to re-make the example records.
-.PHONY: m1distance-example.xml dfbs-example.xml
 m1distance-example.xml:
 	curl -s "http://dc.g-vo.org/oai.xml?verb=GetRecord&metadataPrefix=ivo_vor&identifier=ivo://edu.euro-vo.org/tutorials/08_m1_distance" \
 		| xmlstarlet sel --indent -N ri=http://www.ivoa.net/xml/RegistryInterface/v1.0 -t -c //ri:Resource \
