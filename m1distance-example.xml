@@ -30,7 +30,6 @@ may be gained from very simple arguments and geometry.</description>
     <contentLevel>General</contentLevel>
     <relationship>
       <relationshipType>Cites</relationshipType>
-      <relatedResource>The ALADIN image server</relatedResource>
       <relatedResource>Aladin</relatedResource>
     </relationship>
   </content>
