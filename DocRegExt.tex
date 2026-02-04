@@ -270,11 +270,27 @@ they use. The IVOA vocabulary
 relationship\_type\footnote{\url{https://www.ivoa.net/rdf/voresource/relationship_type}}
 defines what terms are legal in the declaration of relationships.
 Document records should preferably use \vocterm{Cites} and
-in particular declare relationships to tools.  If these are not
-registered, use the name of their binary as the name of the related
-resource; this will very typically be lowercase-only.  Tutorials
+in particular declare relationships to tools.  For VO-registered
+services or standards, these relationships should provide the services' ivoids.
+Tutorials
 specifically introducing one or more services should define
 \vocterm{IsSupplementTo} relationships to these services.
+
+Client-side software or libraries do not have Registry records.  To
+reliably identify software, DocRegExt recommends the use of
+ASCL\footnote{\url{https://www.ascl.net}} identifiers.  These should be
+used in the \verb|relatedResource| element's \verb|altIdentifier|
+attribute.  For instance, to declare that a tutorial uses the Cassis
+client, it would say:
+
+\begin{lstlisting}[language=XML,basicstyle=\footnotesize]
+<relationship>
+  <relationshipType>Cites</relationshipType>
+  <relatedResource>Specflow</relatedResource>
+  <relatedResource altIdentifier="ascl:1402.013"
+    >Cassis</relatedResource>
+</relationship>
+\end{lstlisting}
 
 Document-typed resource records should contain a \vorent{date} element
 with a \vorent{role} of \emph{Inspected}.  This should correspond to the
@@ -409,6 +425,19 @@ BCP 47 \citep{std:BCP47} language code.
 language.
 \end{itemize}
 
+To locate texts defining relationships to specific software tools, use
+the relationship table's alt\_identifier column, for instance like this:
+
+\begin{lstlisting}[language=SQL]
+SELECT ivoid, res_title, related_name FROM
+  rr.resource
+  NATURAL JOIN rr.relationship
+WHERE
+  res_type='doc:document'
+  and related_alt_identifier='ascl:1112.019'
+\end{lstlisting}
+
+
 The downside of not defining an extra table for the documents is that
 the query patterns in RegTAP are somewhat clumsy.  For instance, to list
 the English and Italian titles of all texts available in Italian, one
@@ -509,7 +538,14 @@ to it, see its README\footnote{\url{http://svn.ari.uni-heidelberg.de/svn/edu/tru
 
 \section{Changes}
 
-\subsection{Changes from WD-1.0}
+\subsection{Changes from PR-1.0-2025-11-02}
+
+\begin{itemize}
+\item Recommending the usage of ASCL identifiers to declare
+relationships to software.
+\end{itemize}
+
+\subsection{Changes from WD-1.0-20230426}
 
 None.
 

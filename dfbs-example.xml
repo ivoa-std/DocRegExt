@@ -41,9 +41,9 @@ identification of misclassified objects from reference databases.</description>
     <contentLevel>Amateur</contentLevel>
     <relationship>
       <relationshipType>Cites</relationshipType>
-      <relatedResource>TOPCAT</relatedResource>
-      <relatedResource>Aladin</relatedResource>
-      <relatedResource>astropy</relatedResource>
+      <relatedResource altIdentifier="ascl:1101.010">TOPCAT</relatedResource>
+      <relatedResource altIdentifier="ascl:1112.019">Aladin</relatedResource>
+      <relatedResource altIdentifier="ascl:1304.002">astropy</relatedResource>
       <relatedResource ivo-id="ivo://cds.vizier/iii/227">General Catalog of galactic Carbon stars, 3d Ed.</relatedResource>
       <relatedResource ivo-id="ivo://byu.arvo/tap">ArVO Byurakan TAP service</relatedResource>
       <relatedResource ivo-id="ivo://cds.simbad/tap">SIMBAD TAP query engine</relatedResource>
