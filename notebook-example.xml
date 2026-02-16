@@ -1,0 +1,57 @@
+<ri:Resource
+		xmlns:doc="http://www.ivoa.net/xml/DocRegExt/v1"
+		xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0"
+		xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.1"
+		xmlns:ri="http://www.ivoa.net/xml/RegistryInterface/v1.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:type="doc:Document"
+		created="2021-02-03T00:00:00Z"
+		status="active"
+		updated="2026-01-07T00:00:00Z"
+		version="1.2">
+  <title>CDS services in Jupyter notebooks</title>
+  <identifier>ivo://CDS/tutorials/intro_to_cds_services_in_notebooks</identifier>
+  <curation>
+    <publisher ivo-id="ivo://CDS">CDS</publisher>
+    <creator>
+      <name>Lutz, K.A.</name>
+    </creator>
+    <creator>
+      <name>Marchand, M.</name>
+    </creator>
+    <contact>
+      <name>CDS support team</name>
+      <address>CDS, Observatoire de Strasbourg, 11 rue de l'Universite, F-67000 Strasbourg, France</address>
+      <email>cds-question@unistra.fr</email>
+    </contact>
+  </curation>
+  <content>
+    <subject>virtual-observatories</subject>
+    <subject>software-tutorials</subject>
+    <description>We show how to call Simbad, Aladin Lite, Vizier and the CDS X-match in a Jupyter Notebook.</description>
+    <referenceURL>https://github.com/cds-astro/tutorials/blob/master/Notebooks/1_Intro_to_CDS_services_in_notebooks.ipynb</referenceURL>
+    <contentLevel>Research</contentLevel>
+    <contentLevel>Amateur</contentLevel>
+    <relationship>
+      <relationshipType>Cites</relationshipType>
+      <relatedResource altIdentifier="ascl:1112:019">The ALADIN image server</relatedResource>
+      <relatedResource>CDS X-match service</relatedResource>
+      <relatedResource>iPyAladin</relatedResource>
+      <relatedResource altIdentifier="ascl:1708.004">astroquery</relatedResource>
+      <relatedResource altIdentifier="ascl:1304.002">astropy</relatedResource>
+      <relatedResource ivo-id="ivo://CDS.Simbad">Simbad database</relatedResource>
+      <relatedResource ivo-id="ivo://CDS.VizieR">VizieR database</relatedResource>
+      <relatedResource ivo-id="ivo://CDS.VizieR/J/MNRAS/451/1307/HIIreg">VizieR table J/MNRAS/451/1307/HIIreg</relatedResource>
+      <relatedResource ivo-id="ivo://CDS.VizieR/II/328/allwise">VizieR table II/328/allwise</relatedResource>
+      <relatedResource ivo-id="ivo://CDS/P/allWISE/color">HiPS allWISE color</relatedResource>
+    </relationship>
+  </content>
+  <rights rightsURI="https://spdx.org/licenses/BSD-3-Clause.html">BSD-3-Clause</rights>
+  <capability xsi:type="doc:Edition">
+    <interface role="source" xsi:type="doc:StaticFile">
+      <accessURL>https://github.com/cds-astro/tutorials/raw/refs/heads/master/Notebooks/1_Intro_to_CDS_services_in_notebooks.ipynb</accessURL>
+      <mediaType>application/x-ipynb+json</mediaType>
+    </interface>
+    <languageCode>en</languageCode>
+  </capability>
+</ri:Resource>

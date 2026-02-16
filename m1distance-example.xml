@@ -40,41 +40,48 @@ may be gained from very simple arguments and geometry.</description>
 
 </rights>
   <capability xsi:type="doc:Edition">
-    <interface role="rendered" xsi:type="vr:WebBrowser">
+    <interface role="rendered" xsi:type="doc:StaticFile">
       <accessURL use="full">https://vo-for-education.oats.inaf.it/use_cases/en_aida_08_m1_distance.pdf</accessURL>
+      <mediaType>application/pdf</mediaType>
     </interface>
-    <interface role="source" xsi:type="vr:WebBrowser">
+    <interface role="source" xsi:type="doc:StaticFile">
       <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/en/en_aida_08_m1_distance.doc</accessURL>
+      <mediaType>application/msword</mediaType>
     </interface>
     <languageCode>en</languageCode>
   </capability>
   <capability xsi:type="doc:Edition">
-    <interface role="rendered" xsi:type="vr:WebBrowser">
+    <interface role="rendered" xsi:type="doc:StaticFile">
       <accessURL use="full">https://vo-for-education.oats.inaf.it/use_cases/it_aida_08_m1_distance.pdf</accessURL>
+      <mediaType>application/pdf</mediaType>
     </interface>
-    <interface role="source" xsi:type="vr:WebBrowser">
+    <interface role="source" xsi:type="doc:StaticFile">
       <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/aida_08_m1_distance/it/it_aida_08_m1_distance.doc</accessURL>
+      <mediaType>application/msword</mediaType>
     </interface>
     <languageCode>it</languageCode>
     <locTitle>Distanza della nebulosa del granchio</locTitle>
   </capability>
   <capability xsi:type="doc:Edition">
-    <interface role="rendered" xsi:type="vr:WebBrowser">
+    <interface role="rendered" xsi:type="doc:StaticFile">
       <accessURL use="full">https://vo-for-education.oats.inaf.it/use_cases/de_aida_08_m1_distance.pdf</accessURL>
+      <mediaType>application/pdf</mediaType>
     </interface>
     <languageCode>de</languageCode>
     <locTitle>Die Entfernung zum Krebsnebel</locTitle>
   </capability>
   <capability xsi:type="doc:Edition">
-    <interface role="rendered" xsi:type="vr:WebBrowser">
+    <interface role="rendered" xsi:type="doc:StaticFile">
       <accessURL use="full">https://vo-for-education.oats.inaf.it/use_cases/es_aida_08_m1_distance.pdf</accessURL>
+      <mediaType>application/pdf</mediaType>
     </interface>
     <languageCode>es</languageCode>
     <locTitle>Distancia a la Nebulosa del Cancrejo</locTitle>
   </capability>
   <capability xsi:type="doc:Edition">
-    <interface role="rendered" xsi:type="vr:WebBrowser">
+    <interface role="rendered" xsi:type="doc:StaticFile">
       <accessURL use="full">https://vo-for-education.oats.inaf.it/use_cases/fr_aida_08_m1_distance.pdf</accessURL>
+      <mediaType>application/pdf</mediaType>
     </interface>
     <languageCode>fr</languageCode>
     <locTitle>Estimation de la distance de la nebuleuse du crabe</locTitle>
