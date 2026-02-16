@@ -57,10 +57,11 @@
         general, only the latest version of the document per language should be
         present.
 
-        At least one vr:WebBrowser-typed interface with
-        role="rendered" must be present. The access URL of the interface
+        At least one interface with
+        role="rendered" must be present, typcially of type doc:StaticFile.
+        The access URL of the interface
         points to a rendered version of the edition (preferably in PDF,
-        but HTML is acceptable, too).
+        but other formats like HTML or Python notebooks are acceptable, too).
 
         Editors are strongly encouraged to also provide an
         interface with role="source", the accessURL of which should point

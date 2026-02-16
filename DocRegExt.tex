@@ -271,7 +271,8 @@ relationship\_type\footnote{\url{https://www.ivoa.net/rdf/voresource/relationshi
 defines what terms are legal in the declaration of relationships.
 Document records should preferably use \vocterm{Cites} and
 in particular declare relationships to tools.  For VO-registered
-services or standards, these relationships should provide the services' ivoids.
+services or standards, these relationships should provide the services'
+IVOA identifiers.
 Tutorials
 specifically introducing one or more services should define
 \vocterm{IsSupplementTo} relationships to these services.
@@ -279,7 +280,7 @@ specifically introducing one or more services should define
 Client-side software or libraries do not have Registry records.  To
 reliably identify software, DocRegExt recommends the use of
 ASCL\footnote{\url{https://www.ascl.net}} identifiers.  These should be
-used in the \verb|relatedResource| element's \verb|altIdentifier|
+used in the \verb|relatedResource| element's \xmlel{altIdentifier}
 attribute.  For instance, to declare that a tutorial uses the Cassis
 client, it would say:
 
@@ -306,7 +307,7 @@ is recommended to list the English-language version first if it exists.
 The following description of the \xmlel{doc:Edition} capability
 is generated from the schema file.
 
-% GENERATED: !schemadoc DocRegExt-1.0.xsd Edition
+% GENERATED: !schemadoc DocRegExt-v1.0.xsd Edition
 \begin{generated}
 \begingroup
         \renewcommand*\descriptionlabel[1]{%
@@ -322,10 +323,11 @@ is generated from the schema file.
         general, only the latest version of the document per language should be
         present.
 
-        At least one vr:WebBrowser-typed interface with
-        role={"}rendered{"} must be present. The access URL of the interface
+        At least one interface with
+        role={"}rendered{"} must be present, typcially of type doc:StaticFile.
+        The access URL of the interface
         points to a rendered version of the edition (preferably in PDF,
-        but HTML is acceptable, too).
+        but other formats like HTML or Python notebooks are acceptable, too).
 
         Editors are strongly encouraged to also provide an
         interface with role={"}source{"}, the accessURL of which should point
@@ -374,16 +376,16 @@ is generated from the schema file.
 \begin{description}
 \item[Type] string: \xmlel{xs:token}
 \item[Meaning]
-              	The translated document's title in the language specified
-              	by the language sibling.
-            	
+                The translated document's title in the language specified
+                by the language sibling.
+
 \item[Occurrence] optional
 \item[Comment]
-              	It is recommended to set this element's xml:lang element
-              	to the same value as the language sibling.  The reason
-              	xml:lang is not used in the first place is that with an
-              	extra element, enforcing that the content language is
-              	given is more straightforward.
+                It is recommended to set this element's xml:lang element
+                to the same value as the language sibling.  The reason
+                xml:lang is not used in the first place is that with an
+                extra element, enforcing that the content language is
+                given is more straightforward.
 
 
 \end{description}
@@ -395,6 +397,77 @@ is generated from the schema file.
 \end{generated}
 
 % /GENERATED
+
+Interface element(s) within \xmlel{doc:Edition}-typed capabilities give
+access to the actual document(s) comprising the text.  At least one
+interface must have a role \verb|rendered|, which should yield the main
+text.  If at all posssible a link to the source form should be provided
+in an interface with the role \verb|source|.
+
+For the rendered document, publishers should directly link to the
+consumable artefact (e.g., a PDF) rather than, say, a landing page
+(which would be linked to in \xmlel{referenceURL}).  In that case,
+resource records should use interface elements of
+\xmlel{doc:StaticFile}.  When the linked document is not a PDF, they
+should also give that type's \xmlel{mediaType} child as appropriate.
+This specification comes with an example
+record\footnote{\auxiliaryurl{notebook-example.xml}} showing how this
+would look like for a Python notebook.
+
+% GENERATED: !schemadoc DocRegExt-v1.0.xsd StaticFile
+\begin{generated}
+\begingroup
+        \renewcommand*\descriptionlabel[1]{%
+        \hbox to 5.5em{\emph{#1}\hfil}}\vspace{2ex}\noindent\textbf{\xmlel{doc:StaticFile} Type Schema Documentation}
+
+\noindent{\small
+        An endpoint that returns a single, constant document.
+      \par}
+
+\noindent{\small
+        Data providers are encouraged to provide a media type for
+        that document.  For archives containing multiple files, multiple media
+        types can be given.  Endpoints requiring further interaction
+        before the desired document is retrieved (e.g., landing pages
+        or version control interfaces) should use the vr:WebBrowser type.
+      \par}
+
+\vspace{1ex}\noindent\textbf{\xmlel{doc:StaticFile} Type Schema Definition}
+
+\begin{lstlisting}[language=XML,basicstyle=\footnotesize]
+<xs:complexType name="StaticFile" >
+  <xs:complexContent >
+    <xs:extension base="vr:Interface" >
+      <xs:sequence >
+        <xs:element name="mediaType" minOccurs="0"
+                  maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+\end{lstlisting}
+
+\vspace{0.5ex}\noindent\textbf{\xmlel{doc:StaticFile} Extension Metadata Elements}
+
+\begingroup\small\begin{bigdescription}\item[Element \xmlel{mediaType}]
+\begin{description}
+\item[Type]
+\item[Meaning]
+                An RFC 6838 media type of the document returned, or of
+                a component of the document for archives.
+
+\item[Occurrence] optional; multiple occurrences allowed.
+
+\end{description}
+
+
+\end{bigdescription}\endgroup
+
+\endgroup
+\end{generated}
+
+% /GENERATED
+
 
 \section{Locating Texts using RegTAP}
 \label{sect:docregext-regtap}
@@ -467,9 +540,10 @@ WHERE
 
 \section{An Example DocRegExt Record}
 
-This document is accompanied with two example records showcasing most of
-DocRegExt's features.  On example describes a tutorial for determining
-the distance to the Crab
+This document is accompanied with three example records showcasing most of
+DocRegExt's features.
+
+One example describes a tutorial for determining the distance to the Crab
 nebula\footnote{\auxiliaryurl{m1distance-example.xml}} and shows
 a resource with multiple translations.
 Note that no interfaces with \textit{source} roles
@@ -483,6 +557,9 @@ thus related to special services having particular tables.  This is
 indicated using related resources and by including a tableset descibing
 these tables.
 
+The last example\footnote{\auxiliaryurl{notebook-example.xml}} shows how
+to properly declare that a tutorial comes in he form of a python
+notebook and declares a diverse set of relationships to other resources.
 
 \section{A versioned repository for tutorials}
 
@@ -500,7 +577,7 @@ control system.  Therefore,
 a versioned repository (using subversion as the version control system)
 has been set up at GAVO data
 centre\footnote{\url{http://svn.ari.uni-heidelberg.de/svn/edu/}}.
-It collects part of the
+It collects some of the
 already existing VO tutorials with the goal of preserving them and
 letting users
 update and translate them.
