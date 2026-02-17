@@ -50,7 +50,7 @@
   <capability xsi:type="doc:Edition">
     <interface role="source" xsi:type="doc:StaticFile">
       <accessURL>https://github.com/cds-astro/tutorials/raw/refs/heads/master/Notebooks/1_Intro_to_CDS_services_in_notebooks.ipynb</accessURL>
-      <mediaType>application/x-ipynb+json</mediaType>
+      <resultType>application/x-ipynb+json</resultType>
     </interface>
     <languageCode>en</languageCode>
   </capability>

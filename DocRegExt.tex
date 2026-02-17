@@ -409,7 +409,7 @@ consumable artefact (e.g., a PDF) rather than, say, a landing page
 (which would be linked to in \xmlel{referenceURL}).  In that case,
 resource records should use interface elements of
 \xmlel{doc:StaticFile}.  When the linked document is not a PDF, they
-should also give that type's \xmlel{mediaType} child as appropriate.
+should also give that type's \xmlel{resultType} child as appropriate.
 This specification comes with an example
 record\footnote{\auxiliaryurl{notebook-example.xml}} showing how this
 would look like for a Python notebook.
@@ -439,7 +439,7 @@ would look like for a Python notebook.
   <xs:complexContent >
     <xs:extension base="vr:Interface" >
       <xs:sequence >
-        <xs:element name="mediaType" minOccurs="0"
+        <xs:element name="resultType" minOccurs="0"
                   maxOccurs="unbounded" />
       </xs:sequence>
     </xs:extension>
@@ -449,7 +449,7 @@ would look like for a Python notebook.
 
 \vspace{0.5ex}\noindent\textbf{\xmlel{doc:StaticFile} Extension Metadata Elements}
 
-\begingroup\small\begin{bigdescription}\item[Element \xmlel{mediaType}]
+\begingroup\small\begin{bigdescription}\item[Element \xmlel{resultType}]
 \begin{description}
 \item[Type]
 \item[Meaning]
@@ -498,8 +498,12 @@ BCP 47 \citep{std:BCP47} language code.
 language.
 \end{itemize}
 
+The \xmlel{resultType} child of \xmlel{doc:StaticFile} is mapped to
+the \verb|result_type| column of RegTAP's \verb|interface| table.
+
 To locate texts defining relationships to specific software tools, use
-the relationship table's alt\_identifier column, for instance like this:
+the relationship table's alt\_identifier column with an identifier
+obtained from ascl.net:
 
 \begin{lstlisting}[language=SQL]
 SELECT ivoid, res_title, related_name FROM
@@ -507,12 +511,23 @@ SELECT ivoid, res_title, related_name FROM
   NATURAL JOIN rr.relationship
 WHERE
   res_type='doc:document'
-  and related_alt_identifier='ascl:1112.019'
+  AND related_alt_identifier='ascl:1112.019'
 \end{lstlisting}
 
+Material that comes with a Python notebook and the URIs of these
+notebooks can be discovered with
+
+\begin{lstlisting}[language=SQL]
+SELECT ivoid, res_title, access_url FROM
+  rr.resource
+  NATURAL JOIN rr.interface
+WHERE
+  res_type='doc:document'
+  AND result_type='application/x-ipynb+json'
+\end{lstlisting}
 
 The downside of not defining an extra table for the documents is that
-the query patterns in RegTAP are somewhat clumsy.  For instance, to list
+certain query patterns become somewhat clumsy.  For instance, to list
 the English and Italian titles of all texts available in Italian, one
 has to carefully join two subqueries to \verb|res_details|:
 
