@@ -61,6 +61,10 @@ test:
 	@$(STILTS) xsdvalidate \
 		schemaloc="http://www.ivoa.net/xml/DocRegExt/v1=$(SCHEMA_FILE)" \
 		dfbs-example.xml
+	@$(STILTS) xsdvalidate \
+		schemaloc="http://www.ivoa.net/xml/DocRegExt/v1=$(SCHEMA_FILE)" \
+		notebook-example.xml
+
 
 install-schema:
 	scp DocRegExt-1.0.xsd alnilam:/var/www/docs/xml/

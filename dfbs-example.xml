@@ -50,8 +50,9 @@ identification of misclassified objects from reference databases.</description>
     </relationship>
   </content>
   <capability xsi:type="doc:Edition">
-    <interface role="rendered" xsi:type="vr:WebBrowser">
+    <interface role="rendered" xsi:type="doc:StaticFile">
       <accessURL use="full">http://www.g-vo.org/tutorials/dfbs.pdf</accessURL>
+      <resultType>application/pdf</resultType>
     </interface>
     <interface role="source" xsi:type="vr:WebBrowser">
       <accessURL>http://svn.ari.uni-heidelberg.de/svn/edu/trunk/arvo_dfbs</accessURL>
