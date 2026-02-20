@@ -25,7 +25,7 @@ FIGURES = role_diagram.svg
 VECTORFIGURES =
 
 # Additional files to distribute (e.g., CSS, schema files, examples...)
-AUX_FILES = m1distance-example.xml DocRegExt-v1.0.xsd
+AUX_FILES = m1distance-example.xml DocRegExt-v1.0.xsd notebook-example.xml dfbs-example.xml
 
 
 AUTHOR_EMAIL=msdemlei@ari.uni-heidelberg.de
