@@ -126,7 +126,8 @@
     <xs:complexContent>
       <xs:extension base="vr:Interface">
         <xs:sequence>
-          <xs:element name="resultType" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="resultType" type="xs:string"
+          		minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>
                 An RFC 6838 media type of the document returned, or of
