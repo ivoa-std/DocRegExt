@@ -439,7 +439,7 @@ would look like for a Python notebook.
   <xs:complexContent >
     <xs:extension base="vr:Interface" >
       <xs:sequence >
-        <xs:element name="resultType" minOccurs="0"
+        <xs:element name="resultType" type="xs:string" minOccurs="0"
                   maxOccurs="unbounded" />
       </xs:sequence>
     </xs:extension>
@@ -451,7 +451,7 @@ would look like for a Python notebook.
 
 \begingroup\small\begin{bigdescription}\item[Element \xmlel{resultType}]
 \begin{description}
-\item[Type]
+\item[Type] string: \xmlel{xs:string}
 \item[Meaning]
                 An RFC 6838 media type of the document returned, or of
                 a component of the document for archives.
