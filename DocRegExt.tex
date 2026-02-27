@@ -226,7 +226,7 @@ two definitions.
 To avoid unnecessary incompatibilities when migrating to a proper IVOA
 standard, we use the namespace URI
 $$\hbox{\nolinkurl{http://www.ivoa.net/xml/DocRegExt/v1}}$$
-for DocRegExt even while the schema cannot actually retrieved from
+for DocRegExt even while the schema cannot actually be retrieved from
 there.
 
 The canonical schema prefix for DocRegExt is \texttt{doc}.
@@ -253,7 +253,7 @@ The resource-level \vorent{referenceURL} in \xmlel{doc:Document} records should
 be some sort of landing page with an abstract of the text and links to
 the full texts and perhaps the document source(s).  When using the
 versioned repository (sect.~\ref{sect:svn-repo}), this could be the
-top-level README file within the VCS.  For simple documents, it is
+top-level README file within the Version Control System.  For simple documents, it is
 acceptable to use the English-language document itself as
 \xmlel{referenceURL}; documents only available in non-English should
 provide a landing page with an English-language abstract, though.
@@ -401,7 +401,7 @@ is generated from the schema file.
 Interface element(s) within \xmlel{doc:Edition}-typed capabilities give
 access to the actual document(s) comprising the text.  At least one
 interface must have a role \verb|rendered|, which should yield the main
-text.  If at all posssible a link to the source form should be provided
+text.  If at all possible a link to the source form should be provided
 in an interface with the role \verb|source|.
 
 For the rendered document, publishers should directly link to the
@@ -473,7 +473,7 @@ would look like for a Python notebook.
 \label{sect:docregext-regtap}
 
 In the relational registry \citep{2019ivoa.spec.1011D}, DocRegExt is
-straightforwardly represented in the standard VOResource tables.  in
+straightforwardly represented in the standard VOResource tables.  In
 particular, to find all access urls for documents together with their
 English-language titles, one would write:
 
@@ -569,7 +569,7 @@ proposal designed to reduce such problems).
 The second example describes a use case for a particular set of
 low-resolution spectra\footnote{\auxiliaryurl{dfbs-example.xml}} and is
 thus related to special services having particular tables.  This is
-indicated using related resources and by including a tableset descibing
+indicated using related resources and by including a tableset describing
 these tables.
 
 The last example\footnote{\auxiliaryurl{notebook-example.xml}} shows how
