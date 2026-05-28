@@ -4,6 +4,7 @@
 
 \definecolor{termcolor}{rgb}{0.6,0.1,0.1}
 
+\tolerance 2000
 \iftth
 \def\vocterm#1{\emph{\color{termcolor}#1}}
 
@@ -32,6 +33,7 @@
 
 \editor{Demleitner, M.}
 
+\previousversion[https://www.ivoa.net/documents/DocRegExt/20251102]{PR-1.0-20251102}
 \previousversion[https://www.ivoa.net/documents/DocRegExt/20230426]{WD-1.0-20230426}
 \previousversion[http://ivoa.net/documents/Notes/EDU/index.html]{Educational
 Resources Note}
@@ -158,7 +160,7 @@ solved by modelling different translations as capabilities of the same
 resource).
 
 \item Is there material using service ivo://auth/svc1? (Declaring
-standard VOResource relationships covers this use case).
+standard VO\-Re\-source relationships covers this use case).
 
 \item Is there material about something visible tonight? (When tutorials
 declare their \xmlel{coverage}, this is possible -- but few do that at this
@@ -221,13 +223,10 @@ surprisingly smooth.
 
 \label{sect:regext}
 
-To satisfy the requirements derived above, we have designed a registry extension with
-two definitions.
-To avoid unnecessary incompatibilities when migrating to a proper IVOA
-standard, we use the namespace URI
+To satisfy the requirements derived above, we have designed a registry
+extension.  The namespace URI for this schema is
 $$\hbox{\nolinkurl{http://www.ivoa.net/xml/DocRegExt/v1}}$$
-for DocRegExt even while the schema cannot actually be retrieved from
-there.
+The schema file can be retrieved from this URI.
 
 The canonical schema prefix for DocRegExt is \texttt{doc}.
 
@@ -477,6 +476,7 @@ straightforwardly represented in the standard VOResource tables.  In
 particular, to find all access URLs for documents together with their
 English-language titles, one would write:
 
+%CHECK_HERE
 \begin{lstlisting}[language=SQL]
 SELECT res_title, access_url FROM
   rr.resource
@@ -505,6 +505,7 @@ To locate texts defining relationships to specific software tools, use
 the relationship table's alt\_identifier column with an identifier
 obtained from ascl.net:
 
+%CHECK_HERE
 \begin{lstlisting}[language=SQL]
 SELECT ivoid, res_title, related_name FROM
   rr.resource
@@ -517,6 +518,7 @@ WHERE
 Material that comes with a Python notebook and the URIs of these
 notebooks can be discovered with
 
+%CHECK_HERE
 \begin{lstlisting}[language=SQL]
 SELECT ivoid, res_title, access_url FROM
   rr.resource
@@ -531,6 +533,7 @@ certain query patterns become somewhat clumsy.  For instance, to list
 the English and Italian titles of all texts available in Italian, one
 has to carefully join two subqueries to \verb|res_details|:
 
+%CHECK_HERE
 \begin{lstlisting}[language=SQL]
 SELECT res_title, loctitle FROM
   rr.resource
@@ -630,11 +633,13 @@ to it, see its README\footnote{\url{http://svn.ari.uni-heidelberg.de/svn/edu/tru
 
 \section{Changes}
 
-\subsection{Changes from PR-1.0-2025-11-02}
+\subsection{Changes from PR-1.0-20251102}
 
 \begin{itemize}
 \item Recommending the usage of ASCL identifiers to declare
 relationships to software.
+\item New interface type StaticFile; this lets publishers declare
+media types of single files.
 \end{itemize}
 
 \subsection{Changes from WD-1.0-20230426}
