@@ -9,10 +9,10 @@ IVOA_GROUP=Registry
 DOCVERSION = 1.0
 
 # Publication date, ISO format; update manually for "releases"
-DOCDATE = 2025-11-02
+DOCDATE = 2026-05-28
 
 # What is it you're writing: NOTE, WD, PR, REC, PEN, or EN
-DOCTYPE = PR
+DOCTYPE = REC
 
 # Source files for the TeX document (but the main file must always
 # be called $(DOCNAME).tex
@@ -64,7 +64,4 @@ test:
 	@$(STILTS) xsdvalidate \
 		schemaloc="http://www.ivoa.net/xml/DocRegExt/v1=$(SCHEMA_FILE)" \
 		notebook-example.xml
-
-
-install-schema:
-	scp DocRegExt-1.0.xsd alnilam:/var/www/docs/xml/
+	python3 check_examples.py
